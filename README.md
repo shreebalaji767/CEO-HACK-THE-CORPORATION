@@ -42,3 +42,16 @@ The workflow in `.github/workflows/pages.yml` publishes the static files from th
 - Imported saves are validated for basic shape, but only import JSON files you trust.
 - All company figures and outcomes are fictional and are not financial advice.
 - Online accounts, cloud saves, and leaderboards are not included because this project intentionally remains static and backend-free.
+
+## Responsive design and installable PWA
+
+- Fluid, mobile-first layouts for phones, tablets, laptops and wide desktop screens, including narrow 320px screens and landscape mobile.
+- Safe-area support for notched phones, touch-friendly controls, flexible dashboards and panels, and reduced-motion support.
+- Use the **Install** button when your browser offers the install prompt. If it does not, the button explains how to install from the browser menu.
+- On iPhone/iPad, open the site in Safari, tap **Share → Add to Home Screen**.
+- A web app manifest defines standalone display, orientation, app colors and SVG app icons.
+- A service worker caches the app shell and assets for repeat visits and offline launch after the first successful load.
+
+### PWA notes
+
+The site must be served over HTTPS for service workers and install prompts; GitHub Pages provides HTTPS when enabled. Browser installation prompts vary by browser and operating system. A browser may offer “Add to Home Screen” instead of a one-tap install button. Offline use starts after the app shell has been cached once, and a first visit still needs a network connection.

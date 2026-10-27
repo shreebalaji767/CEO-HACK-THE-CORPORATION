@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "ExecutiveOS — CEO Simulator & Terminal",
+  "short_name": "ExecutiveOS",
+  "description": "A responsive corporate satire game suite with a CEO simulator and fictional command terminal.",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "any",
+  "background_color": "#0c100d",
+  "theme_color": "#101612",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {"src": "./icon-192.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any"},
+    {"src": "./icon-512.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any"}
+  ]
+}

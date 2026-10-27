@@ -10,6 +10,10 @@ A responsive corporate satire game suite built with plain HTML, CSS and JavaScri
 - Strategic actions: meetings, hiring, rebranding, shareholder updates, AI-synergy theatre, product launches, wellbeing investment and competitor research.
 - Advance quarters to settle the fictional books and trigger random market, investor, product or employee events with branching choices.
 - Office upgrades, quarterly objectives, bankruptcy risk and New Game+ with a harder starting economy.
+- Quick-earn button with a cooldown, daily cash bonus, XP/CEO levels and level-up bonuses.
+- Buyable consulting firms, product studios and micro-factories that generate passive income while the game is open.
+- Fictional share market with buy/sell controls and prices that fluctuate each quarter.
+- Expand into six fictional international branch markets to improve market share and passive income.
 - Executive activity feed and unlockable achievements.
 
 ### CorpShell terminal
@@ -20,7 +24,7 @@ A responsive corporate satire game suite built with plain HTML, CSS and JavaScri
 ### Progress, settings and accessibility
 - Browser-local autosave using `localStorage`; no account required.
 - Three local save slots, JSON export/import, and New Game+.
-- Premium corporate green/black theme plus light theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
+- Permanent dark-only corporate green/black theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
 - Landing page navigation, logo-to-home behavior, responsive layout and custom SVG favicon.
 
 ## Run locally
@@ -40,7 +44,7 @@ The workflow in `.github/workflows/pages.yml` publishes the static files from th
 
 - Local saves are tied to the browser/device. Clearing browser storage or switching devices does not sync progress; export a save as a backup.
 - Imported saves are validated for basic shape, but only import JSON files you trust.
-- All company figures and outcomes are fictional and are not financial advice.
+- All company figures, stock prices and outcomes are fictional; game money has no real-world value and is not financial advice.
 - Online accounts, cloud saves, and leaderboards are not included because this project intentionally remains static and backend-free.
 
 ## Responsive design and installable PWA

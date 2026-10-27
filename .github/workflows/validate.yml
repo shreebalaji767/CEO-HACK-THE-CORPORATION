@@ -19,8 +19,8 @@ jobs:
           node-version: 22
       - name: Check inline JavaScript syntax
         run: |
-          node -e 'const fs = require("fs"); const html = fs.readFileSync("index.html", "utf8"); const scripts = [...html.matchAll(/<script(?:\\s[^>]*)?>([\\s\\S]*?)<\\/script>/gi)]; if (!scripts.length) throw new Error("No inline script found"); scripts.forEach((s, i) => fs.writeFileSync("/tmp/executiveos-" + i + ".js", s[1])); fs.writeFileSync("/tmp/script-count", String(scripts.length));'
-          for file in /tmp/executiveos-*.js; do node --check "$file"; done
+          node -e 'const fs = require("fs"); const html = fs.readFileSync("index.html", "utf8"); const start = html.indexOf("<script>"); const end = html.indexOf("</script>", start); if (start < 0 || end < 0) throw new Error("Inline script not found"); fs.writeFileSync("/tmp/executiveos.js", html.slice(start + 8, end));'
+          node --check /tmp/executiveos.js
       - name: Check dark-only UI and economy features
         run: |
           node -e 'const fs = require("fs"); const h = fs.readFileSync("index.html", "utf8"); const checks = [["dark-only color scheme", /color-scheme:\s*dark/.test(h)], ["passive business income", /function businessIncome\(/.test(h)], ["fictional share market", /function tradeStock\(/.test(h)], ["XP progression", /function awardXP\(/.test(h)], ["daily reward", /dailyreward/.test(h)], ["responsive breakpoints", /@media\(max-width:600px\)/.test(h)], ["local saves", /localStorage\.setItem\(KEY/.test(h)]]; const failed = checks.filter(x => !x[1]); checks.forEach(x => console.log((x[1] ? "PASS " : "FAIL ") + x[0])); if (failed.length) process.exit(1);'

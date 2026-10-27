@@ -23,7 +23,7 @@ A responsive corporate satire game suite built with plain HTML, CSS and JavaScri
 - All terminal commands are harmless local simulations. They do not scan networks, access remote systems, or perform real security operations.
 
 ### Progress, settings and accessibility
-- Browser-local autosave using `localStorage`; no account required.
+- Manual browser-local saves using `localStorage`; autosave is disabled. Use **Save game** or **Save to slot** to keep progress; unsaved changes are lost on refresh or exit.
 - Three local save slots, JSON export/import, and New Game+.
 - Permanent dark-only corporate green/black theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
 - Landing page navigation, logo-to-home behavior, responsive layout and custom SVG favicon.

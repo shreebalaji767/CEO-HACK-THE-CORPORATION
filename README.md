@@ -13,6 +13,7 @@ A responsive corporate satire game suite built with plain HTML, CSS and JavaScri
 - Quick-earn button with a cooldown, daily cash bonus, XP/CEO levels and level-up bonuses.
 - Buyable consulting firms, product studios and micro-factories that generate passive income while the game is open.
 - Fictional share market with buy/sell controls and prices that fluctuate each quarter.
+- Text-only Asset Empire market with purchasable vehicles, companies, real estate, cryptocurrency, islands, cities and fictional countries; portfolio tracking, resale, passive income and quarterly crypto price changes.
 - Expand into six fictional international branch markets to improve market share and passive income.
 - Executive activity feed and unlockable achievements.
 

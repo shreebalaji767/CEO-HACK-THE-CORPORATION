@@ -70,13 +70,14 @@ button,.feature,.stat,.panel,.actionrow,.mission,.achievement{transition:backgro
 .palettegroup{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding:10px 10px 6px;font-weight:800}
 .paletteitem{width:100%;display:flex;align-items:center;gap:12px;text-align:left;background:transparent;color:var(--text);border:1px solid transparent;padding:11px 12px;border-radius:11px;min-height:46px}
 .paletteitem:hover,.paletteitem:focus-visible{background:#b9f27c0c;border-color:#b9f27c24}
+.paletteitem[hidden],.palettegroup[hidden]{display:none!important}
 .paletteitem .picon{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#b9f27c12;color:var(--green);flex:none}
 .paletteitem .ptext{flex:1;min-width:0}
 .paletteitem b{display:block;font-size:13px}
 .paletteitem small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .paletteitem kbd{font:10px ui-monospace,monospace;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:3px 5px}
 .palettefoot{padding:10px 14px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
-@media(max-width:850px){.pagehead{align-items:flex-start}.navright #paletteOpen{display:none}}
+@media(min-width:851px){#paletteNavOpen{display:none}}@media(max-width:850px){.pagehead{align-items:flex-start}.navright #paletteOpen{display:none}}
 @media(max-width:600px){.hero{padding-top:32px}.sectionhead{margin-top:28px}.feature{padding:20px}.pagehead{gap:12px}.pagehead h1{font-size:clamp(30px,9vw,42px)}.paletteback{padding:calc(8vh + env(safe-area-inset-top)) 12px 16px}.palette{max-height:78dvh}.palettefoot{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.feature,.stat,.panel,.actionrow,.mission,.achievement,.btn,.navbtn,.chip{transition:none!important}}
 
@@ -85,7 +86,7 @@ button,.feature,.stat,.panel,.actionrow,.mission,.achievement{transition:backgro
 <body>
 <header class="topbar"><div class="shell nav">
 <a class="brand" href="#home" id="brandHome" aria-label="ExecutiveOS home"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5l8 7 8-7v14"/><path d="M8 19v-4m8 4v-4"/></svg></span><span>ExecutiveOS<small>Corporate simulation suite</small></span></a>
-<nav class="navlinks" id="navlinks" aria-label="Main navigation"><button class="navbtn active" data-page="home">Overview</button><button class="navbtn" data-page="ceo">CEO Simulator</button><button class="navbtn" data-page="terminal">Command Terminal</button><button class="navbtn" data-page="achievements">Achievements</button></nav>
+<nav class="navlinks" id="navlinks" aria-label="Main navigation"><button class="navbtn" id="paletteNavOpen" type="button">⌕ Quick actions</button><button class="navbtn active" data-page="home">Overview</button><button class="navbtn" data-page="ceo">CEO Simulator</button><button class="navbtn" data-page="terminal">Command Terminal</button><button class="navbtn" data-page="achievements">Achievements</button></nav>
 <div class="navright"><span class="status"><i class="dot"></i> All systems nominal</span><button class="btn small secondary" id="paletteOpen" type="button" aria-haspopup="dialog" aria-controls="commandPalette">⌘K Quick jump</button><button class="btn small secondary" id="saveTop">Save game</button><button class="btn small" id="installBtn" type="button" aria-label="Install ExecutiveOS app" title="Install ExecutiveOS on this device">Install</button><button class="ghost mobile-menu" id="menuBtn" aria-label="Open menu">☰</button></div>
 </div></header>
 <main>
@@ -251,7 +252,7 @@ function renderAchievements(){$("achCount").textContent=state.achievements.lengt
 function renderAll(){renderCEO();renderMissions();renderAchievements();const soundBtn=$("soundToggle");if(soundBtn)soundBtn.textContent="Sound: "+(state.sound?"On":"Off");}
 document.addEventListener("click",e=>{const goBtn=e.target.closest("[data-go]");if(goBtn){closePalette();go(goBtn.dataset.go);return}const nav=e.target.closest("[data-page]");if(nav){go(nav.dataset.page);return}const a=e.target.closest("[data-action]");if(a){closePalette();action(a.dataset.action);return}const c=e.target.closest("[data-cmd]");if(c){closePalette();go("terminal");term(c.dataset.cmd);return}});
 $("brandHome").addEventListener("click",e=>{e.preventDefault();go("home")});
-$("paletteOpen").addEventListener("click",openPalette);
+$("paletteOpen").addEventListener("click",openPalette);$("paletteNavOpen").addEventListener("click",()=>{ $("navlinks").classList.remove("open");openPalette()});
 $("paletteClose").addEventListener("click",closePalette);
 $("paletteSearch").addEventListener("input",e=>filterPalette(e.target.value));
 $("commandPalette").addEventListener("click",e=>{if(e.target===$("commandPalette"))closePalette()});

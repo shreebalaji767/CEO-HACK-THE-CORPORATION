@@ -13,7 +13,8 @@ A responsive corporate satire game suite built with plain HTML, CSS and JavaScri
 - Quick-earn button with a cooldown, daily cash bonus, XP/CEO levels and level-up bonuses.
 - Buyable consulting firms, product studios and micro-factories that generate passive income while the game is open.
 - Fictional share market with buy/sell controls and prices that fluctuate each quarter.
-- Text-only Asset Empire market with purchasable vehicles, companies, real estate, cryptocurrency, islands, cities and fictional countries; portfolio tracking, resale, passive income and quarterly crypto price changes.
+- 84+ text-only Asset Empire listings across vehicles, companies, real estate, crypto, islands, cities, fictional countries, luxury, infrastructure, cosmic, galactic, multiverse and megaverse tiers; search, category filters, portfolio tracking, resale and passive income.
+- Universe-scale wealth milestones from millionaire and trillionaire to “rich in every universe”, plus research upgrades, rival CEO challenges, random universe events and optional prestige ascension.
 - Expand into six fictional international branch markets to improve market share and passive income.
 - Executive activity feed and unlockable achievements.
 
@@ -23,7 +24,7 @@ A responsive corporate satire game suite built with plain HTML, CSS and JavaScri
 - All terminal commands are harmless local simulations. They do not scan networks, access remote systems, or perform real security operations.
 
 ### Progress, settings and accessibility
-- Manual browser-local saves using `localStorage`; autosave is disabled. Use **Save game** or **Save to slot** to keep progress; unsaved changes are lost on refresh or exit.
+- Manual browser-local saves using `localStorage`; autosave is disabled. Use **Save game** or **Save to slot** to keep progress; unsaved changes are lost on refresh or exit. Newly acquired assets, research, rival wins and prestige changes also require a manual save.
 - Three local save slots, JSON export/import, and New Game+.
 - Permanent dark-only corporate green/black theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
 - Landing page navigation, logo-to-home behavior, responsive layout and custom SVG favicon.

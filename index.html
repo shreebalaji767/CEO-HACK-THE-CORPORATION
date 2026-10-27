@@ -37,13 +37,56 @@ input,select,textarea{max-width:100%;min-width:0}
 @supports(height:100dvh){body{min-height:100dvh}}
 @media(forced-colors:active){.btn,.logo,.dot{border:1px solid ButtonText}.page.active{forced-color-adjust:auto}}
 
+
+/* Refined interaction layer: restrained surfaces, clear focus, consistent motion */
+:root{color-scheme:dark;--panel:#121a15;--panel2:#18231b;--line:#2a3a2e;--radius:16px}
+html{scroll-behavior:smooth}
+::selection{background:#b9f27c45;color:var(--text)}
+:focus-visible{outline:2px solid var(--green)!important;outline-offset:3px}
+button,.feature,.stat,.panel,.actionrow,.mission,.achievement{transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.feature{background:linear-gradient(145deg,#17211a,#111712)}
+.stat{background:linear-gradient(145deg,#151e17,#111712)}
+.panel{box-shadow:0 10px 30px #0000000b}
+.actionrow:hover,.mission:hover,.achievement:hover{border-color:#48634b;background:#b9f27c06}
+.navbtn.active{color:var(--green);background:#b9f27c0d;border-color:#b9f27c25}
+.btn:active,.navbtn:active,.chip:active{transform:scale(.98)}
+.btn:focus-visible,.navbtn:focus-visible,.chip:focus-visible{outline-offset:2px}
+.sectionhead{margin-top:36px}
+.hero{gap:clamp(24px,4vw,46px)}
+.pagehead{align-items:center}
+.eventcard{box-shadow:inset 3px 0 #b9f27c22}
+.progress i{background:linear-gradient(90deg,var(--green2),var(--green))}
+.terminal{box-shadow:0 12px 34px #0003}
+.termout{scrollbar-color:#344b37 #080d09;scrollbar-width:thin}
+.toast{z-index:100}
+.paletteback{position:fixed;inset:0;z-index:80;background:#030704c9;backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding: min(15vh,120px) 18px 24px}
+.paletteback.show{display:flex}
+.palette{width:min(100%,560px);max-height:min(70dvh,620px);overflow:hidden;background:#111812;border:1px solid #354638;border-radius:18px;box-shadow:0 30px 100px #0009;display:flex;flex-direction:column}
+.palettehead{display:flex;align-items:center;gap:12px;padding:16px;border-bottom:1px solid var(--line)}
+.palettehead .searchicon{color:var(--green);font-size:19px}
+.palettehead input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font:15px/1.4 inherit}
+.palettehead input:focus-visible{outline:0!important}
+.palettebody{overflow:auto;padding:8px}
+.palettegroup{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding:10px 10px 6px;font-weight:800}
+.paletteitem{width:100%;display:flex;align-items:center;gap:12px;text-align:left;background:transparent;color:var(--text);border:1px solid transparent;padding:11px 12px;border-radius:11px;min-height:46px}
+.paletteitem:hover,.paletteitem:focus-visible{background:#b9f27c0c;border-color:#b9f27c24}
+.paletteitem .picon{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#b9f27c12;color:var(--green);flex:none}
+.paletteitem .ptext{flex:1;min-width:0}
+.paletteitem b{display:block;font-size:13px}
+.paletteitem small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.paletteitem kbd{font:10px ui-monospace,monospace;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:3px 5px}
+.palettefoot{padding:10px 14px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+@media(max-width:850px){.pagehead{align-items:flex-start}.navright #paletteOpen{display:none}}
+@media(max-width:600px){.hero{padding-top:32px}.sectionhead{margin-top:28px}.feature{padding:20px}.pagehead{gap:12px}.pagehead h1{font-size:clamp(30px,9vw,42px)}.paletteback{padding:calc(8vh + env(safe-area-inset-top)) 12px 16px}.palette{max-height:78dvh}.palettefoot{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.feature,.stat,.panel,.actionrow,.mission,.achievement,.btn,.navbtn,.chip{transition:none!important}}
+
 </style>
 </head>
 <body>
 <header class="topbar"><div class="shell nav">
 <a class="brand" href="#home" id="brandHome" aria-label="ExecutiveOS home"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5l8 7 8-7v14"/><path d="M8 19v-4m8 4v-4"/></svg></span><span>ExecutiveOS<small>Corporate simulation suite</small></span></a>
 <nav class="navlinks" id="navlinks" aria-label="Main navigation"><button class="navbtn active" data-page="home">Overview</button><button class="navbtn" data-page="ceo">CEO Simulator</button><button class="navbtn" data-page="terminal">Command Terminal</button><button class="navbtn" data-page="achievements">Achievements</button></nav>
-<div class="navright"><span class="status"><i class="dot"></i> All systems nominal</span><button class="btn small secondary" id="saveTop">Save game</button><button class="btn small" id="installBtn" type="button" aria-label="Install ExecutiveOS app" title="Install ExecutiveOS on this device">Install</button><button class="ghost mobile-menu" id="menuBtn" aria-label="Open menu">☰</button></div>
+<div class="navright"><span class="status"><i class="dot"></i> All systems nominal</span><button class="btn small secondary" id="paletteOpen" type="button" aria-haspopup="dialog" aria-controls="commandPalette">⌘K Quick jump</button><button class="btn small secondary" id="saveTop">Save game</button><button class="btn small" id="installBtn" type="button" aria-label="Install ExecutiveOS app" title="Install ExecutiveOS on this device">Install</button><button class="ghost mobile-menu" id="menuBtn" aria-label="Open menu">☰</button></div>
 </div></header>
 <main>
 <section class="page active" id="page-home" data-route="home"><div class="shell">
@@ -83,6 +126,25 @@ input,select,textarea{max-width:100%;min-width:0}
 <div class="panel" style="margin-top:18px"><div class="panelhead"><h3>Settings & accessibility</h3><span class="pill">Your experience</span></div><div class="settingsrow"><button class="btn secondary" id="soundToggle">Sound: Off</button><label class="muted smalltext"><input type="checkbox" id="reduceMotion"> Reduce motion</label></div><p class="muted smalltext">Keyboard shortcuts: <span class="kbd">1</span> CEO · <span class="kbd">2</span> Terminal · <span class="kbd">3</span> Achievements · <span class="kbd">H</span> Home · <span class="kbd">Ctrl/⌘ + S</span> Save.</p></div></div></section>
 </main>
 <footer class="footer"><div class="shell footerinner"><span>© ExecutiveOS · A fictional corporate simulation.</span><span>Not financial advice. Not a real terminal. Definitely not a real company.</span><span>Built for the browser. No backend required.</span></div></footer>
+
+<div class="paletteback" id="commandPalette" role="dialog" aria-modal="true" aria-label="Quick actions">
+ <div class="palette">
+  <div class="palettehead"><span class="searchicon" aria-hidden="true">⌕</span><input id="paletteSearch" type="search" placeholder="Jump to a page or run an action…" autocomplete="off" aria-label="Search quick actions"><button class="ghost" id="paletteClose" type="button" aria-label="Close quick actions">Esc</button></div>
+  <div class="palettebody" id="paletteItems">
+   <div class="palettegroup">Navigate</div>
+   <button class="paletteitem" data-go="home"><span class="picon">⌂</span><span class="ptext"><b>Overview</b><small>Return to the landing page</small></span><kbd>H</kbd></button>
+   <button class="paletteitem" data-go="ceo"><span class="picon">▥</span><span class="ptext"><b>CEO Simulator</b><small>Manage the company and its metrics</small></span><kbd>1</kbd></button>
+   <button class="paletteitem" data-go="terminal"><span class="picon">⌘</span><span class="ptext"><b>Command Terminal</b><small>Run fictional terminal commands</small></span><kbd>2</kbd></button>
+   <button class="paletteitem" data-go="achievements"><span class="picon">✦</span><span class="ptext"><b>Achievements</b><small>Review progress and unlocks</small></span><kbd>3</kbd></button>
+   <div class="palettegroup">Quick actions</div>
+   <button class="paletteitem" data-action="meeting"><span class="picon">☕</span><span class="ptext"><b>Schedule a meeting</b><small>Spend $250 to boost synergy</small></span></button>
+   <button class="paletteitem" data-action="hire"><span class="picon">♙</span><span class="ptext"><b>Hire a consultant</b><small>Grow the team for $1,200</small></span></button>
+   <button class="paletteitem" data-cmd="daily"><span class="picon">✧</span><span class="ptext"><b>Daily briefing</b><small>Run the daily terminal objective</small></span></button>
+   <button class="paletteitem" data-cmd="help"><span class="picon">?</span><span class="ptext"><b>Terminal help</b><small>Show available commands</small></span></button>
+  </div>
+  <div class="palettefoot"><span>↑ ↓ to browse · Enter to select</span><span>Esc to close</span></div>
+ </div>
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="modalback" id="installHelp" role="dialog" aria-modal="true" aria-labelledby="installHelpTitle"><div class="modal"><h3 id="installHelpTitle">Install ExecutiveOS</h3><p id="installHelpText">Install options depend on your browser and device.</p><div class="modalactions"><button class="btn" id="installHelpClose" type="button">Got it</button></div></div></div>
 <div class="modalback" id="modalback" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><h3 id="modalTitle">Confirm action</h3><p id="modalText">Are you sure?</p><div class="modalactions"><button class="btn secondary" id="modalCancel">Cancel</button><button class="btn" id="modalConfirm">Confirm</button></div></div></div>
@@ -122,6 +184,10 @@ function resolveEvent(index){if(!state.event||state.eventResolved)return;const c
 function renderEvent(){const card=$("eventCard");if(!card)return;const ev=state.event;if(!ev){$("eventTitle").textContent="The market is watching";$("eventText").textContent="Advance the quarter to settle your books and trigger a new corporate event."; $("eventChoices").innerHTML="";const b=document.createElement("button");b.className="btn small secondary";b.id="advanceQuarter";b.textContent="Advance quarter ↗";b.addEventListener("click",advanceQuarter);$("eventChoices").appendChild(b);return} $("eventTitle").textContent=state.gameOver?"Corporate collapse":ev.title;$("eventText").textContent=state.gameOver?"Cash reserves are depleted. Start New Game+ to begin a tougher career.":state.eventResolved?"Decision recorded. Advance the next quarter when ready.":ev.text;$("eventChoices").innerHTML="";if(state.eventResolved||state.gameOver){const b=document.createElement("button");b.className="btn small secondary";b.textContent=state.gameOver?"Start New Game+":"Advance quarter ↗";b.addEventListener("click",state.gameOver?newGamePlus:advanceQuarter);$("eventChoices").appendChild(b)}else ev.choices.forEach((c,i)=>{const b=document.createElement("button");b.className="btn small"+(i?" secondary":"");b.textContent=c.label;b.addEventListener("click",()=>resolveEvent(i));$("eventChoices").appendChild(b)})}
 function addFeed(msg){state.history.unshift({msg:msg,time:new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})});state.history=state.history.slice(0,7)}
 function record(msg){addFeed(msg);save(true);toast(msg)}
+
+function openPalette(){const p=$("commandPalette");p.classList.add("show");$("paletteSearch").value="";filterPalette("");setTimeout(()=>$("paletteSearch").focus(),0)}
+function closePalette(){const p=$("commandPalette");if(p)p.classList.remove("show")}
+function filterPalette(query){const q=query.trim().toLowerCase();document.querySelectorAll("#paletteItems .paletteitem").forEach(b=>{b.hidden=!!q&&!b.textContent.toLowerCase().includes(q)});document.querySelectorAll("#paletteItems .palettegroup").forEach(g=>{let next=g.nextElementSibling,show=false;while(next&&!next.classList.contains("palettegroup")){if(next.classList.contains("paletteitem")&&!next.hidden)show=true;next=next.nextElementSibling}g.hidden=!!q&&!show})}
 function go(page,writeHash){if(!["home","ceo","terminal","achievements"].includes(page))page="home";currentPage=page;state.visited[page]=true;document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.dataset.route===page));document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("navlinks").classList.remove("open");if(writeHash!==false&&location.hash!=="#"+page)history.pushState({page}, "", "#"+page);renderAll();window.scrollTo({top:0,behavior:"smooth"});save(true)}
 function routeFromHash(){const p=location.hash.replace("#","")||"home";go(p,false)}
 function showConfirm(title,text,cb){$("modalTitle").textContent=title;$("modalText").textContent=text;$("modalback").classList.add("show");confirmCallback=cb}
@@ -183,8 +249,15 @@ renderMissions();checkProgress();save(true)}
 function renderMissions(){const ms=[{id:"help",title:"01 · Orientation",desc:"Run help to learn the ropes."},{id:"status",title:"02 · Status report",desc:"Run status to check your imaginary clearance."},{id:"scan",title:"03 · Security theatre",desc:"Run scan for a harmless simulated scan."},{id:"secret",title:"04 · Executive clearance",desc:"Run decrypt boardroom to reveal the board's secret."},{id:"finance",title:"05 · Finance review",desc:"Run finance to inspect fictional business metrics."},{id:"logs",title:"06 · Audit trail",desc:"Run logs to inspect simulated terminal logs."}];$("missionList").innerHTML="";ms.forEach(m=>{const done=state.missions.includes(m.id);const d=document.createElement("div");d.className="mission"+(done?" done":"");const h=document.createElement("h4");h.textContent=(done?"✓ ":"")+m.title;const p=document.createElement("p");p.textContent=done?"Objective complete. The board is mildly impressed.":m.desc;d.append(h,p);if(!done){const b=document.createElement("button");b.className="btn small secondary";b.textContent="Run objective";b.addEventListener("click",()=>{const map={help:"help",status:"status",scan:"scan",secret:"decrypt boardroom",finance:"finance",logs:"logs"};term(map[m.id])});d.appendChild(b)}$("missionList").appendChild(d)});$("missionCount").textContent=state.missions.length+" / 6";$("clearance").textContent="L"+Math.min(6,state.missions.length);$("clearanceBar").style.width=(state.missions.length/6*100)+"%"}
 function renderAchievements(){$("achCount").textContent=state.achievements.length+" / "+achievementData.length;$("achMoney").textContent=fmt(state.money);$("commandCount").textContent=state.commands;$("missionDone").textContent=state.missions.length+" / 6";$("achievementGrid").innerHTML="";achievementData.forEach(a=>{const on=state.achievements.includes(a.id);const d=document.createElement("div");d.className="achievement"+(on?" unlocked":"");const m=document.createElement("div");m.className="medal";m.textContent=a.icon;const b=document.createElement("b");b.textContent=a.name;const s=document.createElement("small");s.textContent=on?a.desc:"Locked achievement";d.append(m,b,s);$("achievementGrid").appendChild(d)})}
 function renderAll(){renderCEO();renderMissions();renderAchievements();const soundBtn=$("soundToggle");if(soundBtn)soundBtn.textContent="Sound: "+(state.sound?"On":"Off");}
-document.addEventListener("click",e=>{const goBtn=e.target.closest("[data-go]");if(goBtn){go(goBtn.dataset.go);return}const nav=e.target.closest("[data-page]");if(nav){go(nav.dataset.page);return}const a=e.target.closest("[data-action]");if(a){action(a.dataset.action);return}const c=e.target.closest("[data-cmd]");if(c){term(c.dataset.cmd);return}});
+document.addEventListener("click",e=>{const goBtn=e.target.closest("[data-go]");if(goBtn){closePalette();go(goBtn.dataset.go);return}const nav=e.target.closest("[data-page]");if(nav){go(nav.dataset.page);return}const a=e.target.closest("[data-action]");if(a){closePalette();action(a.dataset.action);return}const c=e.target.closest("[data-cmd]");if(c){closePalette();go("terminal");term(c.dataset.cmd);return}});
 $("brandHome").addEventListener("click",e=>{e.preventDefault();go("home")});
+$("paletteOpen").addEventListener("click",openPalette);
+$("paletteClose").addEventListener("click",closePalette);
+$("paletteSearch").addEventListener("input",e=>filterPalette(e.target.value));
+$("commandPalette").addEventListener("click",e=>{if(e.target===$("commandPalette"))closePalette()});
+$("paletteSearch").addEventListener("keydown",e=>{if(e.key==="Enter"){const first=[...document.querySelectorAll("#paletteItems .paletteitem")].find(b=>!b.hidden);if(first){e.preventDefault();first.click()}}else if(e.key==="ArrowDown"){e.preventDefault();const first=[...document.querySelectorAll("#paletteItems .paletteitem")].find(b=>!b.hidden);if(first)first.focus()}});
+document.querySelectorAll("#paletteItems .paletteitem").forEach((b,i)=>b.addEventListener("keydown",e=>{const items=[...document.querySelectorAll("#paletteItems .paletteitem")].filter(x=>!x.hidden);const n=items.indexOf(b);if(e.key==="ArrowDown"){e.preventDefault();items[(n+1)%items.length]?.focus()}if(e.key==="ArrowUp"){e.preventDefault();if(n===0)$("paletteSearch").focus();else items[n-1]?.focus()}}));
+
 $("menuBtn").addEventListener("click",()=>{const nav=$("navlinks");nav.classList.toggle("open");$("menuBtn").setAttribute("aria-expanded",String(nav.classList.contains("open")))});
 $("installBtn").addEventListener("click",async()=>{if(deferredInstallPrompt){deferredInstallPrompt.prompt();const result=await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;if(result&&result.outcome==="accepted")toast("Installation started.");else toast("Installation was cancelled. You can install later from the browser menu.");return}installHelp()});$("installHelpClose").addEventListener("click",()=>$("installHelp").classList.remove("show"));$("installHelp").addEventListener("click",e=>{if(e.target===$("installHelp"))$("installHelp").classList.remove("show")});
 $("saveTop").addEventListener("click",()=>save(false));$("saveAchievements").addEventListener("click",()=>save(false));
@@ -196,7 +269,7 @@ $("saveSlotBtn").addEventListener("click",slotSave);$("loadSlotBtn").addEventLis
 $("exportSaveBtn").addEventListener("click",exportSave);$("importSaveBtn").addEventListener("click",()=>$("importSaveFile").click());
 $("importSaveFile").addEventListener("change",async e=>{const file=e.target.files&&e.target.files[0];if(!file)return;try{const imported=JSON.parse(await file.text());if(!imported||typeof imported!=="object"||!Number.isFinite(imported.money)||!Array.isArray(imported.achievements)||!Array.isArray(imported.missions))throw new Error("Invalid save");const slots=state.saveSlots||{};state={...initial(),...imported,saveSlots:slots};save(true);renderAll();toast("Save imported successfully.")}catch(err){toast("Import failed: invalid ExecutiveOS save file.")}e.target.value=""});
 $("newGamePlus").addEventListener("click",newGamePlus);
-document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="s"){e.preventDefault();save(false);return}if(["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)||$("modalback").classList.contains("show"))return;const map={"1":"ceo","2":"terminal","3":"achievements","h":"home"};if(map[e.key.toLowerCase()])go(map[e.key.toLowerCase()])});
+document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openPalette();return}if(e.key==="Escape"){closePalette();return}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="s"){e.preventDefault();save(false);return}if(["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)||$("modalback").classList.contains("show")||$("commandPalette").classList.contains("show"))return;const map={"1":"ceo","2":"terminal","3":"achievements","h":"home"};if(map[e.key.toLowerCase()])go(map[e.key.toLowerCase()])});
 $("ceoReset").addEventListener("click",()=>showConfirm("Reset company?","This resets the company simulator's progress on this browser. Terminal missions and achievements remain.",()=>{const keep={...state, money:12400,employees:3,synergy:14,mood:0,office:0,ai:false,confidence:87,history:[]};state=keep;addFeed("The board approved a fresh start. No lessons were learned.");save(true);toast("Company reset.")}));
 $("resetAll").addEventListener("click",()=>showConfirm("Reset all progress?","This clears company progress, terminal missions, command count, and achievements from this browser.",()=>{state=initial();addFeed("A new executive era begins.");save(true);renderAll();toast("All local progress reset.")}));
 $("modalCancel").addEventListener("click",hideConfirm);$("modalConfirm").addEventListener("click",()=>{const cb=confirmCallback;hideConfirm();if(cb)cb()});$("modalback").addEventListener("click",e=>{if(e.target===$("modalback"))hideConfirm()});

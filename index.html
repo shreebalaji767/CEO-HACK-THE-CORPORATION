@@ -82,6 +82,83 @@ button,.feature,.stat,.panel,.actionrow,.mission,.achievement{transition:backgro
 @media(prefers-reduced-motion:reduce){.feature,.stat,.panel,.actionrow,.mission,.achievement,.btn,.navbtn,.chip{transition:none!important}}
 
 .assetcatalog{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.assetitem{min-width:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel2);padding:14px;display:flex;flex-direction:column;gap:9px}.assetitemhead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.assetitem h3{font-size:15px;line-height:1.35;margin:0 0 6px}.assetprice{font-size:17px;white-space:nowrap;color:var(--green)}.assetbenefit{font-size:12px;color:var(--green);margin:0}.assetitemfoot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:8px}.assetportfolio{display:grid;gap:10px}.assetholding{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.assetholdingdetails{display:flex;flex-direction:column;gap:4px;min-width:0}.assetholdingdetails b{overflow-wrap:anywhere}.assetitem .pill{display:inline-flex;margin-top:3px}@media(max-width:850px){.assetcatalog{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.assetcatalog{grid-template-columns:1fr}.assetitem{padding:13px}.assetholding{align-items:flex-start}.assetholding .btn{flex-shrink:0}.assetprice{font-size:15px}}
+
+/* Clean UI pass: quieter surfaces, stronger hierarchy, consistent spacing */
+:root{--bg:#0b0f0c;--panel:#111713;--panel2:#151e17;--line:#29362c;--muted:#9aa79d;--green:#bdf58a;--green2:#8bc965;--radius:15px;--shadow:0 14px 36px #0002}
+body{background:radial-gradient(ellipse at 50% -25%,#1d2b20 0,transparent 46%),var(--bg);line-height:1.55}
+.shell{max-width:1240px}
+.topbar{height:70px;border-bottom-color:#ffffff12;background:#0b0f0cf0}
+.nav{gap:14px}
+.brand{font-size:16px;letter-spacing:-.035em;white-space:nowrap}
+.brand small{letter-spacing:.1em}
+.navlinks{gap:3px}
+.navbtn{padding:9px 11px;font-size:12px;white-space:nowrap}
+.navright{gap:7px}
+.status{font-size:11px;white-space:nowrap}
+.page{padding:38px 0 64px}
+.hero{padding:54px 0 46px;gap:clamp(24px,4vw,54px)}
+.hero h1{font-size:clamp(42px,5.6vw,68px);letter-spacing:-.065em;line-height:1.02}
+.lead{font-size:16px;line-height:1.72}
+.hero-art{border-radius:20px;padding:18px}
+.sectionhead{margin:30px 0 18px;align-items:end}
+.sectionhead h2{font-size:clamp(23px,3vw,29px)}
+.cards{gap:14px}
+.feature{padding:22px;border-radius:16px;background:var(--panel);box-shadow:none}
+.feature:hover{transform:translateY(-2px);box-shadow:0 10px 26px #0002}
+.feature h3{font-size:20px;margin-top:16px}
+.featurebottom{gap:12px}
+.callout{margin-top:16px;padding:20px 22px;background:#121a14;border-color:#2d3b30;border-radius:15px}
+.pagehead{margin-bottom:22px;align-items:center}
+.pagehead h1{font-size:clamp(32px,4vw,44px);line-height:1.08;letter-spacing:-.055em}
+.pagehead p{font-size:14px;max-width:700px}
+.eyebrow{letter-spacing:.13em;font-size:10px}
+.dashboard{gap:11px;margin-bottom:14px}
+.stat{padding:17px;border-radius:14px;background:var(--panel);box-shadow:none}
+.stat label{font-size:10px;letter-spacing:.045em}
+.stat strong{font-size:clamp(22px,2.4vw,29px);line-height:1.2;overflow-wrap:anywhere}
+.stat small{font-size:10px;line-height:1.45}
+.panel{padding:20px;border-radius:16px;background:var(--panel);box-shadow:none}
+.panelhead{margin-bottom:14px}
+.panelhead h3{font-size:15px}
+.actionlist{gap:8px}
+.actionrow{padding:12px;border-radius:11px;background:#ffffff02}
+.actionrow:hover{border-color:#3a4b3d}
+.actionrow .actionico{width:36px;height:36px;border-radius:10px}
+.actioncopy b{font-size:12px;line-height:1.4}
+.actioncopy span{line-height:1.5}
+.btn{border-radius:10px;box-shadow:none;transition:background-color .16s,border-color .16s,transform .16s,filter .16s}
+.btn:hover{box-shadow:none;transform:translateY(-1px)}
+.btn.secondary{background:#1a241d;border-color:#304034}
+.btn.secondary:hover{background:#202d23;border-color:#415746}
+.ghost{border-radius:9px}
+.progress{height:6px;margin-top:10px}
+.eventcard{padding:16px;border-radius:12px;margin-bottom:14px}
+.feeditem{padding:10px 0;line-height:1.5}
+.terminal{border-radius:13px}
+.termout{height:310px}
+.mission{padding:13px;border-radius:11px}
+.achievement{border-radius:11px;padding:13px}
+.assetcatalog{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.assetitem{padding:15px;border-radius:13px;background:#131b15;gap:10px;transition:border-color .16s,background-color .16s,transform .16s}
+.assetitem:hover{border-color:#405342;background:#172119;transform:translateY(-1px)}
+.assetitem h3{font-size:14px}
+.assetprice{font-size:16px;font-variant-numeric:tabular-nums}
+.assetbenefit{font-size:11px;line-height:1.5}
+.assetitemfoot{padding-top:10px;border-top:1px solid #ffffff0b}
+.assetitem .pill{font-size:9px;padding:4px 6px}
+.assetportfolio{gap:0}
+.assetholding{padding:13px 0}
+.assetholdingdetails b{font-size:13px}
+.settingsrow{gap:8px}
+.field{border-radius:9px}
+.toast{border-radius:10px}
+@media(min-width:851px){.topbar .shell{max-width:1320px}.pagehead{gap:28px}}
+@media(max-width:1050px){.status{display:none}.navlinks{gap:1px}.navbtn{padding:9px 8px}.brand small{font-size:9px}.navright{gap:5px}}
+@media(max-width:850px){.topbar{height:68px}.navlinks{top:68px;padding:12px;background:#0d130f}.navbtn{padding:11px 12px;font-size:13px}.page{padding-top:30px}.hero{padding-top:38px}.pagehead{align-items:flex-start}.panel{padding:18px}}
+@media(max-width:600px){.page{padding:25px 0 44px}.hero{padding:31px 0 28px;gap:22px}.hero h1{font-size:clamp(37px,10.5vw,46px);margin:15px 0}.lead{font-size:14px;line-height:1.7}.trust{gap:10px 14px;margin-top:22px}.hero-art{padding:14px;border-radius:15px}.mockgrid{gap:8px}.mockstat{padding:11px}.mockstat strong{font-size:20px}.mockfooter{font-size:9px;gap:8px}.sectionhead{margin:24px 0 14px}.feature{padding:17px}.feature h3{font-size:18px}.featurebottom{align-items:flex-start}.pagehead{margin-bottom:17px}.pagehead h1{font-size:clamp(30px,8.5vw,39px)}.pagehead p{font-size:13px}.dashboard{gap:8px}.stat{padding:12px}.stat label{font-size:9px;margin-bottom:7px}.stat strong{font-size:clamp(19px,5.5vw,25px)}.stat small{font-size:9px}.panel{padding:14px;border-radius:13px}.panelhead{gap:9px}.panelhead h3{font-size:14px}.actionrow{gap:9px;padding:10px}.actionrow .btn{padding:8px 9px;font-size:11px}.assetcatalog{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.assetitem{padding:11px;gap:8px}.assetitemhead{display:block}.assetprice{display:block;margin-top:8px;font-size:15px}.assetitem h3{font-size:13px}.assetitem .pill{font-size:8px}.assetitemfoot{align-items:flex-start;flex-wrap:wrap}.assetitemfoot .btn{width:100%}.assetholding{gap:8px}.assetholding .btn{font-size:10px;padding:8px}.termout{height:280px}.callout{padding:16px}.footer{padding:22px 0}}
+@media(max-width:380px){.assetcatalog{grid-template-columns:1fr}.assetitemhead{display:flex}.assetprice{margin-top:0}.assetitemfoot{align-items:center;flex-wrap:nowrap}.assetitemfoot .btn{width:auto}.brand small{letter-spacing:0}.navright #installBtn{display:none}}
+@media(prefers-reduced-motion:reduce){.assetitem:hover,.feature:hover,.btn:hover{transform:none}}
+
 </style>
 </head>
 <body>

@@ -15,6 +15,20 @@ This project is designed to stay **100% free to play and non-pay-to-win**.
 
 Any future feature must follow this policy. If a feature requires a paid service or creates a real-money gameplay advantage, it must not be added.
 
+## Strategy Lab expansion
+
+The Strategy Lab adds an offline-first management layer built with plain JavaScript:
+
+- Finance and risk dashboard with operating snapshots, estimated subsidiary income, debt exposure, and paid in-game audits.
+- Supply-chain resilience and warehouse investments.
+- Six earnable research milestones, including forecasting, automation, advanced materials, biotechnology, fusion research, and orbital manufacturing.
+- Five fictional acquisitions across food, energy, healthcare, transport, and technology; acquired businesses contribute to corporate income.
+- A gated space-industry programme covering launch services, satellites, lunar surveys, mining, and Mars logistics.
+- Local market-shock scenarios, temporary operating multipliers, and crisis stabilisation.
+- A strategic decision ledger; changes remain in memory until the player uses an explicit save action.
+
+These systems use local game logic and fictional currency. They do not call AI services, external APIs, payment providers, or advertising networks. The finance panel is a gameplay estimate, not audited accounting advice.
+
 ## Games and features
 
 ### CEO Simulator

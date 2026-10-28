@@ -70,3 +70,11 @@ The workflow in `.github/workflows/pages.yml` publishes the static files from th
 ### PWA notes
 
 The site must be served over HTTPS for service workers and install prompts; GitHub Pages provides HTTPS when enabled. Browser installation prompts vary by browser and operating system. A browser may offer “Add to Home Screen” instead of a one-tap install button. Offline use starts after the app shell has been cached once, and a first visit still needs a network connection.
+
+### Corporate expansion systems
+- Global marketing, applied research, automated factories, workforce expansion, and supply-chain upgrades.
+- Lunar mining, Mars industry, orbital manufacturing, deep-space logistics, and interstellar research sites.
+- Corporate income multipliers, passive income from factories/workforce/space assets, stock trading volume, quarterly price history, and portfolio valuation.
+- Rival conglomerate challenges and an optional prestige reset with a permanent empire multiplier.
+- Entirely client-side, free-to-run, and offline-capable. No paid APIs, subscriptions, accounts, or external assets are required.
+- **Manual saves only:** purchases and progress remain in the current session until the player explicitly saves. Export a save for a portable backup.

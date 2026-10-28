@@ -112,3 +112,15 @@ The site must be served over HTTPS for service workers and install prompts; GitH
 - Hire or reduce staff, restock supplies, invest in product quality, and fulfil time-limited sector contracts with working-capital deposits and delivery rewards.
 - Contract deadlines and settlement outcomes advance while the game is open. Data is not written to persistent storage automatically; use **Save game** or **Save to slot**.
 - Entirely local and fictional, with no external services, APIs, paid assets or subscriptions.
+
+
+### Expanded corporate simulation (v12)
+- Corporate finance desk with estimated revenue, costs, working capital, assets and indicative credit quality; figures are gameplay estimates, not audited accounting.
+- Supply chain inventory consumption, supplier redundancy, production facilities, shortage penalties and output-efficiency effects.
+- Fictional stock exchange actions: share issuance/dilution, buybacks, dividends, share-price history, shareholder votes and takeover defence.
+- Living market simulation: drifting demand, competitor pressure, market-share campaigns, market intelligence and international expansion.
+- Workforce, morale, recurring payroll, legal exposure, training and compliance actions.
+- International trade with tariffs, exchange-rate drift and route diversification.
+- Local crisis scenarios (recession, cyber incident, recall, supplier failure and takeover attempt) with in-game response costs.
+- Local analytics, profit history, five-cycle projection, orbital logistics and a legacy milestone.
+- Free, local simulation with fictional currency; no paid APIs, subscriptions, ads, external assets or real-money purchases. No artificial wait-to-play timers. **Manual saves only:** expansion state is persisted only when the player explicitly saves.

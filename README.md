@@ -18,6 +18,15 @@ A responsive corporate satire game suite built with plain HTML, CSS and JavaScri
 - Expand into six fictional international branch markets to improve market share and passive income.
 - Executive activity feed and unlockable achievements.
 
+### Corporate Empire
+- Create fictional subsidiaries across multiple sectors, acquire existing businesses, expand into regions, and hire executive leadership.
+- Upgrade each subsidiary through ten levels, launch up to eight product lines, and sell businesses back into the market.
+- IPO custom subsidiaries for capital, then receive recurring simulated dividends while they remain publicly listed.
+- Upgrade corporate headquarters, unlock four corporate technologies, and resolve timed market-climate events that affect subsidiary income.
+- Corporate treasury includes an optional credit facility, repayments, and 1% per-minute interest while debt remains outstanding; borrowing is capped at $5 million.
+- Stock prices fluctuate during play, and rival conglomerates can be challenged for rewards.
+- All corporate activity is fictional and local to the game. These systems do not connect to real markets or companies.
+
 ### CorpShell terminal
 - Fictional commands including `help`, `status`, `whoami`, `scan`, `missions`, `finance`, `logs`, `daily`, `decrypt boardroom`, `quarterly prophecy`, `coffee`, `matrix` and `clear`.
 - Six campaign objectives, fictional clearance progression, hidden messages, and a daily briefing reward.

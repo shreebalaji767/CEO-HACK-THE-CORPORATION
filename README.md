@@ -124,3 +124,7 @@ The site must be served over HTTPS for service workers and install prompts; GitH
 - Local crisis scenarios (recession, cyber incident, recall, supplier failure and takeover attempt) with in-game response costs.
 - Local analytics, profit history, five-cycle projection, orbital logistics and a legacy milestone.
 - Free, local simulation with fictional currency; no paid APIs, subscriptions, ads, external assets or real-money purchases. No artificial wait-to-play timers. **Manual saves only:** expansion state is persisted only when the player explicitly saves.
+
+
+### Income-generating asset portfolio
+The Assets page includes additional fictional income-producing acquisitions: utility solar and wind farms, data centers, rental properties, logistics hubs, fiber networks, franchise royalties, patent licensing, water utilities, and grid battery storage. Purchases generate recurring passive income through the existing 10-second game economy. Asset prices and income are fictional gameplay values; no real-world investments or transactions are involved.

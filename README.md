@@ -78,3 +78,10 @@ The site must be served over HTTPS for service workers and install prompts; GitH
 - Rival conglomerate challenges and an optional prestige reset with a permanent empire multiplier.
 - Entirely client-side, free-to-run, and offline-capable. No paid APIs, subscriptions, accounts, or external assets are required.
 - **Manual saves only:** purchases and progress remain in the current session until the player explicitly saves. Export a save for a portable backup.
+
+### Hardcore operating simulation
+- Each subsidiary has its own workforce, morale, supply inventory, quality investment and operating result.
+- Operating settlements apply recurring overhead and payroll; low inventory, low morale and market shocks reduce output.
+- Hire or reduce staff, restock supplies, invest in product quality, and fulfil time-limited sector contracts with working-capital deposits and delivery rewards.
+- Contract deadlines and settlement outcomes advance while the game is open. Data is not written to persistent storage automatically; use **Save game** or **Save to slot**.
+- Entirely local and fictional, with no external services, APIs, paid assets or subscriptions.

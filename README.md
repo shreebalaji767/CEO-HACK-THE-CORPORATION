@@ -2,6 +2,19 @@
 
 A responsive corporate satire game suite built with plain HTML, CSS and JavaScript. Designed for GitHub Pages: no build step, backend, account, or third-party dependencies required.
 
+## Free-to-play commitment
+
+This project is designed to stay **100% free to play and non-pay-to-win**.
+
+- No real-money purchases, microtransactions, premium currency, loot boxes, paid boosts, ads, subscriptions, or paywalls.
+- No paid AI models, AI APIs, hosted AI services, or other metered third-party APIs.
+- No paid game assets, asset-store dependencies, or paid hosting/backend requirement.
+- Gameplay advantages must be earned in-game through decisions, progression, and risk; fictional in-game prices use simulated currency only and are not real purchases.
+- Core gameplay uses local HTML, CSS, and JavaScript and is designed to run offline after the game files are available.
+- Saves remain explicit and manual. No autosave or background persistent writes.
+
+Any future feature must follow this policy. If a feature requires a paid service or creates a real-money gameplay advantage, it must not be added.
+
 ## Games and features
 
 ### CEO Simulator

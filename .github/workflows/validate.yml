@@ -17,10 +17,47 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check inline JavaScript syntax
+      - name: Check JavaScript syntax
         run: |
-          node -e 'const fs = require("fs"); const html = fs.readFileSync("index.html", "utf8"); const start = html.indexOf("<script>"); const end = html.indexOf("</script>", start); if (start < 0 || end < 0) throw new Error("Inline script not found"); fs.writeFileSync("/tmp/executiveos.js", html.slice(start + 8, end));'
-          node --check /tmp/executiveos.js
-      - name: Check dark-only UI and economy features
+          node - <<'NODE'
+          const fs = require("fs");
+          const html = fs.readFileSync("index.html", "utf8");
+          const start = html.indexOf("<script>");
+          const end = html.indexOf("</script>", start);
+          if (start < 0 || end < 0) throw new Error("Inline script not found");
+          fs.writeFileSync("/tmp/executiveos-inline.js", html.slice(start + 8, end));
+          NODE
+          node --check /tmp/executiveos-inline.js
+          node --check world-sim.js
+          node --check sw.js
+      - name: Check existing systems and World Simulation
         run: |
-          node -e 'const fs = require("fs"); const h = fs.readFileSync("index.html", "utf8"); const checks = [["dark-only color scheme", /color-scheme:\s*dark/.test(h)], ["World Simulation page", /data-route="world"/.test(fs.readFileSync("world-sim.js", "utf8"))], ["World Simulation offline cache", /"world-sim\\.js"/.test(fs.readFileSync("sw.js", "utf8"))], ["passive business income", /function businessIncome\(/.test(h)], ["fictional share market", /function tradeStock\(/.test(h)], ["XP progression", /function awardXP\(/.test(h)], ["earn-money levels", /const earnTiers=/.test(h)], ["earning streak bonus", /state\.earnStreak%5===0/.test(h)], ["cooldown UI refresh", /renderEarnButton\(\)\},1000/.test(h)], ["daily reward", /dailyreward/.test(h)], ["responsive breakpoints", /@media\(max-width:600px\)/.test(h)], ["global expansion", /function expandGlobal\(/.test(h)], ["asset market page", /id="page-assets" data-route="assets"/.test(h)], ["all asset categories", ["Vehicles","Companies","Real Estate","Crypto","Islands","Cities","Countries"].every(x => h.includes('category:"' + x + '"'))], ["asset purchases and resale", /function buyAsset\(/.test(h) && /function sellAsset\(/.test(h)], ["asset passive income", /assetCatalog\.reduce\(\(sum,a\)=>sum\+\(state\.ownedAssets\[a\.id\]\|\|0\)\*a\.income/.test(h)], ["service worker cache refresh", /CACHE_NAME = CACHE_PREFIX \+ "v4"/.test(fs.readFileSync("sw.js", "utf8"))], ["manual save action persists", /function save\(silent\)\{if\(!silent\)\{try\{localStorage\.setItem\(KEY/.test(h)], ["autosave disabled", !/beforeunload/.test(h) && !/setInterval\([^\n]*localStorage\.setItem\(KEY/.test(h)], ["manual-save warning shown", /Autosave is OFF/.test(h)]]; const failed = checks.filter(x => !x[1]); checks.forEach(x => console.log((x[1] ? "PASS " : "FAIL ") + x[0])); if (failed.length) process.exit(1);'
+          node - <<'NODE'
+          const fs = require("fs");
+          const h = fs.readFileSync("index.html", "utf8");
+          const w = fs.readFileSync("world-sim.js", "utf8");
+          const sw = fs.readFileSync("sw.js", "utf8");
+          const checks = [
+            ["dark-only color scheme", /color-scheme:\\s*dark/.test(h)],
+            ["CEO simulator route", /data-route="ceo"/.test(h)],
+            ["corporate empire route", /data-route="corporate"/.test(h)],
+            ["Strategy Lab route", /data-route="strategy"/.test(h)],
+            ["passive business income", /function businessIncome\\(/.test(h)],
+            ["fictional share market", /function tradeStock\\(/.test(h)],
+            ["XP progression", /function awardXP\\(/.test(h)],
+            ["earn-money levels", /const earnTiers=/.test(h)],
+            ["responsive breakpoints", /@media\\(max-width:600px\\)/.test(h)],
+            ["asset market page", /id="page-assets" data-route="assets"/.test(h)],
+            ["World Simulation route", /"world"].includes("world") && /data-route="world"/.test(w)],
+            ["rival corporations", /rivals/.test(w) && /rival:/.test(w)],
+            ["boardroom decisions", /Boardroom agenda/.test(w)],
+            ["research portfolio", /orbital manufacturing/i.test(w)],
+            ["world export and import", /worldExport/.test(w) && /worldImport/.test(w)],
+            ["world module loaded", /src="\\.\\/world-sim\\.js"/.test(h)],
+            ["offline world module cached", /world-sim\\.js/.test(sw)],
+            ["service worker cache version", /CACHE_NAME = CACHE_PREFIX \\+ "v15"/.test(sw)],
+            ["manual world save", /worldSave/.test(w) && /localStorage\\.setItem\\(KEY/.test(w)]
+          ];
+          for (const [name, ok] of checks) console.log((ok ? "PASS " : "FAIL ") + name);
+          if (checks.some(([, ok]) => !ok)) process.exit(1);
+          NODE

@@ -59,7 +59,11 @@ jobs:
             ["responsive stylesheet exists", fs.existsSync("executiveos-ui.css")],
             ["mobile navigation styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:850px)")],
             ["small-screen layout styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:600px)")],
-            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v17"')],
+            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v18"')],
+            ["dashboard captions are not form labels", (h.match(/<span class="stat-label">/g) || []).length === 26 && !/<label>/i.test(h)],
+            ["asset search label is associated", /<label for="assetSearch">[\\s\\S]*?<\\/label>[\\s\\S]*?<input id="assetSearch"/i.test(h)],
+            ["save slot label is associated", /<label for="saveSlot"[^>]*>[\\s\\S]*?<\\/label>[\\s\\S]*?<select class="field" id="saveSlot"/i.test(h)],
+            ["reduce motion checkbox has an enclosing label", /<label[^>]*><input type="checkbox" id="reduceMotion">[\\s\\S]*?<\\/label>/i.test(h)],
             ["manual world save", w.includes("worldSave") && w.includes("localStorage.setItem(KEY")]
           ];
           for (const [name, ok] of checks) console.log((ok ? "PASS " : "FAIL ") + name);

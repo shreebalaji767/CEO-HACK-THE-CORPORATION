@@ -29,6 +29,10 @@ The Strategy Lab adds an offline-first management layer built with plain JavaScr
 
 These systems use local game logic and fictional currency. They do not call AI services, external APIs, payment providers, or advertising networks. The finance panel is a gameplay estimate, not audited accounting advice.
 
+## Interface redesign
+
+ExecutiveOS uses a clean editorial dashboard style with a warm light surface, deep forest-green actions, clearer typography, restrained borders and consistent cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
+
 ## World Simulation expansion
 
 The World Simulation adds a separate corporate-world layer without replacing the original CEO Simulator save:

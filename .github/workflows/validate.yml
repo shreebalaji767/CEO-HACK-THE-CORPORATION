@@ -55,7 +55,11 @@ jobs:
             ["world export and import", w.includes("worldExport") && w.includes("worldImport")],
             ["world module loaded", h.includes('src="./world-sim.js"')],
             ["offline world module cached", sw.includes('"world-sim.js"')],
-            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v15"')],
+            ["responsive stylesheet linked", h.includes('href="./executiveos-ui.css"')],
+            ["responsive stylesheet exists", fs.existsSync("executiveos-ui.css")],
+            ["mobile navigation styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:850px)")],
+            ["small-screen layout styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:600px)")],
+            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v16"')],
             ["manual world save", w.includes("worldSave") && w.includes("localStorage.setItem(KEY")]
           ];
           for (const [name, ok] of checks) console.log((ok ? "PASS " : "FAIL ") + name);

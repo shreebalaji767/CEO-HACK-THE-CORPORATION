@@ -29,6 +29,19 @@ The Strategy Lab adds an offline-first management layer built with plain JavaScr
 
 These systems use local game logic and fictional currency. They do not call AI services, external APIs, payment providers, or advertising networks. The finance panel is a gameplay estimate, not audited accounting advice.
 
+## World Simulation expansion
+
+The World Simulation adds a separate corporate-world layer without replacing the original CEO Simulator save:
+- Dynamic fictional market climate and quarterly world-cycle settlements.
+- Four evolving rival conglomerates with challenge outcomes, rival strength and valuation changes.
+- Boardroom decisions covering profit-sharing, compliance, strategy pivots, shareholder confidence and takeover defence.
+- Executive recruitment and workforce development for finance, technology and operations.
+- Six technology projects, including analytics, robotics, clean energy, advanced materials, biotechnology and orbital manufacturing.
+- Regional offices, global campaigns, market intelligence, mission tracking and a historical event feed.
+- Separate local save, explicit Save World action, JSON export/import, and offline service-worker caching.
+
+This module uses its own World Treasury and local save key; it does not silently change the original CEO Simulator balance or overwrite its save. Changes remain in memory until explicitly saved. All entities and market outcomes are fictional.
+
 ## Games and features
 
 ### CEO Simulator

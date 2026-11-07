@@ -59,7 +59,7 @@ jobs:
             ["responsive stylesheet exists", fs.existsSync("executiveos-ui.css")],
             ["mobile navigation styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:850px)")],
             ["small-screen layout styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:600px)")],
-            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v16"')],
+            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v17"')],
             ["manual world save", w.includes("worldSave") && w.includes("localStorage.setItem(KEY")]
           ];
           for (const [name, ok] of checks) console.log((ok ? "PASS " : "FAIL ") + name);

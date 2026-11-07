@@ -61,9 +61,9 @@ jobs:
             ["small-screen layout styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:600px)")],
             ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v18"')],
             ["dashboard captions are not form labels", (h.match(/<span class="stat-label">/g) || []).length === 26 && !/<label>/i.test(h)],
-            ["asset search label is associated", /<label for="assetSearch">[\\s\\S]*?<\\/label>[\\s\\S]*?<input id="assetSearch"/i.test(h)],
-            ["save slot label is associated", /<label for="saveSlot"[^>]*>[\\s\\S]*?<\\/label>[\\s\\S]*?<select class="field" id="saveSlot"/i.test(h)],
-            ["reduce motion checkbox has an enclosing label", /<label[^>]*><input type="checkbox" id="reduceMotion">[\\s\\S]*?<\\/label>/i.test(h)],
+            ["asset search label is associated", h.includes('<label for="assetSearch">Search the entire asset universe</label><input id="assetSearch"')],
+            ["save slot label is associated", h.includes('<label for="saveSlot" class="muted smalltext">Slot</label><select class="field" id="saveSlot"')],
+            ["reduce motion checkbox has an enclosing label", h.includes('<label class="muted smalltext"><input type="checkbox" id="reduceMotion"> Reduce motion</label>')],
             ["manual world save", w.includes("worldSave") && w.includes("localStorage.setItem(KEY")]
           ];
           for (const [name, ok] of checks) console.log((ok ? "PASS " : "FAIL ") + name);

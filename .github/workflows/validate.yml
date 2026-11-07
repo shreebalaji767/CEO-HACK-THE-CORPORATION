@@ -48,7 +48,7 @@ jobs:
             ["earn-money levels", h.includes("const earnTiers=")],
             ["responsive breakpoints", h.includes("@media(max-width:600px)")],
             ["asset market page", h.includes('id="page-assets" data-route="assets"')],
-            ["World Simulation route", w.includes('data-route="world"')],
+            ["World Simulation route", w.includes('page.dataset.route="world"')],
             ["rival corporations", w.includes("rivals") && w.includes("rival:")],
             ["boardroom decisions", w.includes("Boardroom agenda")],
             ["research portfolio", w.toLowerCase().includes("orbital manufacturing")],

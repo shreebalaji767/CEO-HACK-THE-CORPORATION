@@ -39,7 +39,7 @@
         <p class="world-footnote">All companies, markets, money and events in this expansion are fictional. World Simulation uses a separate local save from the original CEO Simulator; use Export for a backup. No network calls, accounts, ads or paid services.</p>
       </div>`;
     document.querySelector("main").appendChild(page);
-    const nav=$("navlinks");const b=document.createElement("button");b.className="navbtn";b.dataset.page="world";b.textContent="World Simulation";nav.insertBefore(b,$('[data-page="achievements"]'));
+    const nav=$("navlinks");const b=document.createElement("button");b.className="navbtn";b.dataset.page="world";b.textContent="World Simulation";nav.insertBefore(b,nav.querySelector('[data-page="achievements"]'));
   }
   const css=document.createElement("style");
   css.textContent=`
@@ -117,6 +117,6 @@
   document.addEventListener("click",e=>{const tab=e.target.closest("[data-world-tab]");if(tab){activeTab=tab.dataset.worldTab;render();return;}const btn=e.target.closest("[data-world]");if(btn){act(btn.dataset.world);}});
   $("worldAdvance").addEventListener("click",advance);$("worldSave").addEventListener("click",persist);
   $("worldExport").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="executiveos-world-save.json";a.click();URL.revokeObjectURL(url);note("World save exported.");});
-  $("worldImport").addEventListener("change",async e=>{const file=e.target.files&&e.target.files[0];if(!file)return;try{const x=JSON.parse(await file.text());if(!x||!Number.isFinite(x.cash)||!Array.isArray(x.rivals)||!Array.isArray(x.regions)||!Array.isArray(x.history)||!Array.isArray(x.tech))throw new Error("Invalid save shape");state={...seed(),...x};render();note("World save imported into this session. Use Save world to keep it.");}catch(err){note("Import failed: this file is not a valid World Simulation save.");}e.target.value="";});
-  pageMarkup();saved();render();
+  $("worldImport").addEventListener("change",async e=>{const file=e.target.files&&e.target.files[0];if(!file)return;try{const x=JSON.parse(await file.text());if(!x||!Number.isFinite(x.cash)||x.cash<0||!Number.isInteger(x.cycle)||x.cycle<1||!Array.isArray(x.rivals)||x.rivals.length>20||!x.rivals.every(r=>r&&typeof r.name==="string"&&typeof r.sector==="string"&&Number.isFinite(r.value)&&Number.isFinite(r.strength))||!Array.isArray(x.regions)||x.regions.length>20||!x.regions.every(r=>typeof r==="string")||!Array.isArray(x.history)||x.history.length>100||!x.history.every(r=>typeof r==="string")||!Array.isArray(x.tech)||!x.tech.every(i=>Number.isInteger(i)&&i>=0&&i<projects.length))throw new Error("Invalid save shape");state={...seed(),...x,cash:clamp(x.cash,0,1e15),reputation:clamp(Number(x.reputation)||0,0,100),boardTrust:clamp(Number(x.boardTrust)||0,0,100),stability:clamp(Number(x.stability)||0,0,100)};render();note("World save imported into this session. Use Save world to keep it.");}catch(err){note("Import failed: this file is not a valid World Simulation save.");}e.target.value="";});
+  pageMarkup();saved();render();if(location.hash==="#world"){ $("page-world").classList.add("active");document.querySelectorAll(".navbtn").forEach(n=>n.classList.toggle("active",n.dataset.page==="world"));}
 })();

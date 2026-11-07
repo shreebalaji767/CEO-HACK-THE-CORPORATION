@@ -341,7 +341,7 @@ function record(msg){addFeed(msg);save(true);toast(msg)}
 function openPalette(){const p=$("commandPalette");p.classList.add("show");$("paletteSearch").value="";filterPalette("");setTimeout(()=>$("paletteSearch").focus(),0)}
 function closePalette(){const p=$("commandPalette");if(p)p.classList.remove("show")}
 function filterPalette(query){const q=query.trim().toLowerCase();document.querySelectorAll("#paletteItems .paletteitem").forEach(b=>{b.hidden=!!q&&!b.textContent.toLowerCase().includes(q)});document.querySelectorAll("#paletteItems .palettegroup").forEach(g=>{let next=g.nextElementSibling,show=false;while(next&&!next.classList.contains("palettegroup")){if(next.classList.contains("paletteitem")&&!next.hidden)show=true;next=next.nextElementSibling}g.hidden=!!q&&!show})}
-function go(page,writeHash){if(!["home","ceo","terminal","assets","corporate","strategy","achievements"].includes(page))page="home";currentPage=page;state.visited[page]=true;document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.dataset.route===page));document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("navlinks").classList.remove("open");if(writeHash!==false&&location.hash!=="#"+page)history.pushState({page}, "", "#"+page);renderAll();window.scrollTo({top:0,behavior:"smooth"});save(true)}
+function go(page,writeHash){if(!["home","ceo","terminal","assets","corporate","strategy","achievements","world"].includes(page))page="home";currentPage=page;state.visited[page]=true;document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.dataset.route===page));document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("navlinks").classList.remove("open");if(writeHash!==false&&location.hash!=="#"+page)history.pushState({page}, "", "#"+page);renderAll();window.scrollTo({top:0,behavior:"smooth"});save(true)}
 function routeFromHash(){const p=location.hash.replace("#","")||"home";go(p,false)}
 function showConfirm(title,text,cb){$("modalTitle").textContent=title;$("modalText").textContent=text;$("modalback").classList.add("show");confirmCallback=cb}
 function hideConfirm(){ $("modalback").classList.remove("show");confirmCallback=null }
@@ -632,5 +632,6 @@ document.addEventListener("click",e=>{let b=e.target.closest("[data-exec-action]
 if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js",{scope:"./"}).catch(()=>{}))}
 })();
 </script>
+<script src="./world-sim.js" defer></script>
 </body>
 </html>

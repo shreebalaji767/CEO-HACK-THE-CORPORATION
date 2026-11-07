@@ -38,25 +38,25 @@ jobs:
           const w = fs.readFileSync("world-sim.js", "utf8");
           const sw = fs.readFileSync("sw.js", "utf8");
           const checks = [
-            ["dark-only color scheme", /color-scheme:\\s*dark/.test(h)],
-            ["CEO simulator route", /data-route="ceo"/.test(h)],
-            ["corporate empire route", /data-route="corporate"/.test(h)],
-            ["Strategy Lab route", /data-route="strategy"/.test(h)],
-            ["passive business income", /function businessIncome\\(/.test(h)],
-            ["fictional share market", /function tradeStock\\(/.test(h)],
-            ["XP progression", /function awardXP\\(/.test(h)],
-            ["earn-money levels", /const earnTiers=/.test(h)],
-            ["responsive breakpoints", /@media\\(max-width:600px\\)/.test(h)],
-            ["asset market page", /id="page-assets" data-route="assets"/.test(h)],
-            ["World Simulation route", /"world"].includes("world") && /data-route="world"/.test(w)],
-            ["rival corporations", /rivals/.test(w) && /rival:/.test(w)],
-            ["boardroom decisions", /Boardroom agenda/.test(w)],
-            ["research portfolio", /orbital manufacturing/i.test(w)],
-            ["world export and import", /worldExport/.test(w) && /worldImport/.test(w)],
-            ["world module loaded", /src="\\.\\/world-sim\\.js"/.test(h)],
-            ["offline world module cached", /world-sim\\.js/.test(sw)],
-            ["service worker cache version", /CACHE_NAME = CACHE_PREFIX \\+ "v15"/.test(sw)],
-            ["manual world save", /worldSave/.test(w) && /localStorage\\.setItem\\(KEY/.test(w)]
+            ["dark-only color scheme", h.includes("color-scheme:dark")],
+            ["CEO simulator route", h.includes('id="page-ceo"')],
+            ["corporate empire route", h.includes('id="page-corporate"')],
+            ["Strategy Lab route", h.includes('id="page-strategy"')],
+            ["passive business income", h.includes("function businessIncome(")],
+            ["fictional share market", h.includes("function tradeStock(")],
+            ["XP progression", h.includes("function awardXP(")],
+            ["earn-money levels", h.includes("const earnTiers=")],
+            ["responsive breakpoints", h.includes("@media(max-width:600px)")],
+            ["asset market page", h.includes('id="page-assets" data-route="assets"')],
+            ["World Simulation route", w.includes('data-route="world"')],
+            ["rival corporations", w.includes("rivals") && w.includes("rival:")],
+            ["boardroom decisions", w.includes("Boardroom agenda")],
+            ["research portfolio", w.toLowerCase().includes("orbital manufacturing")],
+            ["world export and import", w.includes("worldExport") && w.includes("worldImport")],
+            ["world module loaded", h.includes('src="./world-sim.js"')],
+            ["offline world module cached", sw.includes('"world-sim.js"')],
+            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v15"')],
+            ["manual world save", w.includes("worldSave") && w.includes("localStorage.setItem(KEY")]
           ];
           for (const [name, ok] of checks) console.log((ok ? "PASS " : "FAIL ") + name);
           if (checks.some(([, ok]) => !ok)) process.exit(1);

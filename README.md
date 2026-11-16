@@ -31,7 +31,7 @@ These systems use local game logic and fictional currency. They do not call AI s
 
 ## Interface redesign
 
-ExecutiveOS uses a premium black-and-white glass interface with translucent cards, soft blur, white actions and restrained monochrome contrast. The header logo, browser favicon and installed-app icons use the same ExecutiveOS monogram, clearer typography, restrained borders and consistent cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
+ExecutiveOS uses a premium black-and-white glass interface with translucent cards, soft blur, white actions and restrained monochrome contrast. The header logo, browser favicon and installed-app icons use the same ExecutiveOS monogram. Dashboard cards, simulator panels, strategy modules, asset views and World Simulation panels share a translucent glass-card treatment with soft borders, layered highlights and subtle hover depth, clearer typography, restrained borders and consistent cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
 
 ## World Simulation expansion
 

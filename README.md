@@ -163,3 +163,8 @@ The site must be served over HTTPS for service workers and install prompts; GitH
 
 ### Income-generating asset portfolio
 Every asset in the Assets catalog now generates recurring passive income through the existing 10-second game economy, including the original vehicles and crypto holdings as well as companies, properties, islands, cities, fictional countries, cosmic infrastructure, energy, and logistics acquisitions. Vehicles earn simulated charter, chauffeur, leasing, or event revenue; crypto-style game holdings receive small fictional yield while retaining their existing price movement. Newly added energy, data, rental, logistics, network, franchise, patent, water, and battery assets also earn automatically. All prices and income are fictional gameplay values; no real-world investments or transactions are involved.
+
+
+## Navigation visibility fix
+
+The decorative “All systems nominal” status label is hidden so it cannot consume navigation width. On desktop, the navigation links receive the available space and remain horizontally accessible; on smaller screens, the existing responsive menu is retained. The offline shell cache is versioned as v27.

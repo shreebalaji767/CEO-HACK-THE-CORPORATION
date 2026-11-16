@@ -195,3 +195,13 @@ The current visual identity uses only three colour families: deep charcoal black
 - No green, red, amber, purple, pink or other coloured accents; semantic status text is neutral white.
 - Browser chrome and installed-app theme colours match the charcoal-black interface.
 - Offline app shell cache refreshed to v31.
+
+
+## Strict charcoal, white and navy palette
+
+The final visual layer enforces a restricted three-tone interface palette across the app shell, all game modules, controls, tables, terminal output, status indicators and World Simulation:
+- Charcoal black backgrounds and dark charcoal glass cards/panels.
+- White primary text and neutral grey secondary text.
+- Navy/electric blue is the only accent and glow colour, including the logo, navigation, buttons, progress indicators and focus states.
+- Legacy green, red, amber, purple and other coloured status treatments are neutralized rather than used as separate UI colours.
+- The offline shell cache is refreshed to v32.

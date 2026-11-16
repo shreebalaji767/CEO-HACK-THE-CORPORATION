@@ -62,7 +62,7 @@ jobs:
             ["responsive stylesheet exists", fs.existsSync("executiveos-ui.css")],
             ["mobile navigation styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:850px)")],
             ["small-screen layout styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:600px)")],
-            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v36"')],
+            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v37"')],
             ["service worker installs fresh app shell assets", sw.includes('new Request(absolute(path), {cache: "reload"})') && sw.includes("cache.put(request, response)")],
             ["old app caches are removed on activation", sw.includes("key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME") && sw.includes("await self.clients.claim()")],
             ["online app code refreshes before cache fallback", sw.includes('["style", "script"].includes(request.destination)') && sw.includes('fetch(request, {cache: "no-store"})')],
@@ -81,7 +81,7 @@ jobs:
             ["navy-blue neon palette is active", fs.readFileSync("executiveos-ui.css", "utf8").includes("--neon-blue:#4169ff") && fs.readFileSync("executiveos-ui.css", "utf8").includes("rgba(35,75,255,.56)")],
             ["navy-blue neon glass cards and logo glow", fs.readFileSync("executiveos-ui.css", "utf8").includes("Navy-blue neon identity") && fs.readFileSync("executiveos-ui.css", "utf8").includes("0 0 32px rgba(35,75,255,.30)")],
             ["matching navy-glow logo and PWA icons", ["favicon.svg","icon-192.svg","icon-512.svg"].every(file => fs.readFileSync(file, "utf8").includes('flood-color="#4169ff"'))],
-            ["offline cache refreshed for neon assets", sw.includes('CACHE_NAME = CACHE_PREFIX + "v36"')],
+            ["offline cache refreshed for neon assets", sw.includes('CACHE_NAME = CACHE_PREFIX + "v37"')],
             ["status label cannot hide navigation", fs.readFileSync("executiveos-ui.css", "utf8").includes(".status{display:none!important}") && fs.readFileSync("executiveos-ui.css", "utf8").includes(".navlinks{display:flex!important;flex:1 1 auto!important")],
             ["navigation bar uses glass treatment", fs.readFileSync("executiveos-ui.css", "utf8").includes(".topbar{") && fs.readFileSync("executiveos-ui.css", "utf8").includes("backdrop-filter:blur(26px)") && fs.readFileSync("executiveos-ui.css", "utf8").includes(".navlinks.open")],
             ["glass styling covers core modules", [".panel,.stat,.card,.feature,.hero-art",".world-kpi,.world-panel",".exec-kpi",".modal,.palette"].every(selector => fs.readFileSync("executiveos-ui.css", "utf8").includes(selector))],
@@ -104,6 +104,8 @@ jobs:
             ["Three.js card scene creates 3D box meshes", fs.readFileSync("three-card-depth.js", "utf8").includes('from "./three.module.min.js"') && fs.readFileSync("three-card-depth.js", "utf8").includes("new THREE.BoxGeometry") && fs.readFileSync("three-card-depth.js", "utf8").includes("new THREE.WebGLRenderer")],
             ["Three.js card renderer has a no-WebGL fallback", fs.readFileSync("three-card-depth.js", "utf8").includes("three-card-ready") && fs.readFileSync("executiveos-ui.css", "utf8").includes("body:not(.three-card-ready) .three-depth-card:hover")],
             ["low-glow card surfaces replace neon halos", fs.readFileSync("executiveos-ui.css", "utf8").includes("Low-glow 3D card finish") && fs.readFileSync("executiveos-ui.css", "utf8").includes("var(--card-shadow)")],
+            ["glass UI overlays Three.js card depth", fs.readFileSync("executiveos-ui.css", "utf8").includes("Refined glass + dimensional card finish") && fs.readFileSync("executiveos-ui.css", "utf8").includes("backdrop-filter:blur(20px) saturate(128%)")],
+            ["Three.js card faces use translucent materials", fs.readFileSync("three-card-depth.js", "utf8").includes("opacity: 0.30") && fs.readFileSync("three-card-depth.js", "utf8").includes("opacity: 0.48") && fs.readFileSync("three-card-depth.js", "utf8").includes("entry.mesh.scale.set(width, height, 6)")],
             ["manual world save", w.includes("worldSave") && w.includes("localStorage.setItem(KEY")]
           ];
           for (const [name, ok] of checks) console.log((ok ? "PASS " : "FAIL ") + name);

@@ -31,7 +31,7 @@ These systems use local game logic and fictional currency. They do not call AI s
 
 ## Interface redesign
 
-ExecutiveOS uses a clean editorial dashboard style with an ice-blue surface, navy structure and royal-blue actions, clearer typography, restrained borders and consistent cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
+ExecutiveOS uses a premium black-and-white glass interface with translucent cards, soft blur, white actions and restrained monochrome contrast, clearer typography, restrained borders and consistent cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
 
 ## World Simulation expansion
 
@@ -79,14 +79,14 @@ This module uses its own World Treasury and local save key; it does not silently
 ### Progress, settings and accessibility
 - Manual browser-local saves using `localStorage`; autosave is disabled. Use **Save game** or **Save to slot** to keep progress; unsaved changes are lost on refresh or exit. Newly acquired assets, research, rival wins and prestige changes also require a manual save.
 - Three local save slots, JSON export/import, and New Game+.
-- Consistent light navy-and-blue theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
+- Consistent black-and-white glass theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
 - Landing page navigation, logo-to-home behavior, responsive layout and custom SVG favicon.
 
 ## Latest UI and reliability update
 
-The current interface refresh uses a light ice-blue canvas, navy typography and royal-blue actions. It includes refined dashboard cards, clearer visual hierarchy, consistent focus states, larger touch targets, compact KPI grids on small screens, and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
+The current interface refresh uses a deep black canvas, white typography and monochrome actions. It includes refined dashboard cards, clearer visual hierarchy, consistent focus states, larger touch targets, compact KPI grids on small screens, and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
 
-The browser theme color and PWA manifest colors match the updated interface. The service-worker cache version is **v19**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
+The browser theme color and PWA manifest colors match the monochrome interface. The service-worker cache version is **v20**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
 
 ### Validation
 

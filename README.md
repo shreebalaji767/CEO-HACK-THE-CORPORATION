@@ -82,6 +82,24 @@ This module uses its own World Treasury and local save key; it does not silently
 - Consistent light navy-and-blue theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
 - Landing page navigation, logo-to-home behavior, responsive layout and custom SVG favicon.
 
+## Latest UI and reliability update
+
+The current interface refresh uses a light ice-blue canvas, navy typography and royal-blue actions. It includes refined dashboard cards, clearer visual hierarchy, consistent focus states, larger touch targets, compact KPI grids on small screens, and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
+
+The browser theme color and PWA manifest colors match the updated interface. The service-worker cache version is **v19**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
+
+### Validation
+
+The GitHub Actions validation workflow checks:
+- Inline JavaScript, the World Simulation module and service-worker syntax.
+- Existing CEO Simulator, Corporate Empire, Strategy Lab, Asset Empire, CorpShell and World Simulation feature markers.
+- Responsive stylesheet linkage and mobile layout rules.
+- PWA theme consistency, service-worker cache version and offline module caching.
+
+The GitHub Pages workflow publishes the repository root as a static site. Check the repository's **Actions** tab for the latest validation and deployment results; a successful validation run does not by itself mean the Pages deployment has finished.
+
+This interface update is presentation and compatibility work. It preserves the existing local game systems and save formats; it should not be interpreted as a claim that every gameplay mechanic has received a full end-to-end browser test.
+
 ## Run locally
 
 Open `index.html` in a modern browser. No dependencies or server are needed.

@@ -31,7 +31,7 @@ These systems use local game logic and fictional currency. They do not call AI s
 
 ## Interface redesign
 
-ExecutiveOS uses a clean black-and-white interface with flat charcoal cards, crisp borders, white actions and restrained monochrome contrast. The header logo, browser favicon and installed-app icons use the same ExecutiveOS monogram. Dashboard cards, simulator panels, strategy modules, asset views and World Simulation panels share a consistent flat-card treatment with clear spacing, restrained borders, readable typography and no heavy blur or decorative glow. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
+ExecutiveOS uses a clean black-and-white interface with flat charcoal cards, crisp borders, white actions and restrained monochrome contrast. The header logo, browser favicon and installed-app icons use the same ExecutiveOS monogram. Dashboard cards, simulator panels, strategy modules, asset views and World Simulation panels share one consistent flat-card treatment with matching charcoal surfaces, border weights, corner radii, control styles and spacing. Layout wrappers and list rows remain visually neutral instead of becoming nested cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
 
 ## World Simulation expansion
 
@@ -84,9 +84,9 @@ This module uses its own World Treasury and local save key; it does not silently
 
 ## Latest UI and reliability update
 
-The current interface refresh uses a deep black canvas, white typography, flat charcoal cards and monochrome actions. It reduces visual effects, removes heavy glass blur and decorative card shadows, tightens borders and corner radii, and clarifies spacing and hierarchy. It retains consistent focus states, larger touch targets, compact KPI grids on small screens and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
+The current interface refresh uses a deep black canvas, white typography, flat charcoal cards and monochrome actions. It removes heavy blur, decorative glow and unnecessary shadows; standardizes card surfaces, border weights, corner radii, buttons, fields, tabs and spacing; and keeps structural wrappers and list rows from appearing as mismatched nested cards. It retains consistent focus states, larger touch targets, compact KPI grids on small screens and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
 
-The browser theme color and PWA manifest colors match the monochrome interface. The service-worker cache version is **v22**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
+The browser theme color and PWA manifest colors match the monochrome interface. The service-worker cache version is **v23**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
 
 ### Validation
 

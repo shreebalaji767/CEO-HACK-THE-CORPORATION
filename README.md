@@ -186,11 +186,12 @@ The latest visual pass strengthens the black-and-white neon identity across the 
 - Offline shell cache refreshed to v29 so returning visitors can receive the updated styles and icons.
 
 
-## Navy-blue neon visual theme
+## Charcoal-black and navy-blue neon visual theme
 
-The interface now uses a deep black and navy-blue neon palette instead of white neon lighting:
-- Electric navy-blue glow around glass-card edges, navigation, active tabs, buttons, controls, focus states and progress indicators.
-- Black / midnight-blue glass surfaces with subtle blue inner lighting and brighter blue hover states.
-- ExecutiveOS logo, browser favicon and installed-app icons share the same navy-blue illuminated mark.
-- White and soft-grey text remains for contrast and readability; the neon illumination itself is navy blue.
-- Offline app shell cache refreshed to v30.
+The current visual identity uses only three colour families: deep charcoal black for the entire interface, white for all readable text, and navy / electric blue strictly for neon illumination.
+- Deep charcoal-black page background, cards, panels, terminal windows, navigation and form surfaces.
+- White primary text and soft neutral-grey secondary text for clear contrast.
+- Navy-blue neon glow on the logo, matching browser favicon and installed-app icons, cards, navigation, buttons, controls, focus states and progress indicators.
+- No green, red, amber, purple, pink or other coloured accents; semantic status text is neutral white.
+- Browser chrome and installed-app theme colours match the charcoal-black interface.
+- Offline app shell cache refreshed to v31.

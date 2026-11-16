@@ -203,3 +203,38 @@ input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{out
 .world-meter i{background:linear-gradient(90deg,#244b83,#5d91d5)!important}
 .world-feed div{border-left-color:#7862b5!important}
 .featureicon,.pill{background:#eaf1fc!important;color:#356fbd!important}
+
+
+/* Final responsive polish: clearer hierarchy, stable touch targets and compact KPI grids. */
+:root{color-scheme:light;accent-color:#356fbd}
+html{scrollbar-gutter:stable}
+body{min-height:100vh}
+button,.btn,.navbtn,.ghost,.chip,.world-tab{min-height:40px}
+.btn:focus-visible,.navbtn:focus-visible,.ghost:focus-visible,.chip:focus-visible,.world-tab:focus-visible{outline:3px solid #356fbd55!important;outline-offset:3px!important}
+.panel,.stat,.feature,.world-panel,.world-kpi{min-width:0}
+.panelhead,.sectionhead,.pagehead{min-width:0}
+.panelhead>*{min-width:0}
+.field,input,select,textarea{max-width:100%}
+table{font-variant-numeric:tabular-nums}
+td,th{overflow-wrap:anywhere}
+@media(max-width:600px){
+  .dashboard,.dashboard.compact,.kpis,.stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .cards{grid-template-columns:minmax(0,1fr)!important}
+  .assetgrid,.corpgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .stat{padding:13px!important}
+  .stat strong{font-size:clamp(18px,5vw,24px)!important}
+  .pagehead h1{overflow-wrap:normal}
+  .settingsrow{align-items:stretch}
+  .settingsrow .field,.settingsrow select{flex:1 1 130px}
+  .panel{overflow-wrap:anywhere}
+  table{display:block;width:100%;max-width:100%;overflow-x:auto;white-space:nowrap}
+}
+@media(max-width:360px){
+  .dashboard,.dashboard.compact,.kpis,.stats,.assetgrid,.corpgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .stat{padding:10px!important}
+  .stat strong{font-size:17px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

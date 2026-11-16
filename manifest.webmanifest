@@ -9,8 +9,8 @@
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui", "browser"],
   "orientation": "any",
-  "background_color": "#0c100d",
-  "theme_color": "#101612",
+  "background_color": "#f2f6fc",
+  "theme_color": "#f2f6fc",
   "categories": ["games", "entertainment"],
   "icons": [
     {"src": "./icon-192.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any"},

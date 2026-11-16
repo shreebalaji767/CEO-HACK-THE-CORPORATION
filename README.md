@@ -31,7 +31,7 @@ These systems use local game logic and fictional currency. They do not call AI s
 
 ## Interface redesign
 
-ExecutiveOS uses a clean editorial dashboard style with a warm light surface, deep forest-green actions, clearer typography, restrained borders and consistent cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
+ExecutiveOS uses a clean editorial dashboard style with an ice-blue surface, navy structure and royal-blue actions, clearer typography, restrained borders and consistent cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
 
 ## World Simulation expansion
 
@@ -79,7 +79,7 @@ This module uses its own World Treasury and local save key; it does not silently
 ### Progress, settings and accessibility
 - Manual browser-local saves using `localStorage`; autosave is disabled. Use **Save game** or **Save to slot** to keep progress; unsaved changes are lost on refresh or exit. Newly acquired assets, research, rival wins and prestige changes also require a manual save.
 - Three local save slots, JSON export/import, and New Game+.
-- Permanent dark-only corporate green/black theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
+- Consistent light navy-and-blue theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
 - Landing page navigation, logo-to-home behavior, responsive layout and custom SVG favicon.
 
 ## Run locally

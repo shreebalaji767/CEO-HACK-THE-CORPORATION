@@ -222,3 +222,13 @@ Three.js is stored in the repository and cached by the service worker; it is not
 ## Always refresh to the latest published interface
 
 The PWA shell cache is versioned as **v36**. On activation, the service worker removes older ExecutiveOS shell caches and takes control of open tabs. Each app launch requests a service-worker update with HTTP cache bypass; an already-open controlled tab reloads once when the new worker takes control. While online, navigation and application code are fetched from the current deployment before falling back to the latest cached copy when offline. CSS and JavaScript asset URLs are versioned to prevent stale browser-cache reuse.
+
+
+## True Three.js glass cards (v37)
+
+- Card bodies use translucent Three.js physical materials with clearcoat highlights, subtle reflectivity and shaded charcoal/navy sides.
+- Frosted-glass HTML surfaces add background blur, fine cool-grey borders and soft inset highlights over the live Three.js depth layer.
+- Navigation, terminal sub-panels, controls, forms and the sticky header share the same glass treatment.
+- Glow remains restrained within the charcoal, white and muted navy palette.
+- Reduced-transparency settings and lighter mobile blur remain supported.
+- Local app-shell assets are refreshed and versioned as v37.

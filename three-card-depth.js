@@ -63,35 +63,23 @@ import * as THREE from "./three.module.min.js";
   const edgeGeometry = new THREE.EdgesGeometry(unitGeometry, 18);
   const faceMaterial = new THREE.MeshStandardMaterial({
     color: 0x151923,
-    metalness: 0.12,
-    roughness: 0.48,
-    transparent: true,
-    opacity: 0.30,
-    depthWrite: false
+    metalness: 0.18,
+    roughness: 0.62
   });
   const sideMaterial = new THREE.MeshStandardMaterial({
     color: 0x202b43,
-    metalness: 0.20,
-    roughness: 0.42,
-    transparent: true,
-    opacity: 0.48,
-    depthWrite: false
+    metalness: 0.28,
+    roughness: 0.48
   });
   const topMaterial = new THREE.MeshStandardMaterial({
     color: 0x2a3651,
-    metalness: 0.18,
-    roughness: 0.40,
-    transparent: true,
-    opacity: 0.38,
-    depthWrite: false
+    metalness: 0.24,
+    roughness: 0.46
   });
   const backMaterial = new THREE.MeshStandardMaterial({
     color: 0x0c1018,
-    metalness: 0.08,
-    roughness: 0.66,
-    transparent: true,
-    opacity: 0.12,
-    depthWrite: false
+    metalness: 0.12,
+    roughness: 0.72
   });
   const materials = [
     sideMaterial, sideMaterial, topMaterial, sideMaterial, faceMaterial, backMaterial
@@ -99,7 +87,7 @@ import * as THREE from "./three.module.min.js";
   const edgeMaterial = new THREE.LineBasicMaterial({
     color: 0x52658f,
     transparent: true,
-    opacity: 0.30
+    opacity: 0.42
   });
 
   const entries = new Map();
@@ -155,7 +143,7 @@ import * as THREE from "./three.module.min.js";
       const height = rect.height;
       const depth = nestingDepth(element) * 12;
       entry.mesh.position.set(rect.left + width / 2, window.innerHeight - rect.top - height / 2, depth);
-      entry.mesh.scale.set(width, height, 6);
+      entry.mesh.scale.set(width, height, 8);
       entry.edge.position.copy(entry.mesh.position);
       entry.edge.position.z += 0.025;
       entry.edge.scale.copy(entry.mesh.scale);

@@ -59,7 +59,7 @@ jobs:
             ["responsive stylesheet exists", fs.existsSync("executiveos-ui.css")],
             ["mobile navigation styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:850px)")],
             ["small-screen layout styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:600px)")],
-            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v32"')],
+            ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v33"')],
             ["charcoal theme matches browser chrome", h.includes('<meta name="theme-color" content="#090a0e">') && fs.readFileSync("manifest.webmanifest", "utf8").includes('"theme_color": "#090a0e"')],
             ["mobile KPI cards remain compact", fs.readFileSync("executiveos-ui.css", "utf8").includes("grid-template-columns:repeat(2,minmax(0,1fr))!important")],
             ["clean monochrome design is present", fs.readFileSync("executiveos-ui.css", "utf8").includes("Unified monochrome component system") && fs.readFileSync("executiveos-ui.css", "utf8").includes("--ui-surface:#141414")],
@@ -72,7 +72,7 @@ jobs:
             ["navy-blue neon palette is active", fs.readFileSync("executiveos-ui.css", "utf8").includes("--neon-blue:#4169ff") && fs.readFileSync("executiveos-ui.css", "utf8").includes("rgba(35,75,255,.56)")],
             ["navy-blue neon glass cards and logo glow", fs.readFileSync("executiveos-ui.css", "utf8").includes("Navy-blue neon identity") && fs.readFileSync("executiveos-ui.css", "utf8").includes("0 0 32px rgba(35,75,255,.30)")],
             ["matching navy-glow logo and PWA icons", ["favicon.svg","icon-192.svg","icon-512.svg"].every(file => fs.readFileSync(file, "utf8").includes('flood-color="#4169ff"'))],
-            ["offline cache refreshed for neon assets", sw.includes('CACHE_NAME = CACHE_PREFIX + "v32"')],
+            ["offline cache refreshed for neon assets", sw.includes('CACHE_NAME = CACHE_PREFIX + "v33"')],
             ["status label cannot hide navigation", fs.readFileSync("executiveos-ui.css", "utf8").includes(".status{display:none!important}") && fs.readFileSync("executiveos-ui.css", "utf8").includes(".navlinks{display:flex!important;flex:1 1 auto!important")],
             ["navigation bar uses glass treatment", fs.readFileSync("executiveos-ui.css", "utf8").includes(".topbar{") && fs.readFileSync("executiveos-ui.css", "utf8").includes("backdrop-filter:blur(26px)") && fs.readFileSync("executiveos-ui.css", "utf8").includes(".navlinks.open")],
             ["glass styling covers core modules", [".panel,.stat,.card,.feature,.hero-art",".world-kpi,.world-panel",".exec-kpi",".modal,.palette"].every(selector => fs.readFileSync("executiveos-ui.css", "utf8").includes(selector))],
@@ -85,6 +85,10 @@ jobs:
             ["strict theme maps all semantic status colors to white", /--green:#f7f8fc!important;--green2:#f7f8fc!important;--amber:#f7f8fc!important;--red:#f7f8fc!important/.test(fs.readFileSync("executiveos-ui.css", "utf8"))],
             ["legacy inline shell green accents replaced", !["#b9f27c","#a9ef7020","#5a8c43","#17251a","#47713a"].some(color => fs.readFileSync("index.html", "utf8").split("<style>")[1].split("</style>")[0].includes(color))],
             ["terminal and world status accents are neutral", fs.readFileSync("executiveos-ui.css", "utf8").includes(".world-good,.world-warn") && fs.readFileSync("executiveos-ui.css", "utf8").includes(".termline.warn,.termline.err,.termline.good{color:#d4d8e2!important}")],
+            ["PWA install prompt captured", h.includes('addEventListener("beforeinstallprompt"') && h.includes("event.preventDefault();deferredInstallPrompt=event")],
+            ["PWA install button invokes native prompt", h.includes('addEventListener("click",()=>installApp())') && h.includes("await promptEvent.prompt()") && h.includes("await promptEvent.userChoice")],
+            ["installed app state is reflected", h.includes('addEventListener("appinstalled"') && h.includes('b.disabled=true')],
+            ["install button remains visible on narrow phones", !h.includes(".navright #installBtn{display:none}")],
             ["manual world save", w.includes("worldSave") && w.includes("localStorage.setItem(KEY")]
           ];
           for (const [name, ok] of checks) console.log((ok ? "PASS " : "FAIL ") + name);

@@ -205,3 +205,8 @@ The final visual layer enforces a restricted three-tone interface palette across
 - Navy/electric blue is the only accent and glow colour, including the logo, navigation, buttons, progress indicators and focus states.
 - Legacy green, red, amber, purple and other coloured status treatments are neutralized rather than used as separate UI colours.
 - The offline shell cache is refreshed to v32.
+
+
+## PWA installation fix
+
+The header **Install** button now captures the browser's `beforeinstallprompt` event and opens the native installation prompt when the browser makes it available. If one-tap installation is unavailable, the button displays device-specific instructions instead. Installed-app state is reflected in the button, and the install control remains visible on very narrow mobile screens. The service-worker shell cache is refreshed to **v33** so returning visitors receive the corrected install flow. On iPhone and iPad, use Safari's Share menu and choose **Add to Home Screen**.

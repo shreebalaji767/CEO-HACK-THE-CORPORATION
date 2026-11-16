@@ -604,3 +604,22 @@ svg,canvas{filter:grayscale(1)!important}
  .navright{flex:0 0 auto!important}
 }
 @media(max-width:850px){.status{display:none!important}}
+
+
+/* Black-and-white neon finish: controlled white edge light, never coloured glow. */
+:root{--neon-white:#fff;--neon-soft:rgba(255,255,255,.72);--neon-halo:rgba(255,255,255,.16);--neon-halo-strong:rgba(255,255,255,.28)}
+html,body{background:#050505!important;color:#f7f7f7!important}
+.topbar{background:rgba(5,5,5,.72)!important;border-bottom:1px solid rgba(255,255,255,.2)!important;box-shadow:0 8px 34px rgba(255,255,255,.055),0 14px 38px rgba(0,0,0,.65)!important;backdrop-filter:blur(24px) saturate(120%)!important;-webkit-backdrop-filter:blur(24px) saturate(120%)!important}
+.navlinks{border-color:rgba(255,255,255,.2)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 0 22px rgba(255,255,255,.045)!important}
+.navbtn.active,.world-tab.active{box-shadow:0 0 8px rgba(255,255,255,.48),0 0 22px rgba(255,255,255,.18),inset 0 0 10px rgba(255,255,255,.22)!important}
+.btn:not(.secondary){box-shadow:0 0 8px rgba(255,255,255,.24),0 0 22px rgba(255,255,255,.10),inset 0 1px 0 #fff!important}
+.btn.secondary,.ghost,.navbtn,.world-tab{transition:box-shadow .18s ease,border-color .18s ease,background .18s ease!important}
+.btn.secondary:hover,.ghost:hover,.navbtn:hover,.world-tab:hover{border-color:rgba(255,255,255,.58)!important;box-shadow:0 0 12px rgba(255,255,255,.13)!important}
+.panel,.stat,.feature,.hero-art,.mockstat,.achievement,.section-card,.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,.world-rival{border-color:rgba(255,255,255,.17)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.075),0 10px 32px rgba(0,0,0,.38)!important}
+.panel:hover,.stat:hover,.feature:hover,.world-panel:hover,.world-kpi:hover,.eventcard:hover,.corp-card:hover,.strategy-card:hover,.mission:hover{border-color:rgba(255,255,255,.38)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 0 18px rgba(255,255,255,.075),0 14px 38px rgba(0,0,0,.48)!important}
+.logo{border:1px solid rgba(255,255,255,.62)!important;box-shadow:0 0 10px rgba(255,255,255,.25),0 0 24px rgba(255,255,255,.10)!important}
+input:focus,select:focus,textarea:focus,.field:focus,button:focus-visible,a:focus-visible,:focus-visible{outline:2px solid rgba(255,255,255,.92)!important;outline-offset:3px!important;box-shadow:0 0 0 4px rgba(255,255,255,.10),0 0 16px rgba(255,255,255,.2)!important}
+.progress i,.world-meter i,.strategy-meter i,.exec-chart i,.chart i{box-shadow:0 0 8px rgba(255,255,255,.58),0 0 18px rgba(255,255,255,.22)!important}
+.dot{background:#fff!important;box-shadow:0 0 0 4px rgba(255,255,255,.12),0 0 12px rgba(255,255,255,.58)!important}
+::selection{background:#fff!important;color:#000!important}
+@media(prefers-reduced-motion:reduce){.btn,.navbtn,.ghost,.world-tab,.panel,.stat,.feature{transition:none!important}}

@@ -637,6 +637,7 @@ document.addEventListener("click",e=>{let b=e.target.closest("[data-exec-action]
 if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js",{scope:"./"}).catch(()=>{}))}
 })();
 </script>
+<script type="module" src="./three-card-depth.js"></script>
 <script src="./world-sim.js" defer></script>
 </body>
 </html>

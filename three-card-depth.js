@@ -1,0 +1,232 @@
+import * as THREE from "./three.module.min.js";
+
+(() => {
+  "use strict";
+
+  const CARD_SELECTOR = [
+    ".panel", ".stat", ".card", ".feature", ".hero-art", ".achievement",
+    ".section-card", ".terminal-window", ".terminal", ".strategy-card",
+    ".corp-card", ".world-kpi", ".world-panel", ".mission", ".eventcard",
+    ".callout", ".modal", ".palette", ".assetportfolio", ".assetcatalog",
+    ".strategy-kpi", ".exec-kpi", ".world-toolbar", ".world-rival",
+    ".world-empty", ".exec-log"
+  ].join(",");
+
+  const body = document.body;
+  if (!body) return;
+
+  const canvas = document.createElement("canvas");
+  canvas.id = "threeCardCanvas";
+  canvas.setAttribute("aria-hidden", "true");
+  canvas.tabIndex = -1;
+  canvas.style.cssText = "position:fixed;inset:0;width:100vw;height:100vh;max-width:none;pointer-events:none;z-index:0";
+  body.prepend(canvas);
+
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: "low-power"
+    });
+  } catch (error) {
+    canvas.remove();
+    return;
+  }
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  renderer.setSize(window.innerWidth, window.innerHeight, false);
+  renderer.setClearColor(0x000000, 0);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.OrthographicCamera(
+    0, window.innerWidth, window.innerHeight, 0, 0.1, 3000
+  );
+  camera.position.set(0, 0, 1500);
+  camera.lookAt(0, 0, 0);
+
+  scene.add(new THREE.AmbientLight(0xdce5ff, 1.55));
+
+  const keyLight = new THREE.DirectionalLight(0xe0e8ff, 1.8);
+  keyLight.position.set(-260, 420, 520);
+  scene.add(keyLight);
+
+  const edgeLight = new THREE.DirectionalLight(0x617bb8, 0.48);
+  edgeLight.position.set(300, -180, 260);
+  scene.add(edgeLight);
+
+  const unitGeometry = new THREE.BoxGeometry(1, 1, 1);
+  const edgeGeometry = new THREE.EdgesGeometry(unitGeometry, 18);
+  const faceMaterial = new THREE.MeshStandardMaterial({
+    color: 0x151923,
+    metalness: 0.18,
+    roughness: 0.62
+  });
+  const sideMaterial = new THREE.MeshStandardMaterial({
+    color: 0x202b43,
+    metalness: 0.28,
+    roughness: 0.48
+  });
+  const topMaterial = new THREE.MeshStandardMaterial({
+    color: 0x2a3651,
+    metalness: 0.24,
+    roughness: 0.46
+  });
+  const backMaterial = new THREE.MeshStandardMaterial({
+    color: 0x0c1018,
+    metalness: 0.12,
+    roughness: 0.72
+  });
+  const materials = [
+    sideMaterial, sideMaterial, topMaterial, sideMaterial, faceMaterial, backMaterial
+  ];
+  const edgeMaterial = new THREE.LineBasicMaterial({
+    color: 0x52658f,
+    transparent: true,
+    opacity: 0.42
+  });
+
+  const entries = new Map();
+  const pointer = { x: -10000, y: -10000, active: false };
+  let frame = 0;
+
+  function nestingDepth(element) {
+    let depth = 0;
+    for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+      if (parent.matches && parent.matches(CARD_SELECTOR)) depth++;
+    }
+    return Math.min(depth, 4);
+  }
+
+  function addCard(element) {
+    const mesh = new THREE.Mesh(unitGeometry, materials);
+    mesh.frustumCulled = false;
+    mesh.castShadow = false;
+    mesh.receiveShadow = false;
+
+    const edge = new THREE.LineSegments(edgeGeometry, edgeMaterial);
+    edge.frustumCulled = false;
+    edge.renderOrder = 2;
+    edge.position.z = 0.02;
+
+    scene.add(mesh, edge);
+    element.classList.add("three-depth-card");
+    const entry = { mesh, edge };
+    entries.set(element, entry);
+    if (resizeObserver) resizeObserver.observe(element);
+    return entry;
+  }
+
+  function syncCards() {
+    const visibleElements = new Set(document.querySelectorAll(CARD_SELECTOR));
+
+    for (const [element, entry] of entries) {
+      if (!element.isConnected || !visibleElements.has(element)) {
+        scene.remove(entry.mesh, entry.edge);
+        entries.delete(element);
+        continue;
+      }
+
+      const rect = element.getBoundingClientRect();
+      const visible = rect.width > 1 && rect.height > 1 &&
+        rect.bottom > 0 && rect.top < window.innerHeight &&
+        rect.right > 0 && rect.left < window.innerWidth;
+      entry.mesh.visible = visible;
+      entry.edge.visible = visible;
+      if (!visible) continue;
+
+      const width = rect.width;
+      const height = rect.height;
+      const depth = nestingDepth(element) * 12;
+      entry.mesh.position.set(rect.left + width / 2, window.innerHeight - rect.top - height / 2, depth);
+      entry.mesh.scale.set(width, height, 8);
+      entry.edge.position.copy(entry.mesh.position);
+      entry.edge.position.z += 0.025;
+      entry.edge.scale.copy(entry.mesh.scale);
+
+      if (pointer.active && pointer.x >= rect.left && pointer.x <= rect.right &&
+          pointer.y >= rect.top && pointer.y <= rect.bottom) {
+        const nx = (pointer.x - (rect.left + width / 2)) / Math.max(1, width / 2);
+        const ny = (pointer.y - (rect.top + height / 2)) / Math.max(1, height / 2);
+        entry.mesh.rotation.x = -ny * 0.035;
+        entry.mesh.rotation.y = nx * 0.035;
+      } else {
+        entry.mesh.rotation.set(0, 0, 0);
+      }
+      entry.edge.rotation.copy(entry.mesh.rotation);
+    }
+
+    for (const element of visibleElements) {
+      if (!entries.has(element)) {
+        const rect = element.getBoundingClientRect();
+        if (rect.width > 1 && rect.height > 1) addCard(element);
+      }
+    }
+  }
+
+  function render() {
+    frame = 0;
+    syncCards();
+    renderer.render(scene, camera);
+  }
+
+  function scheduleRender() {
+    if (!frame) frame = requestAnimationFrame(render);
+  }
+
+  function resize() {
+    const width = Math.max(1, window.innerWidth);
+    const height = Math.max(1, window.innerHeight);
+    renderer.setSize(width, height, false);
+    camera.left = 0;
+    camera.right = width;
+    camera.top = height;
+    camera.bottom = 0;
+    camera.updateProjectionMatrix();
+    scheduleRender();
+  }
+
+  const resizeObserver = typeof ResizeObserver === "undefined"
+    ? null
+    : new ResizeObserver(scheduleRender);
+
+  const mutationObserver = new MutationObserver(scheduleRender);
+  mutationObserver.observe(body, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ["class", "style", "hidden"]
+  });
+
+  window.addEventListener("resize", resize, { passive: true });
+  window.addEventListener("orientationchange", resize, { passive: true });
+  window.addEventListener("scroll", scheduleRender, { passive: true, capture: true });
+
+  document.addEventListener("pointermove", event => {
+    if (event.pointerType === "touch") return;
+    pointer.x = event.clientX;
+    pointer.y = event.clientY;
+    pointer.active = true;
+    scheduleRender();
+  }, { passive: true });
+
+  document.addEventListener("pointerleave", () => {
+    pointer.active = false;
+    scheduleRender();
+  });
+
+  canvas.addEventListener("webglcontextlost", event => {
+    event.preventDefault();
+    body.classList.remove("three-card-ready");
+  });
+
+  body.classList.add("three-card-ready");
+  scheduleRender();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(scheduleRender).catch(() => {});
+  }
+})();

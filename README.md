@@ -210,3 +210,10 @@ The final visual layer enforces a restricted three-tone interface palette across
 ## PWA installation fix
 
 The header **Install** button now captures the browser's `beforeinstallprompt` event and opens the native installation prompt when the browser makes it available. If one-tap installation is unavailable, the button displays device-specific instructions instead. Installed-app state is reflected in the button, and the install control remains visible on very narrow mobile screens. The service-worker shell cache is refreshed to **v33** so returning visitors receive the corrected install flow. On iPhone and iPad, use Safari's Share menu and choose **Add to Home Screen**.
+
+
+## Three.js 3D card interface
+
+The interface now uses a locally bundled **Three.js r180** renderer to draw shallow, charcoal-black 3D card bodies behind the existing HTML content. Cards have restrained navy edge shading, realistic side depth, soft contact shadows and subtle pointer tilt rather than large neon halos. The effect covers dashboard metrics, panels, feature cards, world-simulation cards, dialogs and terminal surfaces while leaving list rows and navigation controls visually lighter.
+
+Three.js is stored in the repository and cached by the service worker; it is not loaded from a CDN and does not require an API, account, build step or paid service. If WebGL is unavailable, the cards retain a CSS-based depth and shadow fallback. The service-worker cache is refreshed to **v34**. Three.js is distributed under the MIT License; see `THREE-LICENSE.txt`.

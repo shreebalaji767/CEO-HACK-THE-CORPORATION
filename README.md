@@ -173,3 +173,14 @@ The decorative “All systems nominal” status label is hidden so it cannot con
 ## Monochrome neon finish
 
 The interface adds a restrained black-and-white neon finish: white edge lighting and soft glow accents on the navigation, active tabs, buttons, card edges, progress indicators and keyboard focus. The palette remains strictly monochrome with no coloured neon accents. Glow is deliberately subtle to preserve legibility and avoid visual clutter; reduced-motion preferences remain respected. The offline shell cache is versioned as v28.
+
+
+## Full monochrome neon glass treatment
+
+The latest visual pass strengthens the black-and-white neon identity across the complete interface:
+- Dark translucent glass cards with brighter white neon borders, inner highlights and soft outer glow.
+- Illuminated header logo and matching glowing favicon, 192px and 512px installed-app icons using the same ExecutiveOS mark.
+- Neon edge lighting on navigation, selected tabs, primary and secondary buttons, form focus states, progress meters and status indicators.
+- Monochrome-only lighting: no blue, green, pink, purple or other coloured neon accents.
+- Responsive layouts, keyboard focus visibility and reduced-motion / reduced-transparency preferences are retained.
+- Offline shell cache refreshed to v29 so returning visitors can receive the updated styles and icons.

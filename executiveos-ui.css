@@ -977,7 +977,7 @@ table,thead,tbody,tr,td,th{border-color:rgba(55,88,190,.30)!important}
 th{background:rgba(23,34,70,.58)!important;color:#fff!important}
 tr:hover td{background:rgba(35,65,160,.12)!important}
 hr,.divider{border-color:rgba(55,88,190,.34)!important}
-svg [stroke="#b9f27c"],svg [stroke="#82c85b"],svg [fill="#b9f27c"],svg [fill="#82c85b"]{stroke:#6688ff!important;fill:#6688ff!important}
+svg [stroke="#4169ff"],svg [stroke="#6688ff"],svg [fill="#4169ff"],svg [fill="#6688ff"]{stroke:#6688ff!important;fill:#6688ff!important}
 ::selection{background:#3156d8!important;color:#fff!important}
 @media(prefers-reduced-transparency:reduce){
  .panel,.stat,.card,.feature,.hero-art,.mockstat,.achievement,.section-card,.terminal-window,
@@ -1060,6 +1060,6 @@ tr:hover td{background:rgba(35,65,160,.12)!important}
 .toast{background:#151925!important;color:#fff!important;border-color:rgba(65,100,230,.5)!important}
 ::selection{background:#3156d8!important;color:#fff!important}
 svg [stroke],svg [fill]{}
-svg [stroke="#b9f27c"],svg [stroke="#82c85b"],svg [stroke="#5c8d69"],svg [fill="#b9f27c"],svg [fill="#82c85b"]{stroke:#6688ff!important;fill:#6688ff!important}
+svg [stroke="#4169ff"],svg [stroke="#6688ff"],svg [stroke="#6688ff"],svg [fill="#4169ff"],svg [fill="#6688ff"]{stroke:#6688ff!important;fill:#6688ff!important}
 @media(prefers-reduced-transparency:reduce){.panel,.stat,.card,.feature,.hero-art,.mockstat,.achievement,.section-card,.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,.world-rival{background:#11141d!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
 @media(prefers-reduced-motion:reduce){.panel,.stat,.card,.feature,.btn,.navbtn,.ghost,.world-tab{transition:none!important}}

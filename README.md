@@ -31,7 +31,7 @@ These systems use local game logic and fictional currency. They do not call AI s
 
 ## Interface redesign
 
-ExecutiveOS uses a premium black-and-white glass interface with translucent cards, soft blur, white actions and restrained monochrome contrast. The header logo, browser favicon and installed-app icons use the same ExecutiveOS monogram. Dashboard cards, simulator panels, strategy modules, asset views and World Simulation panels share a translucent glass-card treatment with soft borders, layered highlights and subtle hover depth, clearer typography, restrained borders and consistent cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
+ExecutiveOS uses a clean black-and-white interface with flat charcoal cards, crisp borders, white actions and restrained monochrome contrast. The header logo, browser favicon and installed-app icons use the same ExecutiveOS monogram. Dashboard cards, simulator panels, strategy modules, asset views and World Simulation panels share a consistent flat-card treatment with clear spacing, restrained borders, readable typography and no heavy blur or decorative glow. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
 
 ## World Simulation expansion
 
@@ -79,14 +79,14 @@ This module uses its own World Treasury and local save key; it does not silently
 ### Progress, settings and accessibility
 - Manual browser-local saves using `localStorage`; autosave is disabled. Use **Save game** or **Save to slot** to keep progress; unsaved changes are lost on refresh or exit. Newly acquired assets, research, rival wins and prestige changes also require a manual save.
 - Three local save slots, JSON export/import, and New Game+.
-- Consistent black-and-white glass theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
+- Consistent black-and-white clean monochrome theme, optional synthesized sound cue, reduced-motion option, and keyboard shortcuts.
 - Landing page navigation, logo-to-home behavior, responsive layout and custom SVG favicon.
 
 ## Latest UI and reliability update
 
-The current interface refresh uses a deep black canvas, white typography and monochrome actions. It includes refined dashboard cards, clearer visual hierarchy, consistent focus states, larger touch targets, compact KPI grids on small screens, and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
+The current interface refresh uses a deep black canvas, white typography, flat charcoal cards and monochrome actions. It reduces visual effects, removes heavy glass blur and decorative card shadows, tightens borders and corner radii, and clarifies spacing and hierarchy. It retains consistent focus states, larger touch targets, compact KPI grids on small screens and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
 
-The browser theme color and PWA manifest colors match the monochrome interface. The service-worker cache version is **v20**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
+The browser theme color and PWA manifest colors match the monochrome interface. The service-worker cache version is **v22**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
 
 ### Validation
 

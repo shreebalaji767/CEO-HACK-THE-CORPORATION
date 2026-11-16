@@ -187,23 +187,6 @@ button:disabled{cursor:not-allowed}
 }
 
 
-/* Blue-forward visual identity: navy structure, royal-blue actions, ice-blue surfaces. */
-:root{color-scheme:light;--bg:#f2f6fc;--panel:#fff;--panel2:#f7faff;--line:#dce5f1;--text:#17263d;--muted:#65758d;--green:#244b83;--green2:#356fbd;--amber:#7862b5;--red:#b94b68;--shadow:0 12px 36px rgba(29,62,112,.09);--ui-ink:#17263d}
-.topbar{background:rgba(248,251,255,.96)!important}
-.logo{background:linear-gradient(145deg,#244b83,#356fbd)!important;color:#fff!important}
-.navbtn:hover,.navbtn.active,.ghost:hover{color:#244b83!important;background:#eaf1fc!important;border-color:#d5e2f5!important}
-.btn{background:linear-gradient(135deg,#244b83,#356fbd)!important;border-color:#244b83!important;color:#fff!important}
-.btn:hover{background:#1b3b69!important}
-.btn.secondary{background:#fff!important;color:#244b83!important;border-color:#cbd9ed!important}
-.btn.secondary:hover{background:#eef4fd!important}
-.eyebrow,.hero h1 span{color:#356fbd!important}
-.callout{background:linear-gradient(110deg,#eaf1fc,#f4f1fc)!important;border-color:#d5e2f5!important}
-input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline-color:#789de066!important;border-color:#547fbd!important}
-.world-tab.active{background:#eaf1fc!important;border-color:#c8d8f1!important;color:#244b83!important}
-.world-meter i{background:linear-gradient(90deg,#244b83,#5d91d5)!important}
-.world-feed div{border-left-color:#7862b5!important}
-.featureicon,.pill{background:#eaf1fc!important;color:#356fbd!important}
-
 
 /* Final responsive polish: clearer hierarchy, stable touch targets and compact KPI grids. */
 :root{color-scheme:light;accent-color:#356fbd}
@@ -240,182 +223,8 @@ td,th{overflow-wrap:anywhere}
 }
 
 
-/* ExecutiveOS monochrome glass system */
-:root{
- color-scheme:dark!important;
- --bg:#080808!important;--panel:rgba(255,255,255,.075)!important;--panel2:rgba(255,255,255,.11)!important;
- --line:rgba(255,255,255,.16)!important;--text:#f7f7f7!important;--muted:#aaa!important;
- --green:#fff!important;--green2:#dedede!important;--amber:#c8c8c8!important;--red:#ff8d8d!important;
- --shadow:0 18px 55px rgba(0,0,0,.42)!important;--ui-ink:#fff!important;
-}
-html,body{background:#080808!important;color:#f7f7f7!important}
-body{background:radial-gradient(ellipse at 50% -25%,#303030 0,transparent 48%),#080808!important}
-.topbar{background:rgba(8,8,8,.72)!important;border-bottom:1px solid rgba(255,255,255,.12)!important;box-shadow:0 8px 35px rgba(0,0,0,.24)!important;backdrop-filter:blur(24px) saturate(140%)!important;-webkit-backdrop-filter:blur(24px) saturate(140%)!important}
-.brand,.brand small,h1,h2,h3,h4,.stat strong,.stat b,.kpi strong,.mockstat strong{color:#fff!important}
-.logo{background:#050505!important;color:#fff!important;border:1px solid rgba(255,255,255,.2)!important;box-shadow:0 5px 24px rgba(0,0,0,.32)!important}
-.navbtn,.ghost{color:#bdbdbd!important}
-.navbtn:hover,.navbtn.active,.ghost:hover{color:#fff!important;background:rgba(255,255,255,.1)!important;border-color:rgba(255,255,255,.2)!important}
-.btn{background:#fff!important;color:#080808!important;border:1px solid #fff!important;box-shadow:0 6px 24px rgba(255,255,255,.08)!important}
-.btn:hover{background:#dedede!important;color:#000!important}
-.btn.secondary{background:rgba(255,255,255,.06)!important;color:#fff!important;border-color:rgba(255,255,255,.2)!important}
-.btn.secondary:hover{background:rgba(255,255,255,.14)!important}
-.eyebrow,.hero h1 span,.pill,.featureicon{color:#fff!important}
-.eyebrow:before{background:#fff!important}
-.hero-art,.panel,.stat,.card,.feature,.mockstat,.achievement,.section-card,.terminal-window,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.actionrow,.eventcard,.callout,.modal,.palette,.windowbar{
- background:rgba(255,255,255,.065)!important;
- border:1px solid rgba(255,255,255,.15)!important;
- color:#f7f7f7!important;
- box-shadow:0 18px 55px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.08)!important;
- backdrop-filter:blur(20px) saturate(135%)!important;-webkit-backdrop-filter:blur(20px) saturate(135%)!important;
-}
-.hero-art{background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035))!important}
-.mockstat,.windowbar{background:rgba(255,255,255,.055)!important}
-.feature:hover,.panel:hover,.stat:hover{border-color:rgba(255,255,255,.3)!important}
-.featureicon,.pill,.chip,.world-tab{background:rgba(255,255,255,.1)!important;color:#fff!important;border-color:rgba(255,255,255,.18)!important}
-.callout,.eventcard{background:rgba(255,255,255,.07)!important}
-input,select,textarea,.input,.field,.field input,.field select,.field textarea{background:rgba(255,255,255,.08)!important;color:#fff!important;border-color:rgba(255,255,255,.2)!important}
-input::placeholder,textarea::placeholder{color:#929292!important}
-th{background:rgba(255,255,255,.1)!important;color:#ddd!important}
-td,th{border-bottom-color:rgba(255,255,255,.12)!important}
-tr:hover td{background:rgba(255,255,255,.06)!important}
-.terminal-window,.terminal,.terminal-output{background:rgba(0,0,0,.72)!important;color:#fff!important;border-color:rgba(255,255,255,.2)!important}
-.terminal-window input,.terminal input{background:rgba(255,255,255,.08)!important;color:#fff!important;border-color:rgba(255,255,255,.2)!important}
-.world-tab.active{background:#fff!important;color:#080808!important;border-color:#fff!important}
-.world-meter,.progress{background:rgba(255,255,255,.12)!important}
-.world-meter i,.progress i{background:#fff!important}
-.world-feed div{background:rgba(255,255,255,.06)!important;border-left-color:#fff!important;color:#ddd!important}
-.world-good,.world-warn,.check,.up,.dot{color:#fff!important}
-.dot{background:#fff!important;box-shadow:0 0 0 4px rgba(255,255,255,.12)!important}
-.modalback,.paletteback{background:rgba(0,0,0,.68)!important;backdrop-filter:blur(12px)!important}
-.toast{background:rgba(20,20,20,.94)!important;color:#fff!important;border-color:rgba(255,255,255,.2)!important}
-.footer{border-top-color:rgba(255,255,255,.14)!important;color:#aaa!important}
-::selection{background:#fff!important;color:#000!important}
-:focus-visible{outline:2px solid #fff!important;outline-offset:3px!important}
-@media(prefers-reduced-transparency:reduce){
- .topbar,.hero-art,.panel,.stat,.card,.feature,.mockstat,.achievement,.section-card,.terminal-window,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.actionrow,.modal,.palette{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#171717!important}
-}
 
-
-/* Glass card UI — consistent surface treatment across every simulator module */
-:root{
- --glass-surface:linear-gradient(145deg,rgba(255,255,255,.115),rgba(255,255,255,.035))!important;
- --glass-border:rgba(255,255,255,.17)!important;
- --glass-shadow:0 20px 60px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.12)!important;
-}
-.panel,.stat,.feature,.hero-art,.mockstat,.achievement,.section-card,
-.terminal-window,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,
-.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,
-.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.strategy-row,
-.strategy-meter,.eventchoices,.settingsrow,.feeditem,.actionlist,
-.rival-list,.milestone-list,.asset-search-row{
- position:relative;
- isolation:isolate;
- overflow:hidden;
- border:1px solid var(--glass-border)!important;
- border-radius:20px!important;
- background:var(--glass-surface)!important;
- background-color:rgba(255,255,255,.055)!important;
- box-shadow:var(--glass-shadow)!important;
- backdrop-filter:blur(26px) saturate(145%)!important;
- -webkit-backdrop-filter:blur(26px) saturate(145%)!important;
-}
-.panel,.world-panel,.terminal-window,.palette,.modal{border-radius:22px!important}
-.stat,.world-kpi,.mockstat,.strategy-kpi,.exec-kpi{border-radius:18px!important}
-.feature,.eventcard,.mission,.corp-card,.strategy-card{border-radius:20px!important}
-.dashboard>.stat,.cards>.feature,.layout>.panel,
-.empire-grid>*,.research-grid>*,.strategy-grid>*,
-.exec-grid>*,.world-grid>*,.assetgrid>*{
- min-width:0;
-}
-.panel:after,.stat:after,.feature:after,.hero-art:after,
-.world-panel:after,.world-kpi:after,.eventcard:after,
-.corp-card:after,.strategy-card:after,.mission:after{
- content:"";
- position:absolute;
- inset:0 0 auto;
- height:1px;
- pointer-events:none;
- background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);
- opacity:.65;
-}
-.panelhead,.featuretop,.windowbar{border-bottom-color:rgba(255,255,255,.11)!important}
-.panel p,.feature p,.stat-label,.muted,.smalltext{color:#b8b8b8}
-.panel:hover,.stat:hover,.feature:hover,.world-panel:hover,
-.world-kpi:hover,.eventcard:hover,.corp-card:hover,.strategy-card:hover{
- border-color:rgba(255,255,255,.29)!important;
- box-shadow:0 24px 70px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.16)!important;
-}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){
- .panel,.stat,.feature,.world-panel,.world-kpi,.eventcard,.corp-card,.strategy-card{
-  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
- }
- .feature:hover,.eventcard:hover,.corp-card:hover,.strategy-card:hover{transform:translateY(-3px)}
-}
-@media(prefers-reduced-transparency:reduce){
- .panel,.stat,.feature,.hero-art,.mockstat,.achievement,.section-card,
- .terminal-window,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,
- .actionrow,.eventcard,.callout,.modal,.palette,.windowbar,
- .assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.strategy-row,
- .strategy-meter,.eventchoices,.settingsrow,.feeditem,.actionlist,
- .rival-list,.milestone-list,.asset-search-row{
-  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
-  background:#171717!important;
- }
-}
-
-
-/* Clean monochrome UI: flatter surfaces, calmer spacing, clearer hierarchy. */
-:root{
- --clean-bg:#090909;--clean-surface:#141414;--clean-raised:#1a1a1a;
- --clean-line:rgba(255,255,255,.12);--clean-muted:#a1a1a1;
- --clean-radius:14px;
-}
-html,body{background:var(--clean-bg)!important}
-body{background:#090909!important;color:#f5f5f5!important}
-.topbar{background:rgba(9,9,9,.96)!important;border-bottom:1px solid var(--clean-line)!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-.page{padding-top:32px!important}
-.panel,.stat,.card,.feature,.achievement,.section-card,.strategy-card,.corp-card,
-.world-kpi,.world-panel,.mission,.actionrow,.eventcard,.callout,.assetportfolio,
-.assetcatalog,.strategy-kpi,.exec-kpi,.strategy-row,.strategy-meter,.eventchoices,
-.settingsrow,.feeditem,.actionlist,.rival-list,.milestone-list,.asset-search-row,
-.hero-art,.mockstat,.windowbar,.terminal-window,.modal,.palette{
- background:var(--clean-surface)!important;
- background-image:none!important;
- border:1px solid var(--clean-line)!important;
- border-radius:var(--clean-radius)!important;
- box-shadow:none!important;
- backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
-}
-.panel,.world-panel,.terminal-window,.modal,.palette{border-radius:16px!important}
-.stat,.world-kpi,.mockstat,.strategy-kpi,.exec-kpi{border-radius:12px!important}
-.panel:after,.stat:after,.feature:after,.hero-art:after,.world-panel:after,
-.world-kpi:after,.eventcard:after,.corp-card:after,.strategy-card:after,.mission:after{display:none!important}
-.panel,.stat,.feature,.world-panel,.world-kpi,.eventcard,.corp-card,.strategy-card{transition:border-color .16s ease!important}
-.panel:hover,.stat:hover,.feature:hover,.world-panel:hover,.world-kpi:hover,
-.eventcard:hover,.corp-card:hover,.strategy-card:hover{transform:none!important;border-color:rgba(255,255,255,.24)!important;box-shadow:none!important}
-.feature:hover{background:#191919!important}
-.brand small,.muted,.subtle,.stat small,.panel p,.card p,.lead,.pagehead p{color:var(--clean-muted)!important}
-.navbtn,.ghost{color:#bdbdbd!important}
-.navbtn:hover,.navbtn.active,.ghost:hover{background:#1a1a1a!important;border-color:var(--clean-line)!important;color:#fff!important}
-.btn{background:#f5f5f5!important;color:#090909!important;border:1px solid #f5f5f5!important;box-shadow:none!important;border-radius:10px!important}
-.btn:hover{background:#dcdcdc!important;transform:none!important}
-.btn.secondary{background:#191919!important;color:#f5f5f5!important;border-color:var(--clean-line)!important}
-.btn.secondary:hover{background:#222!important}
-input,select,textarea,.input,.field,.field input,.field select,.field textarea{background:#101010!important;border-color:var(--clean-line)!important;border-radius:9px!important}
-th{background:#1c1c1c!important;color:#d0d0d0!important}
-td,th{border-bottom-color:var(--clean-line)!important}
-tr:hover td{background:#151515!important}
-.callout,.eventcard{background:#171717!important}
-.world-tab{background:#151515!important;border-color:var(--clean-line)!important}
-.world-tab.active{background:#f5f5f5!important;color:#090909!important;border-color:#f5f5f5!important}
-.world-meter,.progress{background:#292929!important}
-.world-meter i,.progress i{background:#f5f5f5!important}
-.toast{background:#1b1b1b!important;border:1px solid var(--clean-line)!important;box-shadow:0 8px 28px rgba(0,0,0,.35)!important}
-@media(max-width:850px){.navlinks{background:#101010!important;box-shadow:0 12px 24px rgba(0,0,0,.3)!important;backdrop-filter:none!important}}
-@media(prefers-reduced-transparency:reduce){.topbar,.navlinks{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
-
-
-/* Unified component system — structural rows stay structural; only true cards get surfaces. */
+/* Unified monochrome component system — one source of truth for surfaces, controls and layout. */
 :root{
   --ui-bg:#090909;
   --ui-surface:#141414;
@@ -524,3 +333,23 @@ tr:hover td{background:#191919!important}
  .feature{padding:18px!important}
  .pagehead{gap:12px}
 }
+
+
+/* Brand and status accents stay within the monochrome palette. */
+.brand,.brand small,.logo,.eyebrow,.hero h1 span,.status,.world-good,.world-warn,
+.check,.up,.dot,.featureicon,.pill{color:var(--ui-text)!important}
+.logo{background:#080808!important;border:1px solid #444!important;box-shadow:none!important}
+.eyebrow:before{background:#eee!important}
+.lead,.muted,.subtle,.smalltext,.pagehead p,.sectionhead p,.world-footnote{color:var(--ui-muted)!important}
+.navlinks{scrollbar-color:#555 transparent}
+.navbtn{color:#c7c7c7!important}
+.navbtn.active,.navbtn:hover{color:#fff!important}
+.dot{background:#eee!important;box-shadow:0 0 0 4px #ffffff1c!important}
+.callout{background:#191919!important}
+.featureicon,.pill,.chip,.kbd,.actionico,.picon{background:#1b1b1b!important}
+a{color:#e8e8e8}
+a:hover{color:#fff}
+@media(prefers-reduced-transparency:reduce){
+ .topbar,.navlinks,.modalback,.paletteback{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+}
+

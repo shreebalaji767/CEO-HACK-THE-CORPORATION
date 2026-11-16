@@ -217,3 +217,8 @@ The header **Install** button now captures the browser's `beforeinstallprompt` e
 The interface now uses a locally bundled **Three.js r180** renderer to draw shallow, charcoal-black 3D card bodies behind the existing HTML content. Cards have restrained navy edge shading, realistic side depth, soft contact shadows and subtle pointer tilt rather than large neon halos. The effect covers dashboard metrics, panels, feature cards, world-simulation cards, dialogs and terminal surfaces while leaving list rows and navigation controls visually lighter.
 
 Three.js is stored in the repository and cached by the service worker; it is not loaded from a CDN and does not require an API, account, build step or paid service. If WebGL is unavailable, the cards retain a CSS-based depth and shadow fallback. The service-worker cache is refreshed to **v35**. Both the Three.js renderer bundle and its matching core bundle are stored locally and cached for offline use. Three.js is distributed under the MIT License; see `THREE-LICENSE.txt`.
+
+
+## Always refresh to the latest published interface
+
+The PWA shell cache is versioned as **v36**. On activation, the service worker removes older ExecutiveOS shell caches and takes control of open tabs. Each app launch requests a service-worker update with HTTP cache bypass; an already-open controlled tab reloads once when the new worker takes control. While online, navigation and application code are fetched from the current deployment before falling back to the latest cached copy when offline. CSS and JavaScript asset URLs are versioned to prevent stale browser-cache reuse.

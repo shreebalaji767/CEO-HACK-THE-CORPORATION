@@ -1,13 +1,23 @@
 /* ExecutiveOS offline app shell. All URLs stay inside this GitHub Pages project. */
 const CACHE_PREFIX = "executiveos-shell-";
-const CACHE_NAME = CACHE_PREFIX + "v35";
+const CACHE_NAME = CACHE_PREFIX + "v36";
 const CORE_FILES = ["", "index.html", "manifest.webmanifest", "favicon.svg", "icon-192.svg", "icon-512.svg", "world-sim.js", "executiveos-ui.css", "three-card-depth.js", "three.module.min.js", "three.core.min.js"];
 const absolute = path => new URL(path, self.registration.scope).href;
+
+self.addEventListener("message", event => {
+  if (event.data && event.data.type === "SKIP_WAITING") self.skipWaiting();
+});
 
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
-    await cache.addAll(CORE_FILES.map(absolute));
+    const requests = CORE_FILES.map(path => new Request(absolute(path), {cache: "reload"}));
+    const responses = await Promise.all(requests.map(async request => {
+      const response = await fetch(request);
+      if (!response.ok) throw new Error("Unable to refresh app shell: " + request.url);
+      return [request, response];
+    }));
+    await Promise.all(responses.map(([request, response]) => cache.put(request, response)));
     await self.skipWaiting();
   })());
 });
@@ -42,11 +52,28 @@ self.addEventListener("fetch", event => {
 
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
+    const isAppCode = ["style", "script"].includes(request.destination) ||
+      request.url.includes(".module.js");
+    if (isAppCode) {
+      try {
+        const fresh = await fetch(request, {cache: "no-store"});
+        if (fresh && fresh.ok && fresh.type === "basic") {
+          await cache.put(request, fresh.clone());
+          return fresh;
+        }
+      } catch (error) {
+        // Offline: use the latest copy installed into this cache version.
+      }
+      const cached = await cache.match(request);
+      return cached || new Response("Offline — this app resource is not cached.", {
+        status: 503, headers: {"Content-Type": "text/plain; charset=utf-8"}
+      });
+    }
     const cached = await cache.match(request);
     if (cached) return cached;
     try {
       const response = await fetch(request);
-      if (response && response.ok && response.type === "basic") cache.put(request, response.clone());
+      if (response && response.ok && response.type === "basic") await cache.put(request, response.clone());
       return response;
     } catch (error) {
       return new Response("Offline — this resource is not cached yet.", {status: 503, headers: {"Content-Type": "text/plain; charset=utf-8"}});

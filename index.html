@@ -179,7 +179,7 @@ body{background:radial-gradient(ellipse at 50% -25%,#171a22 0,transparent 46%),v
 @media(max-width:760px){.strategy-grid{grid-template-columns:1fr}.strategy-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.strategy-row{align-items:flex-start}.strategy-row .btn{white-space:normal;max-width:45%;height:auto;min-height:42px}}
 
 </style>
-<link rel="stylesheet" href="./executiveos-ui.css">
+<link rel="stylesheet" href="./executiveos-ui.css?v=36">
 </head>
 <body>
 <header class="topbar"><div class="shell nav">
@@ -634,10 +634,24 @@ const exOldStrategyRender=strategyRender;strategyRender=function(){exOldStrategy
 const exOldStrategyTick=strategyTick;strategyTick=function(){exOldStrategyTick();exTick();exRender()};
 document.addEventListener("click",e=>{let b=e.target.closest("[data-exec-action]");if(b)exAction(b.dataset.execAction)});exEnsure();
 
-if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js",{scope:"./"}).catch(()=>{}))}
+if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
+  let refreshOnControllerChange=!!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener("controllerchange",()=>{
+    if(!refreshOnControllerChange)return;
+    refreshOnControllerChange=false;
+    window.location.reload();
+  });
+  window.addEventListener("load",async()=>{
+    try{
+      const registration=await navigator.serviceWorker.register("./sw.js",{scope:"./",updateViaCache:"none"});
+      await registration.update();
+      if(registration.waiting)registration.waiting.postMessage({type:"SKIP_WAITING"});
+    }catch(error){}
+  });
+}
 })();
 </script>
-<script type="module" src="./three-card-depth.js"></script>
-<script src="./world-sim.js" defer></script>
+<script type="module" src="./three-card-depth.js?v=36"></script>
+<script src="./world-sim.js?v=36" defer></script>
 </body>
 </html>

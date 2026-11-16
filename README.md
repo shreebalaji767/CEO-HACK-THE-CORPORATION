@@ -84,9 +84,9 @@ This module uses its own World Treasury and local save key; it does not silently
 
 ## Latest UI and reliability update
 
-The stylesheet has been consolidated into one monochrome design system instead of stacking competing blue, glass and clean-theme overrides. It uses a deep black canvas, white typography, flat charcoal cards and monochrome actions; standardizes surfaces, borders, radii, buttons, fields, tabs and spacing; and keeps structural wrappers and list rows neutral rather than turning them into nested cards. It retains consistent focus states, larger touch targets, compact KPI grids on small screens and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
+The stylesheet uses one black-and-white glass design system throughout the app. The navigation bar and mobile menu use translucent blurred glass; dashboard cards, simulator panels, KPI tiles, forms, tables, terminal surfaces, tabs and dialogs share matching glass surfaces, borders, highlights and corner radii. White and neutral-grey accents keep the palette monochrome, while structural wrappers and repeated list rows remain visually calm instead of becoming cluttered nested cards. It retains consistent focus states, larger touch targets, compact KPI grids on small screens and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
 
-The browser theme color and PWA manifest colors match the monochrome interface. The service-worker cache version is **v24**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
+The browser theme color and PWA manifest colors match the monochrome interface. The service-worker cache version is **v26**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
 
 ### Validation
 

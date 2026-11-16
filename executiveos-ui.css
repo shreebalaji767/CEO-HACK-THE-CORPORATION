@@ -355,77 +355,239 @@ a:hover{color:#fff}
 
 
 
-/* Strict black-and-white theme: no blue, green, purple or colored accents. */
+
+/* Unified black-and-white glass system — applies to navigation and every app module. */
 :root{
  color-scheme:dark!important;
  accent-color:#fff!important;
- --ui-bg:#000!important;
- --ui-surface:#111!important;
- --ui-surface-raised:#1b1b1b!important;
- --ui-border:#444!important;
- --ui-border-soft:#292929!important;
+ --ui-bg:#050505!important;
+ --ui-surface:rgba(255,255,255,.075)!important;
+ --ui-surface-raised:rgba(255,255,255,.11)!important;
+ --ui-border:rgba(255,255,255,.19)!important;
+ --ui-border-soft:rgba(255,255,255,.13)!important;
  --ui-text:#fff!important;
- --ui-muted:#c2c2c2!important;
- --bg:#000!important;
- --panel:#111!important;
- --panel2:#1b1b1b!important;
- --line:#444!important;
- --text:#fff!important;
- --muted:#c2c2c2!important;
- --green:#fff!important;
- --green2:#fff!important;
- --amber:#fff!important;
- --red:#fff!important;
- --shadow:none!important;
+ --ui-muted:#c1c1c1!important;
+ --bg:#050505!important;--panel:rgba(255,255,255,.075)!important;
+ --panel2:rgba(255,255,255,.11)!important;--line:rgba(255,255,255,.16)!important;
+ --text:#fff!important;--muted:#c1c1c1!important;
+ --green:#fff!important;--green2:#fff!important;--amber:#fff!important;--red:#fff!important;
+ --shadow:0 18px 55px rgba(0,0,0,.42)!important;
+ --glass-border:rgba(255,255,255,.17);
+ --glass-highlight:rgba(255,255,255,.1);
+ --glass-shadow:0 18px 48px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.09);
 }
-html,body{background:#000!important;color:#fff!important}
-body{background:#000!important}
-.topbar,.navlinks{background:#000!important;border-color:#333!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-.brand,.brand small,h1,h2,h3,h4,strong,b,label,.status,.eyebrow,.hero h1 span,
-.world-good,.world-warn,.check,.up,.dot,.featureicon,.pill{color:#fff!important}
-.logo{background:#000!important;color:#fff!important;border:1px solid #fff!important;box-shadow:none!important}
-.navbtn,.ghost{color:#ddd!important;background:transparent!important}
-.navbtn:hover,.navbtn.active,.ghost:hover{color:#000!important;background:#fff!important;border-color:#fff!important}
-.btn,.btn:hover{background:#fff!important;color:#000!important;border:1px solid #fff!important;box-shadow:none!important;filter:none!important;transform:none!important}
-.btn.secondary,.ghost{background:#111!important;color:#fff!important;border:1px solid #555!important}
-.btn.secondary:hover,.ghost:hover{background:#fff!important;color:#000!important;border-color:#fff!important}
+html,body{background:#050505!important;color:#fff!important}
+body{
+ background:radial-gradient(ellipse at 50% -22%,rgba(255,255,255,.12),transparent 48%),#050505!important;
+ color:#fff!important;
+}
+h1,h2,h3,h4,strong,b,label,.brand,.brand small,.status,.eyebrow,
+.hero h1 span,.world-good,.world-warn,.check,.up,.dot{color:#fff!important}
+p,.muted,.subtle,.smalltext,.lead,.pagehead p,.sectionhead p,
+.panel p,.feature p,.stat small,.world-footnote,.world-kpi small{color:#c1c1c1!important}
+a{color:#fff!important}a:hover{color:#ddd!important}
+
+/* The full navigation bar is a glass surface, not a flat black strip. */
+.topbar{
+ position:sticky!important;top:0!important;z-index:40!important;
+ background:rgba(8,8,8,.68)!important;
+ border-bottom:1px solid rgba(255,255,255,.16)!important;
+ box-shadow:0 12px 38px rgba(0,0,0,.32)!important;
+ backdrop-filter:blur(26px) saturate(135%)!important;
+ -webkit-backdrop-filter:blur(26px) saturate(135%)!important;
+}
+.topbar .nav{min-height:70px}
+.navlinks{
+ gap:4px!important;padding:5px!important;
+ background:rgba(255,255,255,.045)!important;
+ border:1px solid rgba(255,255,255,.12)!important;
+ border-radius:16px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.07)!important;
+ backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;
+}
+.navbtn,.ghost{
+ color:#e2e2e2!important;background:rgba(255,255,255,.025)!important;
+ border:1px solid transparent!important;border-radius:11px!important;
+ transition:background .18s ease,border-color .18s ease,color .18s ease!important;
+}
+.navbtn:hover,.ghost:hover{
+ color:#fff!important;background:rgba(255,255,255,.12)!important;
+ border-color:rgba(255,255,255,.17)!important;
+}
+.navbtn.active{
+ color:#050505!important;background:linear-gradient(145deg,#fff,#dcdcdc)!important;
+ border-color:#fff!important;box-shadow:0 4px 18px rgba(255,255,255,.12),inset 0 1px 0 #fff!important;
+}
+.brand{color:#fff!important}
+.logo{
+ background:linear-gradient(145deg,#252525,#050505)!important;color:#fff!important;
+ border:1px solid rgba(255,255,255,.34)!important;border-radius:12px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 6px 22px rgba(0,0,0,.42)!important;
+}
+.navright{gap:7px!important}
+.status{color:#ddd!important}
+.dot{background:#fff!important;box-shadow:0 0 0 4px rgba(255,255,255,.13)!important}
+.mobile-menu{border:1px solid rgba(255,255,255,.18)!important;border-radius:11px!important;background:rgba(255,255,255,.07)!important;color:#fff!important}
+@media(max-width:850px){
+ .topbar{background:rgba(5,5,5,.76)!important}
+ .navlinks{
+  display:none!important;position:absolute!important;top:calc(100% + 8px)!important;
+  left:14px!important;right:14px!important;width:auto!important;max-height:min(72vh,620px)!important;
+  overflow:auto!important;flex-direction:column!important;align-items:stretch!important;
+  padding:12px!important;background:rgba(18,18,18,.88)!important;
+  border:1px solid rgba(255,255,255,.2)!important;border-radius:18px!important;
+  box-shadow:0 22px 60px rgba(0,0,0,.58),inset 0 1px 0 rgba(255,255,255,.1)!important;
+  backdrop-filter:blur(28px) saturate(135%)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(135%)!important;z-index:45!important;
+ }
+ .navlinks.open{display:flex!important}
+ .navlinks .navbtn{text-align:left!important;width:100%!important;justify-content:flex-start!important}
+}
+@media(max-width:600px){
+ .topbar{min-height:64px!important}
+ .topbar .nav{min-height:64px!important}
+ .navlinks{left:10px!important;right:10px!important;top:calc(100% + 6px)!important}
+ .navright .btn{border-radius:10px!important}
+}
+
+/* Primary cards, dashboard tiles, feature cards and module panels share one glass recipe. */
 .panel,.stat,.card,.feature,.hero-art,.mockstat,.achievement,.section-card,
 .terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,
 .mission,.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,
-.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,.world-rival{
- color:#fff!important;background:#111!important;background-image:none!important;
- border:1px solid #333!important;box-shadow:none!important;
- backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,.world-rival,
+.world-empty,.world-feed div,.exec-log,.toast{
+ color:#fff!important;
+ background:linear-gradient(145deg,rgba(255,255,255,.115),rgba(255,255,255,.035))!important;
+ background-color:rgba(255,255,255,.045)!important;
+ border:1px solid var(--glass-border)!important;
+ border-radius:16px!important;
+ box-shadow:var(--glass-shadow)!important;
+ backdrop-filter:blur(20px) saturate(130%)!important;
+ -webkit-backdrop-filter:blur(20px) saturate(130%)!important;
 }
+.panel,.world-panel,.terminal-window,.modal,.palette{border-radius:20px!important}
+.stat,.world-kpi,.mockstat,.strategy-kpi,.exec-kpi{border-radius:14px!important}
+.feature,.eventcard,.mission,.corp-card,.strategy-card,.actionrow{border-radius:17px!important}
+.panelhead,.featuretop,.windowbar,.mockfooter{border-color:rgba(255,255,255,.13)!important}
+.panelhead{border-bottom-color:rgba(255,255,255,.11)!important}
 .panel:hover,.stat:hover,.feature:hover,.world-panel:hover,.world-kpi:hover,
 .eventcard:hover,.corp-card:hover,.strategy-card:hover,.mission:hover{
- background:#151515!important;border-color:#777!important;box-shadow:none!important;transform:none!important
+ border-color:rgba(255,255,255,.28)!important;
+ box-shadow:0 22px 58px rgba(0,0,0,.46),inset 0 1px 0 rgba(255,255,255,.13)!important;
+ transform:none!important;
 }
-p,.muted,.subtle,.smalltext,.lead,.pagehead p,.sectionhead p,.world-footnote,
-.panel p,.feature p,.stat small,.world-kpi small{color:#c2c2c2!important}
-.callout,.eventcard,.featureicon,.pill,.chip,.kbd,.actionico,.picon,
-.world-tab,.world-meter,.progress{background:#1b1b1b!important;color:#fff!important;border-color:#444!important}
-.world-tab.active,.navbtn.active{background:#fff!important;color:#000!important;border-color:#fff!important}
+.hero-art{overflow:hidden}
+.hero-art:after{background:rgba(255,255,255,.08)!important;filter:blur(72px)!important}
+.windowbar{background:rgba(255,255,255,.055)!important}
+.windowbar i,.termbar i{background:#ddd!important}
+.mockstat,.exec-kpi,.strategy-kpi,.world-kpi{background:rgba(255,255,255,.055)!important}
+.callout,.eventcard{background:linear-gradient(120deg,rgba(255,255,255,.10),rgba(255,255,255,.025))!important}
+.featureicon,.pill,.chip,.kbd,.actionico,.picon{
+ color:#fff!important;background:rgba(255,255,255,.09)!important;
+ border:1px solid rgba(255,255,255,.16)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.07)!important;
+}
+.featureicon{border-radius:14px!important}
+.pill,.badge{border-radius:999px!important}
+.world-toolbar{background:rgba(255,255,255,.065)!important}
+.world-tab{
+ color:#eee!important;background:rgba(255,255,255,.055)!important;
+ border:1px solid rgba(255,255,255,.16)!important;border-radius:12px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.06)!important;
+}
+.world-tab:hover{background:rgba(255,255,255,.13)!important;color:#fff!important}
+.world-tab.active{background:#fff!important;color:#050505!important;border-color:#fff!important}
+.world-rival,.world-empty,.world-feed div{background:rgba(255,255,255,.045)!important}
+.world-feed div{border-left:2px solid #fff!important}
+.world-statline,.world-action,.world-rival{border-color:rgba(255,255,255,.13)!important}
+.world-meter,.progress,.strategy-meter{
+ background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.12)!important;
+ border-radius:999px!important;overflow:hidden;
+}
+.world-meter i,.progress i,.strategy-meter i,.exec-chart i,.chart i{
+ background:#fff!important;background-image:none!important;border-radius:999px!important;
+}
+.world-good,.world-warn,.check,.up,.dot,.feedbullet{color:#fff!important;background-color:#fff!important}
+.feedbullet{box-shadow:0 0 0 3px rgba(255,255,255,.1)!important}
+.mission.done{border-color:rgba(255,255,255,.3)!important;background:rgba(255,255,255,.08)!important}
+
+/* Forms, buttons, tables and small controls use translucent monochrome surfaces too. */
+.btn,.btn:hover{
+ color:#050505!important;background:linear-gradient(145deg,#fff,#dedede)!important;
+ border:1px solid #fff!important;border-radius:11px!important;
+ box-shadow:0 5px 20px rgba(255,255,255,.09),inset 0 1px 0 #fff!important;
+ filter:none!important;transform:none!important;
+}
+.btn.secondary,.ghost{
+ color:#fff!important;background:rgba(255,255,255,.065)!important;
+ border:1px solid rgba(255,255,255,.2)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.07)!important;
+}
+.btn.secondary:hover,.ghost:hover{background:rgba(255,255,255,.15)!important;color:#fff!important}
+.btn:disabled,button:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
 input,select,textarea,.input,.field,.field input,.field select,.field textarea{
- color:#fff!important;background:#080808!important;border:1px solid #555!important;
- box-shadow:none!important;
+ color:#fff!important;background:rgba(0,0,0,.36)!important;
+ border:1px solid rgba(255,255,255,.2)!important;border-radius:11px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.045)!important;
 }
 input::placeholder,textarea::placeholder{color:#999!important}
-input:focus,select:focus,textarea:focus,.field:focus{border-color:#fff!important;outline:2px solid #fff!important}
-th{background:#1b1b1b!important;color:#fff!important}
-td,th{border-bottom-color:#333!important}
-tr:hover td{background:#181818!important}
-.progress i,.world-meter i,.strategy-meter i,#execChart i,.exec-chart i{
- background:#fff!important;background-image:none!important
+input:focus,select:focus,textarea:focus,.field:focus{
+ border-color:rgba(255,255,255,.72)!important;outline:2px solid rgba(255,255,255,.22)!important;
 }
-.world-feed div{background:#151515!important;border-left-color:#fff!important;color:#fff!important}
-.dot{background:#fff!important;box-shadow:0 0 0 4px #ffffff22!important}
-.terminal-window,.terminal,.terminal-output,.termout{background:#050505!important;color:#fff!important;border-color:#444!important}
-.terminal-window input,.terminal input,.termform input{background:#050505!important;color:#fff!important;border-color:#555!important}
-.modalback,.paletteback{background:#000e!important;backdrop-filter:none!important}
-.toast{background:#111!important;color:#fff!important;border:1px solid #555!important;box-shadow:none!important}
-a{color:#fff!important}a:hover{color:#ccc!important}
+select option{background:#111!important;color:#fff!important}
+th{background:rgba(255,255,255,.09)!important;color:#fff!important}
+td,th{border-bottom-color:rgba(255,255,255,.13)!important}
+tr:hover td{background:rgba(255,255,255,.055)!important}
+.settingsrow,.eventchoices,.actionlist,.feeditem,.strategy-row,.asset-search-row,
+.world-tabs,.world-kpis,.world-grid,.world-toolbar-actions,.exec-kpis,.strategy-kpis,
+.exec-grid,.strategy-grid,.research-grid,.empire-grid{
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+.settingsrow,.eventchoices,.world-toolbar-actions,.world-tabs{background:transparent!important;border:0!important}
+.actionlist,.feeditem,.strategy-row,.asset-search-row,.rival-list,.milestone-list{
+ background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;
+}
+.feeditem,.strategy-row{border-bottom:1px solid rgba(255,255,255,.12)!important}
+.feeditem:last-child,.strategy-row:last-child{border-bottom:0!important}
+.exec-line,.world-action{
+ background:rgba(255,255,255,.035)!important;border:1px solid rgba(255,255,255,.10)!important;
+ border-radius:12px!important;padding:11px 13px!important;margin:7px 0!important;
+}
+.termbar{background:rgba(255,255,255,.07)!important;border-bottom:1px solid rgba(255,255,255,.14)!important;color:#ddd!important}
+.termout,.terminal-output,.terminal-log,.termout{background:rgba(0,0,0,.3)!important;color:#fff!important}
+.termform{background:rgba(255,255,255,.045)!important;border-top:1px solid rgba(255,255,255,.13)!important}
+.termform input,.terminal-window input,.terminal input{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.16)!important}
+.termline,.termline.dim,.termline.warn,.termline.err,.termline.good{color:#fff!important}
+.modalback,.paletteback{background:rgba(0,0,0,.66)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important}
+.toast{background:rgba(24,24,24,.82)!important;color:#fff!important}
+.footer{border-top-color:rgba(255,255,255,.15)!important;color:#c1c1c1!important}
+hr,.divider{border-color:rgba(255,255,255,.15)!important}
+.dot{box-shadow:0 0 0 4px rgba(255,255,255,.13)!important}
 ::selection{background:#fff!important;color:#000!important}
 :focus-visible{outline:2px solid #fff!important;outline-offset:3px!important}
 svg,canvas{filter:grayscale(1)!important}
-@media(prefers-reduced-transparency:reduce){*{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
+@media(max-width:850px){
+ .world-toolbar{align-items:flex-start;flex-direction:column}
+ .world-toolbar-actions{width:100%}
+ .world-toolbar-actions .btn{flex:1 1 auto}
+}
+@media(max-width:600px){
+ .world-toolbar{padding:13px!important;margin:12px 0!important}
+ .world-toolbar-actions .btn{min-width:calc(50% - 6px)}
+ .panel,.world-panel{padding:15px!important}
+ .feature{padding:18px!important}
+ .pagehead{gap:12px}
+}
+@media(prefers-reduced-transparency:reduce){
+ .topbar,.navlinks,.panel,.stat,.card,.feature,.hero-art,.mockstat,.achievement,
+ .section-card,.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,
+ .world-panel,.mission,.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,
+ .assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,.world-rival{
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  background:#151515!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .topbar,.navlinks,.panel,.stat,.card,.feature,.btn,.navbtn,.world-tab{
+  transition:none!important;
+ }
+}

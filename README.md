@@ -86,7 +86,7 @@ This module uses its own World Treasury and local save key; it does not silently
 
 The stylesheet uses one black-and-white glass design system throughout the app. The navigation bar and mobile menu use translucent blurred glass; dashboard cards, simulator panels, KPI tiles, forms, tables, terminal surfaces, tabs and dialogs share matching glass surfaces, borders, highlights and corner radii. White and neutral-grey accents keep the palette monochrome, while structural wrappers and repeated list rows remain visually calm instead of becoming cluttered nested cards. It retains consistent focus states, larger touch targets, compact KPI grids on small screens and horizontally scrollable tables where needed. The responsive rules include reduced-motion support and are designed to avoid narrow-screen overflow.
 
-The browser theme color and PWA manifest colors match the monochrome interface. The service-worker cache version is **v26**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
+The browser theme color and PWA manifest colors match the monochrome interface. The service-worker cache version is **v28**, which prompts returning installations to fetch the updated app shell and stylesheet. The stylesheet remains part of the offline cache.
 
 ### Validation
 
@@ -168,3 +168,8 @@ Every asset in the Assets catalog now generates recurring passive income through
 ## Navigation visibility fix
 
 The decorative “All systems nominal” status label is hidden so it cannot consume navigation width. On desktop, the navigation links receive the available space and remain horizontally accessible; on smaller screens, the existing responsive menu is retained. The offline shell cache is versioned as v27.
+
+
+## Monochrome neon finish
+
+The interface adds a restrained black-and-white neon finish: white edge lighting and soft glow accents on the navigation, active tabs, buttons, card edges, progress indicators and keyboard focus. The palette remains strictly monochrome with no coloured neon accents. Glow is deliberately subtle to preserve legibility and avoid visual clutter; reduced-motion preferences remain respected. The offline shell cache is versioned as v28.

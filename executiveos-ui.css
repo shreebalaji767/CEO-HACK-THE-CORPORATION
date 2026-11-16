@@ -1149,3 +1149,15 @@ input,select,textarea,.field{background:rgba(8,12,20,.56)!important;border-color
 .btn:not(.secondary){background:linear-gradient(145deg,rgba(46,65,108,.88),rgba(19,29,50,.94))!important;border:1px solid rgba(160,181,229,.38)!important;box-shadow:0 8px 18px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.16)!important}
 @media(prefers-reduced-transparency:reduce){.topbar,.panel,.stat,.card,.feature,.hero-art,.achievement,.section-card,.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.eventcard,.callout,.modal,.palette,.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,.world-rival,.world-empty,.exec-log,.three-depth-card,.mockstat,.actionrow,.windowbar,.termbar,.termform,.navbtn,.ghost,.world-tab,input,select,textarea,.field{background:#111722!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}}
 @media(max-width:640px){.panel,.stat,.card,.feature,.hero-art,.achievement,.section-card,.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.eventcard,.callout,.three-depth-card{-webkit-backdrop-filter:blur(14px) saturate(125%)!important;backdrop-filter:blur(14px) saturate(125%)!important}}
+
+
+/* Strong, visible 3D motion for glass cards — WebGL and CSS fallback. */
+.three-depth-card{position:relative!important;transform-style:preserve-3d!important;perspective:1400px;will-change:transform;animation:executiveCardFloat 7.5s ease-in-out infinite;animation-delay:var(--card-phase,0s);transition:transform .28s cubic-bezier(.2,.75,.25,1),border-color .24s ease,box-shadow .24s ease!important}
+.three-depth-card:hover{transform:perspective(1400px) rotateX(2.2deg) rotateY(-2.5deg) translate3d(0,-5px,18px) scale(1.008)!important;animation-play-state:paused;border-color:rgba(190,207,244,.42)!important;box-shadow:0 25px 48px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.14)!important}
+.three-depth-card:hover::after{background:linear-gradient(115deg,rgba(255,255,255,.19),rgba(255,255,255,.035) 30%,transparent 58%,rgba(107,139,210,.10))!important}
+@keyframes executiveCardFloat{0%,100%{translate:0 0}50%{translate:0 -2.5px}}
+body.three-card-ready .hero-art{transform-style:preserve-3d}
+body.three-card-ready .hero-art:hover{transform:perspective(1300px) rotateX(2.6deg) rotateY(-3deg) translate3d(0,-7px,22px)!important}
+#threeCardCanvas{contain:strict;opacity:1!important}
+@media(prefers-reduced-motion:reduce){.three-depth-card,.three-depth-card:hover{animation:none!important;will-change:auto;transform:none!important}}
+@media(max-width:640px){.three-depth-card{animation-duration:10s}.three-depth-card:hover{transform:perspective(1000px) rotateX(1deg) rotateY(-1deg) translateY(-2px)!important}}

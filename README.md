@@ -232,3 +232,13 @@ The PWA shell cache is versioned as **v36**. On activation, the service worker r
 - Glow remains restrained within the charcoal, white and muted navy palette.
 - Reduced-transparency settings and lighter mobile blur remain supported.
 - Local app-shell assets are refreshed and versioned as v37.
+
+
+## Animated 3D glass depth (v38)
+
+- Three.js card meshes use visible 22px physical depth, brighter shaded sides, stronger edge lines and responsive pointer tilt.
+- Cards gently float at staggered phases; pointer hover adds a 3D lean, lift and scale.
+- Frosted glass remains translucent with charcoal/navy reflections and white highlights.
+- CSS 3D tilt and float remain available when WebGL is unavailable.
+- Motion respects reduced-motion preferences and pauses while the page is hidden.
+- Versioned assets and offline app-shell cache are refreshed to v38.

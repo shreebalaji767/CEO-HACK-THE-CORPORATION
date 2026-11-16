@@ -32,6 +32,8 @@ import * as THREE from "./three.module.min.js";
     });
   } catch (error) {
     canvas.remove();
+    body.classList.add("three-card-fallback");
+    document.querySelectorAll(CARD_SELECTOR).forEach(element => element.classList.add("three-depth-card"));
     return;
   }
 
@@ -40,7 +42,7 @@ import * as THREE from "./three.module.min.js";
   renderer.setClearColor(0x000000, 0);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1;
+  renderer.toneMappingExposure = 1.22;
 
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(
@@ -63,22 +65,22 @@ import * as THREE from "./three.module.min.js";
   const edgeGeometry = new THREE.EdgesGeometry(unitGeometry, 18);
   const faceMaterial = new THREE.MeshPhysicalMaterial({
     color: 0x182033, metalness: 0.08, roughness: 0.28,
-    transparent: true, opacity: 0.30, depthWrite: false,
+    transparent: true, opacity: 0.66, depthWrite: false,
     clearcoat: 0.9, clearcoatRoughness: 0.22, reflectivity: 0.42
   });
   const sideMaterial = new THREE.MeshPhysicalMaterial({
     color: 0x263655, metalness: 0.18, roughness: 0.32,
-    transparent: true, opacity: 0.48, depthWrite: false,
+    transparent: true, opacity: 0.88, depthWrite: false,
     clearcoat: 0.72, clearcoatRoughness: 0.26
   });
   const topMaterial = new THREE.MeshPhysicalMaterial({
     color: 0x34476c, metalness: 0.12, roughness: 0.26,
-    transparent: true, opacity: 0.38, depthWrite: false,
+    transparent: true, opacity: 0.78, depthWrite: false,
     clearcoat: 1, clearcoatRoughness: 0.18
   });
   const backMaterial = new THREE.MeshPhysicalMaterial({
     color: 0x0d1422, metalness: 0.05, roughness: 0.42,
-    transparent: true, opacity: 0.22, depthWrite: false,
+    transparent: true, opacity: 0.44, depthWrite: false,
     clearcoat: 0.55, clearcoatRoughness: 0.34
   });
   const materials = [
@@ -87,7 +89,7 @@ import * as THREE from "./three.module.min.js";
   const edgeMaterial = new THREE.LineBasicMaterial({
     color: 0x8398c4,
     transparent: true,
-    opacity: 0.24,
+    opacity: 0.68,
     depthWrite: false
   });
 
@@ -116,13 +118,15 @@ import * as THREE from "./three.module.min.js";
 
     scene.add(mesh, edge);
     element.classList.add("three-depth-card");
-    const entry = { mesh, edge };
+    const phase = (entries.size % 11) * 0.57;
+    element.style.setProperty("--card-phase", `${(phase * -1.1).toFixed(2)}s`);
+    const entry = { mesh, edge, phase };
     entries.set(element, entry);
     if (resizeObserver) resizeObserver.observe(element);
     return entry;
   }
 
-  function syncCards() {
+  function syncCards(timestamp = performance.now()) {
     const visibleElements = new Set(document.querySelectorAll(CARD_SELECTOR));
 
     for (const [element, entry] of entries) {
@@ -142,21 +146,28 @@ import * as THREE from "./three.module.min.js";
 
       const width = rect.width;
       const height = rect.height;
-      const depth = nestingDepth(element) * 12;
+      const depth = nestingDepth(element) * 18;
+      const phase = entry.phase;
+      const hovering = pointer.active && pointer.x >= rect.left && pointer.x <= rect.right &&
+        pointer.y >= rect.top && pointer.y <= rect.bottom;
       entry.mesh.position.set(rect.left + width / 2, window.innerHeight - rect.top - height / 2, depth);
-      entry.mesh.scale.set(width, height, 8);
+      entry.mesh.scale.set(width, height, 22);
       entry.edge.position.copy(entry.mesh.position);
       entry.edge.position.z += 0.025;
       entry.edge.scale.copy(entry.mesh.scale);
 
-      if (pointer.active && pointer.x >= rect.left && pointer.x <= rect.right &&
-          pointer.y >= rect.top && pointer.y <= rect.bottom) {
+      if (hovering) {
         const nx = (pointer.x - (rect.left + width / 2)) / Math.max(1, width / 2);
         const ny = (pointer.y - (rect.top + height / 2)) / Math.max(1, height / 2);
-        entry.mesh.rotation.x = -ny * 0.035;
-        entry.mesh.rotation.y = nx * 0.035;
+        entry.mesh.rotation.x = -ny * 0.105;
+        entry.mesh.rotation.y = nx * 0.105;
+        entry.mesh.position.z += 2.5;
       } else {
-        entry.mesh.rotation.set(0, 0, 0);
+        const motion = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1;
+        entry.mesh.position.z += Math.sin(timestamp * 0.00115 + phase) * 2.2 * motion;
+        entry.mesh.rotation.x = Math.sin(timestamp * 0.00082 + phase) * 0.022 * motion;
+        entry.mesh.rotation.y = Math.cos(timestamp * 0.00072 + phase) * 0.032 * motion;
+        entry.mesh.rotation.z = Math.sin(timestamp * 0.00064 + phase) * 0.004 * motion;
       }
       entry.edge.rotation.copy(entry.mesh.rotation);
     }
@@ -169,10 +180,13 @@ import * as THREE from "./three.module.min.js";
     }
   }
 
-  function render() {
+  function render(timestamp = performance.now()) {
     frame = 0;
-    syncCards();
+    syncCards(timestamp);
     renderer.render(scene, camera);
+    if (!document.hidden && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      frame = requestAnimationFrame(render);
+    }
   }
 
   function scheduleRender() {
@@ -204,6 +218,9 @@ import * as THREE from "./three.module.min.js";
   });
 
   window.addEventListener("resize", resize, { passive: true });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) scheduleRender(); });
+  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  motionPreference.addEventListener?.("change", scheduleRender);
   window.addEventListener("orientationchange", resize, { passive: true });
   window.addEventListener("scroll", scheduleRender, { passive: true, capture: true });
 

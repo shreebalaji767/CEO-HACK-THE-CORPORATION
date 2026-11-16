@@ -623,3 +623,120 @@ input:focus,select:focus,textarea:focus,.field:focus,button:focus-visible,a:focu
 .dot{background:#fff!important;box-shadow:0 0 0 4px rgba(255,255,255,.12),0 0 12px rgba(255,255,255,.58)!important}
 ::selection{background:#fff!important;color:#000!important}
 @media(prefers-reduced-motion:reduce){.btn,.navbtn,.ghost,.world-tab,.panel,.stat,.feature{transition:none!important}}
+
+
+/* High-visibility monochrome neon pass: black glass, luminous white edges and a matching glowing brand mark. */
+:root{
+  --neon-white:#fff;
+  --neon-edge:rgba(255,255,255,.48);
+  --neon-glow:rgba(255,255,255,.22);
+  --neon-glow-strong:rgba(255,255,255,.38);
+  --neon-glass:rgba(255,255,255,.055);
+}
+html,body{
+  background:#030303!important;
+  background-image:radial-gradient(ellipse at 50% -28%,rgba(255,255,255,.105),transparent 54%)!important;
+}
+.topbar{
+  background:rgba(3,3,3,.82)!important;
+  border-bottom:1px solid rgba(255,255,255,.34)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.10),0 0 24px rgba(255,255,255,.10),0 14px 44px #000!important;
+}
+.navlinks{
+  border-color:rgba(255,255,255,.30)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 18px rgba(255,255,255,.10)!important;
+}
+.navbtn,.ghost,.world-tab{
+  border-color:rgba(255,255,255,.17)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.025),0 0 8px rgba(255,255,255,.045)!important;
+}
+.navbtn:hover,.ghost:hover,.world-tab:hover{
+  border-color:rgba(255,255,255,.72)!important;
+  box-shadow:0 0 8px rgba(255,255,255,.30),0 0 20px rgba(255,255,255,.16),inset 0 0 12px rgba(255,255,255,.08)!important;
+}
+.navbtn.active,.world-tab.active{
+  box-shadow:0 0 9px rgba(255,255,255,.75),0 0 24px rgba(255,255,255,.34),0 0 44px rgba(255,255,255,.16),inset 0 0 12px rgba(255,255,255,.32)!important;
+}
+.logo{
+  position:relative!important;
+  border:1px solid rgba(255,255,255,.9)!important;
+  background:linear-gradient(145deg,#292929,#050505)!important;
+  box-shadow:0 0 7px #fff,0 0 17px rgba(255,255,255,.72),0 0 34px rgba(255,255,255,.36),inset 0 0 13px rgba(255,255,255,.18)!important;
+}
+.logo svg{
+  filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px rgba(255,255,255,.95)) drop-shadow(0 0 10px rgba(255,255,255,.55))!important;
+}
+.brand{filter:drop-shadow(0 0 7px rgba(255,255,255,.22))}
+.panel,.stat,.card,.feature,.hero-art,.mockstat,.achievement,.section-card,
+.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,
+.mission,.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,
+.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,.world-rival,
+.world-empty,.world-feed div,.exec-log,.toast{
+  background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.025) 52%,rgba(255,255,255,.045))!important;
+  border:1px solid rgba(255,255,255,.30)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.17),inset 0 0 22px rgba(255,255,255,.025),0 0 9px rgba(255,255,255,.12),0 12px 34px rgba(0,0,0,.72)!important;
+  backdrop-filter:blur(22px) saturate(115%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(115%)!important;
+}
+.panel:hover,.stat:hover,.card:hover,.feature:hover,.world-panel:hover,.world-kpi:hover,
+.eventcard:hover,.corp-card:hover,.strategy-card:hover,.mission:hover{
+  border-color:rgba(255,255,255,.72)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 12px rgba(255,255,255,.24),0 0 30px rgba(255,255,255,.12),0 16px 42px #000!important;
+}
+.featureicon,.pill,.chip,.kbd,.actionico,.picon{
+  border-color:rgba(255,255,255,.34)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 10px rgba(255,255,255,.13)!important;
+}
+.btn:not(.secondary){
+  border:1px solid #fff!important;
+  box-shadow:0 0 7px rgba(255,255,255,.68),0 0 18px rgba(255,255,255,.34),0 0 34px rgba(255,255,255,.16),inset 0 1px 0 #fff!important;
+}
+.btn:not(.secondary):hover{
+  box-shadow:0 0 10px #fff,0 0 26px rgba(255,255,255,.56),0 0 46px rgba(255,255,255,.25),inset 0 1px 0 #fff!important;
+}
+.btn.secondary,.ghost{
+  border-color:rgba(255,255,255,.34)!important;
+  box-shadow:0 0 8px rgba(255,255,255,.10),inset 0 1px 0 rgba(255,255,255,.12)!important;
+}
+.btn.secondary:hover,.ghost:hover{
+  border-color:#fff!important;
+  box-shadow:0 0 9px rgba(255,255,255,.5),0 0 22px rgba(255,255,255,.22),inset 0 0 12px rgba(255,255,255,.10)!important;
+}
+input,select,textarea,.input,.field,.field input,.field select,.field textarea{
+  border-color:rgba(255,255,255,.28)!important;
+  background:rgba(0,0,0,.58)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 0 7px rgba(255,255,255,.07)!important;
+}
+input:focus,select:focus,textarea:focus,.field:focus{
+  border-color:#fff!important;
+  box-shadow:0 0 0 2px rgba(255,255,255,.12),0 0 9px rgba(255,255,255,.52),0 0 22px rgba(255,255,255,.22),inset 0 0 10px rgba(255,255,255,.06)!important;
+}
+.progress,.world-meter,.strategy-meter{
+  border:1px solid rgba(255,255,255,.28)!important;
+  box-shadow:0 0 8px rgba(255,255,255,.12),inset 0 1px 4px #000!important;
+}
+.progress i,.world-meter i,.strategy-meter i,.exec-chart i,.chart i{
+  background:#fff!important;
+  box-shadow:0 0 5px #fff,0 0 12px rgba(255,255,255,.85),0 0 22px rgba(255,255,255,.38)!important;
+}
+.dot{
+  box-shadow:0 0 0 4px rgba(255,255,255,.15),0 0 8px #fff,0 0 18px rgba(255,255,255,.78)!important;
+}
+h1,h2,h3,.eyebrow,.stat strong,.world-kpi strong{
+  text-shadow:0 0 8px rgba(255,255,255,.12),0 0 18px rgba(255,255,255,.06);
+}
+:focus-visible{
+  outline:2px solid #fff!important;
+  outline-offset:3px!important;
+  box-shadow:0 0 0 4px rgba(255,255,255,.12),0 0 16px rgba(255,255,255,.34)!important;
+}
+::selection{background:#fff!important;color:#000!important}
+@media(prefers-reduced-transparency:reduce){
+  .panel,.stat,.card,.feature,.hero-art,.mockstat,.achievement,.section-card,.terminal-window,
+  .terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.actionrow,.eventcard,
+  .callout,.modal,.palette,.windowbar,.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,
+  .world-toolbar,.world-rival{background:#111!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .panel,.stat,.card,.feature,.btn,.navbtn,.ghost,.world-tab{transition:none!important}
+}

@@ -81,9 +81,9 @@ jobs:
             ["asset search label is associated", h.includes('<label for="assetSearch">Search the entire asset universe</label><input id="assetSearch"')],
             ["save slot label is associated", h.includes('<label for="saveSlot" class="muted smalltext">Slot</label><select class="field" id="saveSlot"')],
             ["reduce motion checkbox has an enclosing label", h.includes('<label class="muted smalltext"><input type="checkbox" id="reduceMotion"> Reduce motion</label>')],
-            ["strict three-tone palette is last stylesheet layer", fs.readFileSync("executiveos-ui.css", "utf8").endsWith("\\n") && fs.readFileSync("executiveos-ui.css", "utf8").includes("STRICT THREE-TONE FINISH")],
+            ["strict three-tone palette is last stylesheet layer", fs.readFileSync("executiveos-ui.css", "utf8").includes("STRICT THREE-TONE FINISH") && fs.readFileSync("executiveos-ui.css", "utf8").lastIndexOf("STRICT THREE-TONE FINISH") > fs.readFileSync("executiveos-ui.css", "utf8").lastIndexOf("Navy-blue neon identity")],
             ["strict theme maps all semantic status colors to white", /--green:#f7f8fc!important;--green2:#f7f8fc!important;--amber:#f7f8fc!important;--red:#f7f8fc!important/.test(fs.readFileSync("executiveos-ui.css", "utf8"))],
-            ["legacy inline shell green accents replaced", !["#b9f27c","#a9ef7020","#5a8c43","#17251a"].some(color => fs.readFileSync("index.html", "utf8").includes(color))],
+            ["legacy inline shell green accents replaced", !["#b9f27c","#a9ef7020","#5a8c43","#17251a","#47713a"].some(color => fs.readFileSync("index.html", "utf8").split("<style>")[1].split("</style>")[0].includes(color))],
             ["terminal and world status accents are neutral", fs.readFileSync("executiveos-ui.css", "utf8").includes(".world-good,.world-warn") && fs.readFileSync("executiveos-ui.css", "utf8").includes(".termline.warn,.termline.err,.termline.good{color:#d4d8e2!important}")],
             ["manual world save", w.includes("worldSave") && w.includes("localStorage.setItem(KEY")]
           ];

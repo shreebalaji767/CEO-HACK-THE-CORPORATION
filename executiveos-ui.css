@@ -294,3 +294,71 @@ tr:hover td{background:rgba(255,255,255,.06)!important}
 @media(prefers-reduced-transparency:reduce){
  .topbar,.hero-art,.panel,.stat,.card,.feature,.mockstat,.achievement,.section-card,.terminal-window,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.actionrow,.modal,.palette{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#171717!important}
 }
+
+
+/* Glass card UI — consistent surface treatment across every simulator module */
+:root{
+ --glass-surface:linear-gradient(145deg,rgba(255,255,255,.115),rgba(255,255,255,.035))!important;
+ --glass-border:rgba(255,255,255,.17)!important;
+ --glass-shadow:0 20px 60px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.12)!important;
+}
+.panel,.stat,.feature,.hero-art,.mockstat,.achievement,.section-card,
+.terminal-window,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,
+.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,
+.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.strategy-row,
+.strategy-meter,.eventchoices,.settingsrow,.feeditem,.actionlist,
+.rival-list,.milestone-list,.asset-search-row{
+ position:relative;
+ isolation:isolate;
+ overflow:hidden;
+ border:1px solid var(--glass-border)!important;
+ border-radius:20px!important;
+ background:var(--glass-surface)!important;
+ background-color:rgba(255,255,255,.055)!important;
+ box-shadow:var(--glass-shadow)!important;
+ backdrop-filter:blur(26px) saturate(145%)!important;
+ -webkit-backdrop-filter:blur(26px) saturate(145%)!important;
+}
+.panel,.world-panel,.terminal-window,.palette,.modal{border-radius:22px!important}
+.stat,.world-kpi,.mockstat,.strategy-kpi,.exec-kpi{border-radius:18px!important}
+.feature,.eventcard,.mission,.corp-card,.strategy-card{border-radius:20px!important}
+.dashboard>.stat,.cards>.feature,.layout>.panel,
+.empire-grid>*,.research-grid>*,.strategy-grid>*,
+.exec-grid>*,.world-grid>*,.assetgrid>*{
+ min-width:0;
+}
+.panel:after,.stat:after,.feature:after,.hero-art:after,
+.world-panel:after,.world-kpi:after,.eventcard:after,
+.corp-card:after,.strategy-card:after,.mission:after{
+ content:"";
+ position:absolute;
+ inset:0 0 auto;
+ height:1px;
+ pointer-events:none;
+ background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);
+ opacity:.65;
+}
+.panelhead,.featuretop,.windowbar{border-bottom-color:rgba(255,255,255,.11)!important}
+.panel p,.feature p,.stat-label,.muted,.smalltext{color:#b8b8b8}
+.panel:hover,.stat:hover,.feature:hover,.world-panel:hover,
+.world-kpi:hover,.eventcard:hover,.corp-card:hover,.strategy-card:hover{
+ border-color:rgba(255,255,255,.29)!important;
+ box-shadow:0 24px 70px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .panel,.stat,.feature,.world-panel,.world-kpi,.eventcard,.corp-card,.strategy-card{
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+ }
+ .feature:hover,.eventcard:hover,.corp-card:hover,.strategy-card:hover{transform:translateY(-3px)}
+}
+@media(prefers-reduced-transparency:reduce){
+ .panel,.stat,.feature,.hero-art,.mockstat,.achievement,.section-card,
+ .terminal-window,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,
+ .actionrow,.eventcard,.callout,.modal,.palette,.windowbar,
+ .assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.strategy-row,
+ .strategy-meter,.eventchoices,.settingsrow,.feeditem,.actionlist,
+ .rival-list,.milestone-list,.asset-search-row{
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  background:#171717!important;
+ }
+}

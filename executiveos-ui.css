@@ -252,7 +252,7 @@ html,body{background:#080808!important;color:#f7f7f7!important}
 body{background:radial-gradient(ellipse at 50% -25%,#303030 0,transparent 48%),#080808!important}
 .topbar{background:rgba(8,8,8,.72)!important;border-bottom:1px solid rgba(255,255,255,.12)!important;box-shadow:0 8px 35px rgba(0,0,0,.24)!important;backdrop-filter:blur(24px) saturate(140%)!important;-webkit-backdrop-filter:blur(24px) saturate(140%)!important}
 .brand,.brand small,h1,h2,h3,h4,.stat strong,.stat b,.kpi strong,.mockstat strong{color:#fff!important}
-.logo{background:#fff!important;color:#050505!important;border:1px solid rgba(255,255,255,.72)!important;box-shadow:0 5px 24px rgba(255,255,255,.12)!important}
+.logo{background:#050505!important;color:#fff!important;border:1px solid rgba(255,255,255,.2)!important;box-shadow:0 5px 24px rgba(0,0,0,.32)!important}
 .navbtn,.ghost{color:#bdbdbd!important}
 .navbtn:hover,.navbtn.active,.ghost:hover{color:#fff!important;background:rgba(255,255,255,.1)!important;border-color:rgba(255,255,255,.2)!important}
 .btn{background:#fff!important;color:#080808!important;border:1px solid #fff!important;box-shadow:0 6px 24px rgba(255,255,255,.08)!important}

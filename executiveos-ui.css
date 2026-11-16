@@ -413,3 +413,114 @@ tr:hover td{background:#151515!important}
 .toast{background:#1b1b1b!important;border:1px solid var(--clean-line)!important;box-shadow:0 8px 28px rgba(0,0,0,.35)!important}
 @media(max-width:850px){.navlinks{background:#101010!important;box-shadow:0 12px 24px rgba(0,0,0,.3)!important;backdrop-filter:none!important}}
 @media(prefers-reduced-transparency:reduce){.topbar,.navlinks{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
+
+
+/* Unified component system — structural rows stay structural; only true cards get surfaces. */
+:root{
+  --ui-bg:#090909;
+  --ui-surface:#141414;
+  --ui-surface-raised:#1b1b1b;
+  --ui-border:#303030;
+  --ui-border-soft:#242424;
+  --ui-text:#f4f4f4;
+  --ui-muted:#a3a3a3;
+  --ui-radius:14px;
+  --ui-radius-sm:10px;
+  --ui-space:16px;
+}
+html,body{background:var(--ui-bg)!important;color:var(--ui-text)!important}
+body{background:var(--ui-bg)!important}
+h1,h2,h3,h4,strong,b{color:var(--ui-text)}
+p,.muted,.smalltext,.lead,.pagehead p,.feature p,.panel p{color:var(--ui-muted)}
+/* One shared card treatment for every primary content card. */
+.panel,.stat,.feature,.hero-art,.mockstat,.achievement,.section-card,
+.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,
+.mission,.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,
+.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,
+.world-rival{
+  color:var(--ui-text)!important;
+  background:var(--ui-surface)!important;
+  background-image:none!important;
+  border:1px solid var(--ui-border-soft)!important;
+  border-radius:var(--ui-radius)!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.panel,.world-panel,.terminal-window,.modal,.palette{border-radius:16px!important}
+.stat,.world-kpi,.mockstat,.strategy-kpi,.exec-kpi{border-radius:12px!important}
+.feature,.eventcard,.mission,.corp-card,.strategy-card,.actionrow{border-radius:14px!important}
+.panel:before,.panel:after,.stat:before,.stat:after,.feature:before,.feature:after,
+.hero-art:before,.hero-art:after,.world-panel:before,.world-panel:after,
+.world-kpi:before,.world-kpi:after,.eventcard:before,.eventcard:after,
+.corp-card:before,.corp-card:after,.strategy-card:before,.strategy-card:after,
+.mission:before,.mission:after{content:none!important;display:none!important}
+.panel:hover,.stat:hover,.feature:hover,.world-panel:hover,.world-kpi:hover,
+.eventcard:hover,.corp-card:hover,.strategy-card:hover,.mission:hover{
+  transform:none!important;box-shadow:none!important;
+  border-color:#484848!important;
+}
+/* Layout wrappers and repeated rows must not look like nested cards. */
+.settingsrow,.eventchoices,.actionlist,.feeditem,.strategy-row,
+.strategy-meter,.asset-search-row,.rival-list,.milestone-list,
+.world-tabs,.world-kpis,.world-grid,.world-toolbar-actions,
+.exec-kpis,.strategy-kpis,.exec-grid,.strategy-grid,.research-grid,.empire-grid{
+  box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+.settingsrow,.eventchoices,.world-toolbar-actions,.world-tabs{background:transparent!important;border:0!important}
+.actionlist,.feeditem,.strategy-row,.strategy-meter,.asset-search-row,
+.rival-list,.milestone-list{background:transparent!important;border:0!important;border-radius:0!important}
+.feeditem{border-bottom:1px solid var(--ui-border-soft)!important}
+.feeditem:last-child{border-bottom:0!important}
+.strategy-row{border-bottom:1px solid var(--ui-border-soft)!important;padding-block:10px}
+.strategy-row:last-child{border-bottom:0!important}
+.asset-search-row{padding:0!important}
+.world-tabs{gap:8px!important}
+.world-tab,.chip,.pill,.kbd,.featureicon,.actionico,.picon{
+  background:#1b1b1b!important;color:#ededed!important;
+  border:1px solid var(--ui-border-soft)!important;box-shadow:none!important;
+}
+.world-tab.active,.navbtn.active{background:#f4f4f4!important;color:#090909!important;border-color:#f4f4f4!important}
+.world-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;margin:16px 0}
+.world-toolbar small{display:block;color:var(--ui-muted)}
+.world-toolbar-actions{display:flex;flex-wrap:wrap;gap:8px}
+.world-footnote{color:var(--ui-muted)!important}
+/* Consistent controls, labels and states. */
+.btn,.navbtn,.ghost,.chip,.world-tab{font-family:inherit;letter-spacing:0}
+.btn{background:#f4f4f4!important;color:#090909!important;border:1px solid #f4f4f4!important;border-radius:10px!important;box-shadow:none!important}
+.btn:hover{background:#dedede!important;color:#090909!important;transform:none!important;filter:none!important}
+.btn.secondary,.ghost{background:#191919!important;color:#f2f2f2!important;border:1px solid var(--ui-border)!important}
+.btn.secondary:hover,.ghost:hover,.navbtn:hover{background:#242424!important;color:#fff!important;border-color:#484848!important}
+.navbtn{border-radius:9px!important}
+input,select,textarea,.field,.field input,.field select,.field textarea{
+  background:#101010!important;color:var(--ui-text)!important;
+  border:1px solid var(--ui-border)!important;border-radius:9px!important;
+  box-shadow:none!important;
+}
+input:focus,select:focus,textarea:focus,.field:focus{border-color:#777!important;outline:none!important}
+input::placeholder,textarea::placeholder{color:#858585!important}
+label{color:#d0d0d0}
+th{background:#1b1b1b!important;color:#ddd!important}
+td,th{border-bottom-color:var(--ui-border-soft)!important}
+tr:hover td{background:#191919!important}
+.progress,.world-meter,.strategy-meter{background:#292929!important;border-radius:99px!important}
+.progress i,.world-meter i{background:#eee!important;border-radius:99px!important}
+.termbar{background:#191919!important;border-bottom:1px solid var(--ui-border)!important;color:var(--ui-muted)!important}
+.termout{background:#0e0e0e!important;color:#e5e5e5!important}
+.termform{background:#141414!important;border-top:1px solid var(--ui-border)!important}
+.termform input{background:transparent!important;border:0!important}
+.toast{background:#1b1b1b!important;color:#fff!important;border:1px solid var(--ui-border)!important;box-shadow:0 8px 24px #0008!important}
+.modalback,.paletteback{background:#000b!important;backdrop-filter:blur(4px)!important}
+:focus-visible{outline:2px solid #f2f2f2!important;outline-offset:3px!important}
+@media(max-width:850px){
+ .world-toolbar{align-items:flex-start;flex-direction:column}
+ .world-toolbar-actions{width:100%}
+ .world-toolbar-actions .btn{flex:1 1 auto}
+}
+@media(max-width:600px){
+ .world-toolbar{padding:12px;margin:12px 0}
+ .world-toolbar-actions .btn{min-width:calc(50% - 6px)}
+ .panel,.world-panel{padding:14px!important}
+ .feature{padding:18px!important}
+ .pagehead{gap:12px}
+}

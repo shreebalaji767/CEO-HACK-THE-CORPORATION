@@ -985,3 +985,81 @@ svg [stroke="#b9f27c"],svg [stroke="#82c85b"],svg [fill="#b9f27c"],svg [fill="#8
  .callout,.modal,.palette,.windowbar,.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,
  .world-toolbar,.world-rival{background:#11141d!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 }
+
+
+/* STRICT THREE-TONE FINISH: charcoal black surfaces, white/neutral text, navy-blue glow only. */
+
+:root{
+ color-scheme:dark!important;
+ --bg:#090a0e!important;--panel:#111319!important;--panel2:#171a22!important;
+ --line:rgba(55,88,190,.42)!important;--text:#f7f8fc!important;--muted:#aeb4c2!important;
+ --green:#f7f8fc!important;--green2:#f7f8fc!important;--amber:#f7f8fc!important;--red:#f7f8fc!important;
+ --ui-bg:#090a0e!important;--ui-surface:#111319!important;--ui-surface-raised:#171a22!important;
+ --ui-border:rgba(55,88,190,.48)!important;--ui-border-soft:rgba(55,88,190,.28)!important;
+ --ui-text:#f7f8fc!important;--ui-muted:#aeb4c2!important;accent-color:#4169ff!important;
+}
+html,body{background:#090a0e!important;background-image:radial-gradient(ellipse at 50% -25%,rgba(35,65,160,.16),transparent 58%)!important;color:#f7f8fc!important}
+body,main,section,article,header,footer,nav,aside{color:#f7f8fc}
+h1,h2,h3,h4,h5,h6,p,span,div,label,li,dt,dd,th,td,strong,b,small,summary,legend,output{ text-decoration-color:currentColor }
+h1,h2,h3,h4,h5,h6,strong,b,label,th,td,li,.eyebrow,.up,.down,.check,.mini-arrow,
+.positive,.negative,.success,.warning,.danger,.error,.world-good,.world-warn,
+.termline,.termline.dim,.termline.warn,.termline.err,.termline.good,.prompt,
+.stat small,.feedbullet,.status,.dot{color:#f7f8fc!important}
+p,small,.muted,.subtle,.lead,.trust,.stat-label,.pagehead p,.sectionhead p,
+.feature p,.panel p,.world-footnote,.world-kpi small,.world-panel>p,
+.world-statline span,.world-action small,.world-rival small,.mockfooter,
+.windowbar,.featurebottom,.actioncopy span,.field,.navbtn,.ghost{color:#aeb4c2!important}
+.panel,.stat,.card,.feature,.hero-art,.mockstat,.achievement,.section-card,
+.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,
+.mission,.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,
+.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,
+.world-rival,.world-empty,.world-feed div,.exec-log,.toast{
+ color:#f7f8fc!important;
+ background:linear-gradient(145deg,#171a22,#101218 72%)!important;
+ border:1px solid rgba(55,88,190,.46)!important;
+ box-shadow:inset 0 1px 0 rgba(155,175,235,.07),0 0 10px rgba(35,65,180,.20),0 14px 38px rgba(0,0,0,.72)!important;
+}
+.panel:hover,.stat:hover,.card:hover,.feature:hover,.world-panel:hover,.world-kpi:hover,
+.eventcard:hover,.corp-card:hover,.strategy-card:hover,.mission:hover{
+ border-color:#6688ff!important;
+ box-shadow:0 0 12px rgba(49,86,216,.55),0 0 28px rgba(35,65,180,.30),0 14px 38px #000!important;
+}
+.topbar,.navlinks{background:rgba(10,12,18,.96)!important;border-color:rgba(55,88,190,.5)!important;box-shadow:0 0 20px rgba(35,65,180,.22)!important}
+.logo{background:linear-gradient(145deg,#1b2340,#090b12)!important;color:#fff!important;border:1px solid #6688ff!important;box-shadow:0 0 9px #4169ff,0 0 24px rgba(49,86,216,.72)!important}
+.logo svg{filter:drop-shadow(0 0 3px #91aaff) drop-shadow(0 0 8px #4169ff)!important}
+.navbtn,.ghost,.world-tab,.btn.secondary,.chip,.pill,.kbd,.featureicon,.actionico,.picon{
+ color:#f7f8fc!important;background:#171a22!important;border:1px solid rgba(55,88,190,.46)!important;
+ box-shadow:0 0 8px rgba(35,65,180,.18)!important
+}
+.navbtn:hover,.ghost:hover,.world-tab:hover,.btn.secondary:hover,.chip:hover{
+ color:#fff!important;border-color:#6688ff!important;box-shadow:0 0 10px #3156d8,0 0 22px rgba(35,65,180,.42)!important
+}
+.navbtn.active,.world-tab.active{color:#fff!important;background:#1b2850!important;border-color:#6688ff!important;box-shadow:0 0 10px #3156d8,0 0 25px rgba(35,65,180,.58)!important}
+.btn:not(.secondary){color:#fff!important;background:linear-gradient(145deg,#2949bd,#10245f)!important;border:1px solid #7895ff!important;box-shadow:0 0 9px rgba(65,105,255,.78),0 0 23px rgba(35,75,180,.5)!important}
+.btn:not(.secondary):hover{background:linear-gradient(145deg,#365bdc,#172d79)!important;box-shadow:0 0 12px #4169ff,0 0 30px rgba(35,75,180,.68)!important}
+input,select,textarea,.input,.field,.field input,.field select,.field textarea{
+ color:#fff!important;background:#0b0d13!important;border:1px solid rgba(65,100,230,.5)!important;
+ box-shadow:inset 0 1px 0 rgba(75,100,170,.08),0 0 7px rgba(35,65,180,.14)!important
+}
+input::placeholder,textarea::placeholder{color:#9299aa!important}
+input:focus,select:focus,textarea:focus,.field:focus,:focus-visible{
+ outline:2px solid #7895ff!important;outline-offset:3px!important;border-color:#7895ff!important;
+ box-shadow:0 0 0 3px rgba(49,86,216,.18),0 0 12px rgba(65,100,230,.68)!important
+}
+.progress,.world-meter,.strategy-meter{background:#090b12!important;border:1px solid rgba(65,100,230,.5)!important}
+.progress i,.world-meter i,.strategy-meter i,.exec-chart i,.chart i{background:linear-gradient(90deg,#2949bd,#7895ff)!important;box-shadow:0 0 6px #4169ff,0 0 16px rgba(65,100,230,.78)!important}
+.dot,.feedbullet,.termbar i{background:#6688ff!important;box-shadow:0 0 8px #4169ff,0 0 17px rgba(49,86,216,.8)!important}
+.termout{background:#090b12!important;color:#f7f8fc!important}
+.termline.dim,.termline.warn,.termline.err,.termline.good{color:#d4d8e2!important}
+.termform,.termbar{background:#11141d!important;color:#d4d8e2!important;border-color:rgba(55,88,190,.38)!important}
+th{background:#1b2030!important;color:#fff!important}
+td,th,hr,.divider{border-color:rgba(55,88,190,.30)!important}
+tr:hover td{background:rgba(35,65,160,.12)!important}
+.callout,.eventcard,.mission.done{background:#141a2a!important;border-color:rgba(65,100,230,.42)!important}
+.modalback,.paletteback{background:rgba(0,0,0,.82)!important}
+.toast{background:#151925!important;color:#fff!important;border-color:rgba(65,100,230,.5)!important}
+::selection{background:#3156d8!important;color:#fff!important}
+svg [stroke],svg [fill]{}
+svg [stroke="#b9f27c"],svg [stroke="#82c85b"],svg [stroke="#5c8d69"],svg [fill="#b9f27c"],svg [fill="#82c85b"]{stroke:#6688ff!important;fill:#6688ff!important}
+@media(prefers-reduced-transparency:reduce){.panel,.stat,.card,.feature,.hero-art,.mockstat,.achievement,.section-card,.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.actionrow,.eventcard,.callout,.modal,.palette,.windowbar,.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,.world-rival{background:#11141d!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
+@media(prefers-reduced-motion:reduce){.panel,.stat,.card,.feature,.btn,.navbtn,.ghost,.world-tab{transition:none!important}}

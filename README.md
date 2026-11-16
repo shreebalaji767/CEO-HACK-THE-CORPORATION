@@ -184,3 +184,13 @@ The latest visual pass strengthens the black-and-white neon identity across the 
 - Monochrome-only lighting: no blue, green, pink, purple or other coloured neon accents.
 - Responsive layouts, keyboard focus visibility and reduced-motion / reduced-transparency preferences are retained.
 - Offline shell cache refreshed to v29 so returning visitors can receive the updated styles and icons.
+
+
+## Navy-blue neon visual theme
+
+The interface now uses a deep black and navy-blue neon palette instead of white neon lighting:
+- Electric navy-blue glow around glass-card edges, navigation, active tabs, buttons, controls, focus states and progress indicators.
+- Black / midnight-blue glass surfaces with subtle blue inner lighting and brighter blue hover states.
+- ExecutiveOS logo, browser favicon and installed-app icons share the same navy-blue illuminated mark.
+- White and soft-grey text remains for contrast and readability; the neon illumination itself is navy blue.
+- Offline app shell cache refreshed to v30.

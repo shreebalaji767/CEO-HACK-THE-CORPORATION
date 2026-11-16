@@ -591,3 +591,16 @@ svg,canvas{filter:grayscale(1)!important}
   transition:none!important;
  }
 }
+
+
+/* Keep every primary destination visible: the decorative system-status label must not crowd navigation. */
+.status{display:none!important}
+@media(min-width:851px){
+ .topbar .nav{display:flex!important;flex-wrap:nowrap!important;gap:10px!important;min-width:0}
+ .brand{flex:0 0 auto!important}
+ .navlinks{display:flex!important;flex:1 1 auto!important;min-width:0!important;justify-content:center!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none!important}
+ .navlinks::-webkit-scrollbar{display:none!important}
+ .navbtn{flex:0 0 auto!important;padding:8px 8px!important;font-size:11px!important}
+ .navright{flex:0 0 auto!important}
+}
+@media(max-width:850px){.status{display:none!important}}

@@ -84,7 +84,7 @@ jobs:
             ["purple hover, focus and active states are styled", fs.readFileSync("executiveos-ui.css", "utf8").includes("rgba(168,85,247,.24)") && fs.readFileSync("executiveos-ui.css", "utf8").includes(":focus-visible")],
             ["Three.js card edges use purple neon lighting", fs.readFileSync("three-card-depth.js", "utf8").includes("color: 0xb56cff") && fs.readFileSync("three-card-depth.js", "utf8").includes("0x9b5de5")],
             ["matching logo and PWA icons use the canonical SVG", fs.readFileSync("favicon.svg", "utf8").includes("#6688ff") && h.includes('<img src="./favicon.svg?v=45"') && JSON.parse(fs.readFileSync("manifest.webmanifest", "utf8")).icons.every(icon => icon.src === "./favicon.svg?v=45")],
-            ["offline cache refreshed for neon assets", sw.includes('CACHE_NAME = CACHE_PREFIX + "v47"') ],
+            ["offline cache refreshed for neon assets", sw.includes('CACHE_NAME = CACHE_PREFIX + "v48"') ],
             ["status label cannot hide navigation", fs.readFileSync("executiveos-ui.css", "utf8").includes(".status{display:none!important}") && fs.readFileSync("executiveos-ui.css", "utf8").includes(".navlinks{display:flex!important;flex:1 1 auto!important")],
             ["navigation bar uses glass treatment", fs.readFileSync("executiveos-ui.css", "utf8").includes(".topbar{") && fs.readFileSync("executiveos-ui.css", "utf8").includes("backdrop-filter:blur(26px)") && fs.readFileSync("executiveos-ui.css", "utf8").includes(".navlinks.open")],
             ["glass styling covers core modules", [".panel,.stat,.card,.feature,.hero-art",".world-kpi,.world-panel",".exec-kpi",".modal,.palette"].every(selector => fs.readFileSync("executiveos-ui.css", "utf8").includes(selector))],

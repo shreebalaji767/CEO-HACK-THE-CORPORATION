@@ -1526,3 +1526,89 @@ button:not(.navbtn):not(.mobile-menu),.world-tab,.chip{border-radius:12px}
 @media(max-width:850px){.topbar{padding:7px 0!important}.topbar>.shell.nav{grid-template-columns:minmax(0,1fr) auto!important;grid-template-areas:"brand actions"!important;padding:9px 10px!important;border-radius:17px!important}.topbar .brand{font-size:15px!important}.topbar .brand small{font-size:8px!important}.topbar .navright{padding:4px;gap:5px!important}.topbar .navright #saveTop,.topbar .navright #paletteOpen{display:none!important}.topbar .mobile-menu{display:inline-flex!important;align-items:center;justify-content:center;min-width:42px;min-height:42px;border:1px solid rgba(137,158,203,.3)!important;border-radius:12px!important;background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.035))!important;color:#fff!important}.topbar .navlinks{display:none!important;position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:45;grid-area:auto;grid-template-columns:repeat(2,minmax(0,1fr));padding:10px;gap:8px!important;border:1px solid rgba(137,158,203,.28)!important;border-radius:18px!important;background:rgba(12,17,27,.97)!important;box-shadow:0 18px 42px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.08)!important;backdrop-filter:blur(24px)!important;-webkit-backdrop-filter:blur(24px)!important}.topbar .navlinks.open{display:grid!important}.topbar .navlinks .navbtn{width:100%;min-height:46px;white-space:normal!important;text-align:center}.topbar .navlinks #paletteNavOpen{grid-column:1/-1}}
 @media(max-width:420px){.topbar>.shell.nav{width:calc(100% - 18px)!important}.topbar .brand{gap:7px;padding:5px 7px 5px 5px;font-size:13px!important}.topbar .brand .logo{width:35px;height:35px;flex-basis:35px}.topbar .navright .btn{min-height:38px;padding:8px 10px!important;font-size:11px!important}.topbar .navlinks{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar .navlinks .navbtn{font-size:11px!important;padding:8px!important}}
 @media(prefers-reduced-motion:reduce){.topbar .navlinks .navbtn,.topbar .navright .btn,.topbar .navright .ghost{transition:none!important}}
+
+
+/* v46 — restrained animated glow, hover lift and tactile press feedback. */
+@keyframes executiveNavyGlow{
+  0%,100%{box-shadow:0 0 0 rgba(49,86,216,0),inset 0 1px 0 rgba(255,255,255,.045)}
+  50%{box-shadow:0 0 18px rgba(49,86,216,.14),inset 0 1px 0 rgba(255,255,255,.075)}
+}
+@keyframes executiveGlowLine{
+  0%,100%{opacity:.28}
+  50%{opacity:.62}
+}
+.panel,.stat,.feature,.achievement,.strategy-card,.corp-card,.eventcard,
+.world-panel,.world-kpi,.exec-kpi,.strategy-kpi,.assetitem,.assetportfolio,
+.assetcatalog,.mission,.callout,.terminal-window,.hero-art{
+  transition:transform .22s cubic-bezier(.2,.75,.25,1),border-color .22s ease,
+    box-shadow .22s ease,background-color .22s ease!important;
+  animation:executiveNavyGlow 5.8s ease-in-out infinite;
+  animation-delay:var(--card-phase,0s);
+}
+.panel:hover,.stat:hover,.feature:hover,.achievement:hover,.strategy-card:hover,
+.corp-card:hover,.eventcard:hover,.world-panel:hover,.world-kpi:hover,
+.exec-kpi:hover,.strategy-kpi:hover,.assetitem:hover,.assetportfolio:hover,
+.assetcatalog:hover,.mission:hover,.callout:hover,.terminal-window:hover,.hero-art:hover{
+  transform:translate3d(0,-3px,0)!important;
+  border-color:rgba(76,111,220,.62)!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.32),0 0 18px rgba(49,86,216,.18),
+    inset 0 1px 0 rgba(255,255,255,.09)!important;
+}
+body.three-card-ready .three-depth-card:hover{
+  transform:perspective(1400px) rotateX(1.3deg) rotateY(-1.6deg) translate3d(0,-4px,10px) scale(1.003)!important;
+}
+.btn,.navbtn,.ghost,.world-tab,.chip,.mobile-menu,.topbar .navright .btn,
+.topbar .navright .ghost{
+  transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,
+    border-color .18s ease,background .18s ease,color .18s ease!important;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:hover,.navbtn:hover,.ghost:hover,.world-tab:hover,.chip:hover,.mobile-menu:hover{
+  transform:translateY(-2px)!important;
+  border-color:rgba(76,111,220,.68)!important;
+  box-shadow:0 7px 20px rgba(20,42,112,.2),0 0 13px rgba(49,86,216,.16)!important;
+}
+.btn:active,.navbtn:active,.ghost:active,.world-tab:active,.chip:active,
+.mobile-menu:active,.topbar .navright .btn:active,.topbar .navright .ghost:active{
+  transform:translateY(1px) scale(.975)!important;
+  box-shadow:inset 0 2px 7px rgba(0,0,0,.34),0 0 10px rgba(49,86,216,.2)!important;
+  transition-duration:.07s!important;
+}
+.panel:active,.stat:active,.feature:active,.achievement:active,
+.strategy-card:active,.corp-card:active,.eventcard:active,.world-panel:active,
+.world-kpi:active,.exec-kpi:active,.strategy-kpi:active,.assetitem:active,
+.assetportfolio:active,.assetcatalog:active,.mission:active{
+  transform:translateY(-1px) scale(.997)!important;
+  border-color:rgba(76,111,220,.72)!important;
+}
+.topbar .navlinks .navbtn.active{
+  box-shadow:0 0 0 1px rgba(83,116,224,.28),0 0 16px rgba(49,86,216,.2),
+    inset 0 1px 0 rgba(255,255,255,.14)!important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:rgba(91,125,235,.82)!important;
+  box-shadow:0 0 0 3px rgba(49,86,216,.15),0 0 14px rgba(49,86,216,.13)!important;
+}
+@media(hover:none){
+  .panel:hover,.stat:hover,.feature:hover,.achievement:hover,.strategy-card:hover,
+  .corp-card:hover,.eventcard:hover,.world-panel:hover,.world-kpi:hover,
+  .exec-kpi:hover,.strategy-kpi:hover,.assetitem:hover,.assetportfolio:hover,
+  .assetcatalog:hover,.mission:hover,.callout:hover,.terminal-window:hover,.hero-art:hover{
+    transform:none!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .panel,.stat,.feature,.achievement,.strategy-card,.corp-card,.eventcard,
+  .world-panel,.world-kpi,.exec-kpi,.strategy-kpi,.assetitem,.assetportfolio,
+  .assetcatalog,.mission,.callout,.terminal-window,.hero-art{
+    animation:none!important;transition:none!important;
+  }
+  .panel:hover,.stat:hover,.feature:hover,.achievement:hover,.strategy-card:hover,
+  .corp-card:hover,.eventcard:hover,.world-panel:hover,.world-kpi:hover,
+  .exec-kpi:hover,.strategy-kpi:hover,.assetitem:hover,.assetportfolio:hover,
+  .assetcatalog:hover,.mission:hover,.callout:hover,.terminal-window:hover,.hero-art:hover,
+  .btn:hover,.navbtn:hover,.ghost:hover,.world-tab:hover,.chip:hover,.mobile-menu:hover,
+  .btn:active,.navbtn:active,.ghost:active,.world-tab:active,.chip:active,.mobile-menu:active{
+    transform:none!important;box-shadow:none!important;
+  }
+}

@@ -281,3 +281,8 @@ The header logo now displays the exact same SVG file used by the browser favicon
 - Pressing buttons, navigation items, tabs and cards gives immediate tactile feedback through a small press-in motion.
 - Keyboard focus remains visible, touch devices avoid hover-only movement, and reduced-motion preferences disable the animated effects.
 - The service-worker cache and versioned stylesheet / Three.js renderer references are refreshed to v46. Gameplay systems, save data and save formats are unchanged.
+
+
+## Responsive layout update (v47)
+
+The interface now adapts to available screen width and height across compact 320px phones, larger phones, tablets, laptops, ultrawide desktops and short landscape displays. Content grids use flexible intrinsic sizing, cards and controls are prevented from forcing horizontal overflow, tables and terminal output scroll within their own areas, and dialogs fit the visible viewport. Navigation remains a compact card menu on touch-sized screens. Safe-area insets support notched devices, dynamic viewport units improve mobile browser sizing, and touch targets remain usable. The update is CSS-only apart from the stylesheet/cache version refresh; simulator logic, local saves and existing records are unchanged.

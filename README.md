@@ -272,3 +272,12 @@ The header now uses a unified dark frosted-glass card shell with a separate bran
 ## Unified logo and favicon artwork (v45)
 
 The header logo now displays the exact same SVG file used by the browser favicon, Apple touch icon and PWA manifest icons. A single dark ExecutiveOS mark with a white monogram and restrained navy-blue outline is used everywhere, avoiding separately drawn or differently styled copies. The service-worker cache is refreshed to v45 so the shared icon asset and updated manifest are available offline.
+
+
+## Interactive glow, hover and click animations (v46)
+
+- Cards receive a very soft, slow navy-blue edge glow that stays within the charcoal, white and navy palette.
+- Hovering cards adds a restrained lift, 3D response and clearer navy edge lighting; navigation items and controls respond with a matching hover state.
+- Pressing buttons, navigation items, tabs and cards gives immediate tactile feedback through a small press-in motion.
+- Keyboard focus remains visible, touch devices avoid hover-only movement, and reduced-motion preferences disable the animated effects.
+- The service-worker cache and versioned stylesheet / Three.js renderer references are refreshed to v46. Gameplay systems, save data and save formats are unchanged.

@@ -31,7 +31,7 @@ These systems use local game logic and fictional currency. They do not call AI s
 
 ## Interface redesign
 
-ExecutiveOS uses a clean black-and-white interface with flat charcoal cards, crisp borders, white actions and restrained monochrome contrast. The header logo, browser favicon and installed-app icons use the same ExecutiveOS monogram. Dashboard cards, simulator panels, strategy modules, asset views and World Simulation panels share one consistent flat-card treatment with matching charcoal surfaces, border weights, corner radii, control styles and spacing. Layout wrappers and list rows remain visually neutral instead of becoming nested cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
+ExecutiveOS uses a clean black-and-white interface with flat charcoal cards, crisp borders, white actions and restrained monochrome contrast. The header logo, browser favicon, Apple touch icon and installed-app icons reuse the exact same SVG artwork and shared ExecutiveOS mark. Dashboard cards, simulator panels, strategy modules, asset views and World Simulation panels share one consistent flat-card treatment with matching charcoal surfaces, border weights, corner radii, control styles and spacing. Layout wrappers and list rows remain visually neutral instead of becoming nested cards. Navigation adapts across desktop, tablet and mobile; smaller screens use a collapsible menu, stacked layouts, touch-friendly controls and horizontally scrollable data tables. The external stylesheet is cached by the service worker for offline use. The redesign is presentation-only and preserves the existing game systems and local saves.
 
 ## World Simulation expansion
 
@@ -267,3 +267,8 @@ The v43 pass consolidates the active sizing rules at the end of the stylesheet s
 ## Card-based navigation pass (v44)
 
 The header now uses a unified dark frosted-glass card shell with a separate brand card, grouped action cards and individual navigation cards. The active destination is visually distinct without strong neon glow. On phones and compact tablets, navigation opens as a two-column card menu while preserving the existing navigation button IDs and routing behavior. Quick actions, save and install controls remain functional and accessible. All versioned assets and the offline cache are refreshed to v44.
+
+
+## Unified logo and favicon artwork (v45)
+
+The header logo now displays the exact same SVG file used by the browser favicon, Apple touch icon and PWA manifest icons. A single dark ExecutiveOS mark with a white monogram and restrained navy-blue outline is used everywhere, avoiding separately drawn or differently styled copies. The service-worker cache is refreshed to v45 so the shared icon asset and updated manifest are available offline.

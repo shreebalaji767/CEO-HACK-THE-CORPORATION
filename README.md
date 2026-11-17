@@ -257,3 +257,8 @@ The locally bundled Three.js renderer gives cards 22px physical depth, shaded si
 ## Latest-shell refresh policy (v41)
 
 The app shell and all versioned UI/game modules now use the v41 asset set. The service worker fetches navigations without relying on the browser HTTP cache, installs the new shell before activating it, removes older ExecutiveOS shell caches, and claims open clients. Existing controlled tabs reload once when the new worker takes control. When offline, the app falls back to the latest complete shell that was successfully installed. This avoids intentionally serving an older UI while online; offline use necessarily remains limited to the most recently cached release. Existing local saves are not cleared or migrated by this update.
+
+
+## Proportion and alignment pass (v42)
+
+The v42 interface pass normalizes page widths, heading scales, panel padding, KPI sizing, grid gaps, and responsive card columns across the overview, CEO, terminal, asset, corporate, strategy, and achievement areas. Unnecessary continuous card-floating motion is removed; 3D pointer tilt is restrained so panels retain stable visual proportions. Existing saves and game systems remain unchanged.

@@ -159,12 +159,12 @@ import * as THREE from "./three.module.min.js";
       if (hovering) {
         const nx = (pointer.x - (rect.left + width / 2)) / Math.max(1, width / 2);
         const ny = (pointer.y - (rect.top + height / 2)) / Math.max(1, height / 2);
-        entry.mesh.rotation.x = -ny * 0.13;
-        entry.mesh.rotation.y = nx * 0.13;
+        entry.mesh.rotation.x = -ny * 0.045;
+        entry.mesh.rotation.y = nx * 0.045;
         entry.mesh.position.z += 4.5;
       } else {
         const motion = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1;
-        entry.mesh.position.z += Math.sin(timestamp * 0.00115 + phase) * 2.2 * motion;
+        entry.mesh.position.z += Math.sin(timestamp * 0.00115 + phase) * 0.8 * motion;
         entry.mesh.rotation.x = Math.sin(timestamp * 0.00082 + phase) * 0.022 * motion;
         entry.mesh.rotation.y = Math.cos(timestamp * 0.00072 + phase) * 0.032 * motion;
         entry.mesh.rotation.z = Math.sin(timestamp * 0.00064 + phase) * 0.004 * motion;

@@ -1380,3 +1380,94 @@ body.three-card-ready .three-depth-card:hover::after{opacity:1}
   body.three-card-ready .three-depth-card,
   body.three-card-ready .three-depth-card:hover{animation:none!important;transform:none!important}
 }
+
+
+/* v42 — proportion and alignment correction across every module. */
+:root{
+  --ui-gutter:clamp(14px,2vw,26px);
+  --ui-gap:clamp(12px,1.35vw,18px);
+}
+html,body{max-width:100%;overflow-x:clip}
+.shell{width:min(calc(100% - 2 * var(--ui-gutter)),1320px)!important;max-width:1320px!important}
+.page{min-width:0}
+.page .shell>*{min-width:0}
+.pagehead h1,.sectionhead h2,.panelhead h2{letter-spacing:-.035em}
+.pagehead h1{font-size:clamp(28px,3.1vw,40px)!important}
+.sectionhead h2{font-size:clamp(19px,2vw,25px)!important}
+.hero{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)!important;gap:clamp(20px,3vw,40px)!important}
+.hero>*,.hero-art,.mockgrid,.mockstat{min-width:0}
+.hero-art{max-width:100%;padding:clamp(14px,1.8vw,22px)!important}
+.hero h1{font-size:clamp(38px,5.4vw,68px)!important;max-width:11.5ch}
+.hero-art .mockgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.mockstat strong{font-size:clamp(18px,2vw,25px)!important;overflow-wrap:anywhere}
+.dashboard,.dashboard.compact{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:var(--ui-gap)!important}
+.layout{display:grid!important;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr)!important;gap:var(--ui-gap)!important}
+.cards{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:var(--ui-gap)!important}
+.achievements{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:var(--ui-gap)!important}
+.empire-grid,.research-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:var(--ui-gap)!important}
+.strategy-grid,.exec-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:var(--ui-gap)!important}
+.strategy-kpis{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:var(--ui-gap)!important}
+.exec-kpis{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}
+.rival-list,.milestone-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ui-gap)}
+.panel,.stat,.card,.feature,.achievement,.strategy-card,.corp-card,.eventcard,.world-panel,.world-kpi,.exec-kpi,.strategy-kpi{min-width:0;max-width:100%}
+.panel{padding:clamp(15px,1.6vw,22px)!important}
+.panelhead{min-width:0;flex-wrap:wrap}
+.panelhead>*{min-width:0}
+.stat,.world-kpi,.strategy-kpi,.exec-kpi{min-height:clamp(90px,8vw,116px)!important;padding:clamp(12px,1.3vw,17px)!important}
+.stat strong,.world-kpi strong,.strategy-kpi strong,.exec-kpi b{font-size:clamp(17px,1.65vw,25px)!important;line-height:1.2!important;overflow-wrap:anywhere}
+.feature h3,.corp-card h3,.strategy-card h3{font-size:clamp(16px,1.45vw,20px)!important}
+.feature p,.panel p,.eventcard p{overflow-wrap:anywhere}
+.actionrow,.settingsrow,.strategy-row{min-width:0;flex-wrap:wrap}
+.actioncopy,.actionrow>*,.settingsrow>*{min-width:0}
+.btn,.navbtn,.ghost{max-width:100%;white-space:normal}
+table{max-width:100%}
+.three-depth-card{animation:none!important;will-change:auto!important}
+.three-depth-card:hover{transform:perspective(1400px) rotateX(1deg) rotateY(-1.2deg) translate3d(0,-2px,8px) scale(1.002)!important}
+body.three-card-ready .three-depth-card:hover{transform:perspective(1400px) rotateX(1deg) rotateY(-1.2deg) translate3d(0,-2px,8px) scale(1.002)!important}
+@media(max-width:1100px){
+ .nav{gap:8px!important}
+ .navlinks{flex:1 1 auto!important;min-width:0!important;overflow-x:auto!important;scrollbar-width:none!important}
+ .navlinks::-webkit-scrollbar{display:none}
+ .navbtn{font-size:10px!important;padding:7px 7px!important}
+ .navright .status,.navright #paletteOpen{display:none!important}
+ .dashboard,.dashboard.compact{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .layout{grid-template-columns:minmax(0,1fr)!important}
+ .hero{grid-template-columns:minmax(0,1fr) minmax(0,.9fr)!important}
+ .empire-grid,.research-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:850px){
+ .navlinks{flex:initial!important;overflow:visible!important}
+ .mobile-menu{display:inline-flex!important;align-items:center;justify-content:center;min-width:40px;min-height:40px}
+ .navright #saveTop{display:none!important}
+ .hero{grid-template-columns:minmax(0,1fr)!important}
+ .hero-art{width:100%;max-width:720px}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .pagehead{align-items:flex-start}
+}
+@media(max-width:600px){
+ .shell{width:calc(100% - 28px)!important}
+ .page{padding:22px 0 42px!important}
+ .hero{gap:20px!important;padding:22px 0 30px!important}
+ .hero h1{font-size:clamp(35px,10vw,48px)!important;max-width:12ch}
+ .dashboard,.dashboard.compact,.world-kpis,.strategy-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .cards,.achievements,.empire-grid,.research-grid,.strategy-grid,.exec-grid,.rival-list,.milestone-list{grid-template-columns:minmax(0,1fr)!important}
+ .exec-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stat,.world-kpi,.strategy-kpi,.exec-kpi{min-height:88px!important;padding:11px!important}
+ .stat strong,.world-kpi strong,.strategy-kpi strong,.exec-kpi b{font-size:clamp(16px,4.8vw,21px)!important}
+ .panel{padding:14px!important}
+ .panelhead{align-items:flex-start}
+ .mockgrid{gap:9px!important}
+ .mockstat{padding:11px!important}
+ .mockstat strong{font-size:clamp(17px,5vw,21px)!important}
+ .actionrow{align-items:stretch}
+}
+@media(max-width:380px){
+ .shell{width:calc(100% - 22px)!important}
+ .navright .btn{padding:8px 9px!important;font-size:11px!important}
+ .brand{min-width:0!important;font-size:14px!important}
+ .brand small{font-size:8px!important}
+ .dashboard,.dashboard.compact,.world-kpis,.strategy-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .three-depth-card,.three-depth-card:hover{animation:none!important;transform:none!important;transition:none!important}
+}

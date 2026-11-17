@@ -262,3 +262,8 @@ The app shell and all versioned UI/game modules now use the v41 asset set. The s
 ## Design consistency and proportion pass (v43)
 
 The v43 pass consolidates the active sizing rules at the end of the stylesheet so one consistent responsive system wins over legacy overrides. Content widths, page headings, KPI tiles, card grids, action rows and tables now use predictable minimum widths and spacing. Grids adapt to the available space instead of forcing fixed column counts into narrow containers. The Three.js renderer now creates physical meshes only for outermost cards; nested KPI tiles and inner panels remain normal glass UI, preventing stacked 3D planes from distorting the layout. Hover tilt and idle movement are reduced to subtle levels. Existing game logic, save keys, save formats and local player data are unchanged. Versioned assets and the offline shell cache are refreshed to v43.
+
+
+## Card-based navigation pass (v44)
+
+The header now uses a unified dark frosted-glass card shell with a separate brand card, grouped action cards and individual navigation cards. The active destination is visually distinct without strong neon glow. On phones and compact tablets, navigation opens as a two-column card menu while preserving the existing navigation button IDs and routing behavior. Quick actions, save and install controls remain functional and accessible. All versioned assets and the offline cache are refreshed to v44.

@@ -57,7 +57,7 @@ import * as THREE from "./three.module.min.js";
   keyLight.position.set(-260, 420, 520);
   scene.add(keyLight);
 
-  const edgeLight = new THREE.DirectionalLight(0x617bb8, 0.48);
+  const edgeLight = new THREE.DirectionalLight(0x9b5de5, 0.62);
   edgeLight.position.set(300, -180, 260);
   scene.add(edgeLight);
 
@@ -87,7 +87,7 @@ import * as THREE from "./three.module.min.js";
     sideMaterial, sideMaterial, topMaterial, sideMaterial, faceMaterial, backMaterial
   ];
   const edgeMaterial = new THREE.LineBasicMaterial({
-    color: 0x8398c4,
+    color: 0xb56cff,
     transparent: true,
     opacity: 0.82,
     depthWrite: false

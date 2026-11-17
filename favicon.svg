@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><defs><filter id="glow" x="-90%" y="-90%" width="280%" height="280%"><feGaussianBlur stdDeviation="1.25" result="blur"/><feFlood flood-color="#4169ff" flood-opacity=".95"/><feComposite in2="blur" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="bg"><stop offset="0" stop-color="#111a3b"/><stop offset="1" stop-color="#02040b"/></radialGradient></defs><rect width="24" height="24" rx="5" fill="url(#bg)" stroke="#4169ff" stroke-opacity=".85" stroke-width=".55"/><path d="M4 19V5l8 7 8-7v14" fill="none" stroke="#9db5ff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/><path d="M8 19v-4m8 4v-4" fill="none" stroke="#9db5ff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 24 24">
+  <rect x="0.5" y="0.5" width="23" height="23" rx="5" fill="#0b1020" stroke="#6688ff" stroke-opacity=".72" stroke-width=".55"/>
+  <path d="M4 19V5l8 7 8-7v14" fill="none" stroke="#f1f5ff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8 19v-4m8 4v-4" fill="none" stroke="#f1f5ff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

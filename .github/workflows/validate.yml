@@ -59,7 +59,7 @@ jobs:
             ["asset market page", h.includes('id="page-assets" data-route="assets"')],
             ["World Simulation route", w.includes('page.dataset.route="world"')],
             ["Executive Challenge Center route and module", h.includes('"challenges"].includes(page)') && h.includes('src="./challenge-center.js?v=1"')],
-            ["six playable corporate scenarios", fs.readFileSync("challenge-engine.mjs", "utf8").includes('id: "supply-chain"') && fs.readFileSync("challenge-engine.mjs", "utf8").includes('id: "market-crash"') && (fs.readFileSync("challenge-engine.mjs", "utf8").match(/id:"/g)||[]).length >= 6],
+            ["six playable corporate scenarios", fs.readFileSync("challenge-engine.mjs", "utf8").includes('id:"supply-chain"') && fs.readFileSync("challenge-engine.mjs", "utf8").includes('id:"market-crash"') && (fs.readFileSync("challenge-engine.mjs", "utf8").match(/id:"/g)||[]).length >= 6],
             ["challenge decisions, grading and local records", fs.readFileSync("challenge-engine.mjs", "utf8").includes("chooseDecision") && fs.readFileSync("challenge-engine.mjs", "utf8").includes("scoreRun") && fs.readFileSync("challenge-center.js", "utf8").includes("localStorage")],
             ["challenge modules are precached for offline play", sw.includes('"challenge-center.js?v=1"') && sw.includes('"challenge-engine.mjs"')],
             ["rival corporations", w.includes("rivals") && w.includes("rival:")],

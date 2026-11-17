@@ -291,3 +291,8 @@ The interface now adapts to available screen width and height across compact 320
 ## Purple neon glow theme (v48)
 
 The charcoal-black glass interface now uses a vivid but controlled purple neon accent for card edge glow, hover and press feedback, active navigation, input focus and the shared brand mark. Three.js card edge lighting also uses purple so the physical depth effect matches the CSS interface. White text and dark surfaces remain unchanged. The purple glow respects reduced-motion preferences. The stylesheet, renderer and offline cache are versioned to v48 / renderer v47; existing gameplay, records and local save data are preserved.
+
+
+## Premium card refinement (v49)
+
+Refined the card system with more consistent radii and spacing, deeper layered shadows, a subtle top-edge highlight, restrained purple-tinted glass surfaces, clearer card typography and calmer hover lighting. Primary actions now use a coordinated muted-purple gradient. Three.js card faces and side materials use a coordinated dark plum finish with softer purple edge lighting. Responsive sizing, existing application systems and local saves remain unchanged. Updated the stylesheet, renderer and offline cache to v49 / renderer v48.

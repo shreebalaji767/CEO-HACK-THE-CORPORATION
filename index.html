@@ -188,7 +188,7 @@ body{background:radial-gradient(ellipse at 50% -25%,#171a22 0,transparent 46%),v
 <body>
 <header class="topbar"><div class="shell nav">
 <a class="brand" href="#home" id="brandHome" aria-label="ExecutiveOS home"><span class="logo"><img src="./favicon.svg?v=45" alt="" aria-hidden="true" width="512" height="512"></span><span>ExecutiveOS<small>Corporate simulation suite</small></span></a>
-<nav class="navlinks" id="navlinks" aria-label="Main navigation"><button class="navbtn" id="paletteNavOpen" type="button">⌕ Quick actions</button><button class="navbtn active" data-page="home">Overview</button><button class="navbtn" data-page="ceo">CEO Simulator</button><button class="navbtn" data-page="terminal">Command Terminal</button><button class="navbtn" data-page="assets">Asset Empire</button><button class="navbtn" data-page="corporate">Corporate Empire</button><button class="navbtn" data-page="strategy">Strategy Lab</button><button class="navbtn" data-page="achievements">Achievements</button></nav>
+<nav class="navlinks" id="navlinks" aria-label="Main navigation"><button class="navbtn" id="paletteNavOpen" type="button">⌕ Quick actions</button><button class="navbtn active" data-page="home">Overview</button><button class="navbtn" data-page="ceo">CEO Simulator</button><button class="navbtn" data-page="terminal">Command Terminal</button><button class="navbtn" data-page="assets">Asset Empire</button><button class="navbtn" data-page="corporate">Corporate Empire</button><button class="navbtn" data-page="strategy">Strategy Lab</button><button class="navbtn" data-page="tycoon">Business Tycoon</button><button class="navbtn" data-page="achievements">Achievements</button></nav>
 <div class="navright"><span class="status"><i class="dot"></i> All systems nominal</span><button class="btn small secondary" id="paletteOpen" type="button" aria-haspopup="dialog" aria-controls="commandPalette">⌘K Quick jump</button><button class="btn small secondary" id="saveTop">Save game</button><button class="btn small" id="installBtn" type="button" aria-label="Install ExecutiveOS app" title="Install ExecutiveOS on this device">Install</button><button class="ghost mobile-menu" id="menuBtn" aria-label="Open menu">☰</button></div>
 </div></header>
 <main>
@@ -350,7 +350,7 @@ function record(msg){addFeed(msg);save(true);toast(msg)}
 function openPalette(){const p=$("commandPalette");p.classList.add("show");$("paletteSearch").value="";filterPalette("");setTimeout(()=>$("paletteSearch").focus(),0)}
 function closePalette(){const p=$("commandPalette");if(p)p.classList.remove("show")}
 function filterPalette(query){const q=query.trim().toLowerCase();document.querySelectorAll("#paletteItems .paletteitem").forEach(b=>{b.hidden=!!q&&!b.textContent.toLowerCase().includes(q)});document.querySelectorAll("#paletteItems .palettegroup").forEach(g=>{let next=g.nextElementSibling,show=false;while(next&&!next.classList.contains("palettegroup")){if(next.classList.contains("paletteitem")&&!next.hidden)show=true;next=next.nextElementSibling}g.hidden=!!q&&!show})}
-function go(page,writeHash){if(!["home","ceo","terminal","assets","corporate","strategy","achievements","world","challenges"].includes(page))page="home";currentPage=page;state.visited[page]=true;document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.dataset.route===page));document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("navlinks").classList.remove("open");if(writeHash!==false&&location.hash!=="#"+page)history.pushState({page}, "", "#"+page);renderAll();window.scrollTo({top:0,behavior:"smooth"});save(true)}
+function go(page,writeHash){if(!["home","ceo","terminal","assets","corporate","strategy","achievements","world","challenges","tycoon"].includes(page))page="home";currentPage=page;state.visited[page]=true;document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.dataset.route===page));document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("navlinks").classList.remove("open");if(writeHash!==false&&location.hash!=="#"+page)history.pushState({page}, "", "#"+page);renderAll();window.scrollTo({top:0,behavior:"smooth"});save(true)}
 function routeFromHash(){const p=location.hash.replace("#","")||"home";go(p,false)}
 function showConfirm(title,text,cb){$("modalTitle").textContent=title;$("modalText").textContent=text;$("modalback").classList.add("show");confirmCallback=cb}
 function hideConfirm(){ $("modalback").classList.remove("show");confirmCallback=null }
@@ -658,5 +658,6 @@ if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
 <script type="module" src="./three-card-depth.js?v=51"></script>
 <script src="./world-sim.js?v=44" defer></script>
 <script type="module" src="./challenge-center.js?v=1"></script>
+<script type="module" src="./tycoon.js?v=1"></script>
 </body>
 </html>

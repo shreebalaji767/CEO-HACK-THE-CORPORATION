@@ -29,6 +29,7 @@ jobs:
           NODE
           node --check /tmp/executiveos-inline.js
           node --check world-sim.js
+          node --check tycoon.js
           node --input-type=module --check < challenge-center.js
           node --check challenge-engine.mjs
           node --test challenge-engine.test.mjs
@@ -46,6 +47,7 @@ jobs:
           const checks = [
             ["dark-only color scheme", h.includes("color-scheme:dark")],
             ["CEO simulator route", h.includes('id="page-ceo"')],
+            ["Business Tycoon route and module", h.includes('"tycoon"].includes(page)') && h.includes('src="./tycoon.js?v=1"') && fs.readFileSync("tycoon.js", "utf8").includes("function rate()")],
             ["corporate empire route", h.includes('id="page-corporate"')],
             ["Strategy Lab route", h.includes('id="page-strategy"')],
             ["passive business income", h.includes("function businessIncome(")],
@@ -68,6 +70,7 @@ jobs:
             ["world export and import", w.includes("worldExport") && w.includes("worldImport")],
             ["world module loaded", h.includes('src="./world-sim.js?v=44"')],
             ["offline world module cached", sw.includes('"world-sim.js"')],
+            ["Business Tycoon module cached offline", sw.includes('"tycoon.js?v=1"')],
             ["responsive stylesheet linked", h.includes('href="./executiveos-ui.css?v=52"')],
             ["responsive stylesheet exists", fs.existsSync("executiveos-ui.css")],
             ["mobile navigation styling", fs.readFileSync("executiveos-ui.css", "utf8").includes("@media(max-width:850px)")],

@@ -101,7 +101,7 @@ jobs:
             ["PWA install button invokes native prompt", h.includes('addEventListener("click",()=>installApp())') && h.includes("await promptEvent.prompt()") && h.includes("await promptEvent.userChoice")],
             ["installed app state is reflected", h.includes('addEventListener("appinstalled"') && h.includes('b.disabled=true')],
             ["install button remains visible on narrow phones", !h.includes(".navright #installBtn{display:none}")],
-            ["Three.js card layer is loaded", h.includes('<script type="module" src="./three-card-depth.js?v=46"></script>')],
+            ["Three.js card layer is loaded", h.includes('<script type="module" src="./three-card-depth.js?v=47"></script>')],
             ["local Three.js r180 bundle is cached", sw.includes('"three.module.min.js"') && fs.existsSync("three.module.min.js")],
             ["Three.js core dependency is cached locally", sw.includes('"three.core.min.js"') && fs.existsSync("three.core.min.js")],
             ["Three.js card scene creates 3D box meshes", fs.readFileSync("three-card-depth.js", "utf8").includes('from "./three.module.min.js"') && fs.readFileSync("three-card-depth.js", "utf8").includes("new THREE.BoxGeometry") && fs.readFileSync("three-card-depth.js", "utf8").includes("new THREE.WebGLRenderer")],

@@ -252,3 +252,8 @@ The latest presentation pass standardizes the content width, page rhythm, headin
 ## Visible 3D glass finish (v40)
 
 The locally bundled Three.js renderer gives cards 22px physical depth, shaded side faces and brighter edge lines. Pointer tilt is slightly stronger, with a restrained lift and staggered floating animation. Cards use translucent charcoal/navy glass, background blur and a soft white reflection rather than heavy neon glow. Reduced-motion preferences disable the animated movement and pointer tilt. Three.js and its core bundle are served from the repository itself; no paid APIs, external runtime services, subscriptions, ads or usage fees are required. Versioned assets and the offline cache are refreshed to v40.
+
+
+## Latest-shell refresh policy (v41)
+
+The app shell and all versioned UI/game modules now use the v41 asset set. The service worker fetches navigations without relying on the browser HTTP cache, installs the new shell before activating it, removes older ExecutiveOS shell caches, and claims open clients. Existing controlled tabs reload once when the new worker takes control. When offline, the app falls back to the latest complete shell that was successfully installed. This avoids intentionally serving an older UI while online; offline use necessarily remains limited to the most recently cached release. Existing local saves are not cleared or migrated by this update.

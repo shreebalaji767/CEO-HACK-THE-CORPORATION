@@ -1,7 +1,7 @@
 /* ExecutiveOS offline app shell. All URLs stay inside this GitHub Pages project. */
 const CACHE_PREFIX = "executiveos-shell-";
-const CACHE_NAME = CACHE_PREFIX + "v40";
-const CORE_FILES = ["", "index.html", "manifest.webmanifest", "favicon.svg", "icon-192.svg", "icon-512.svg", "world-sim.js", "executiveos-ui.css", "three-card-depth.js", "three.module.min.js", "three.core.min.js", "executiveos-ui.css?v=40", "three-card-depth.js?v=40", "world-sim.js?v=40"];
+const CACHE_NAME = CACHE_PREFIX + "v41";
+const CORE_FILES = ["", "index.html", "manifest.webmanifest", "favicon.svg", "icon-192.svg", "icon-512.svg", "world-sim.js", "executiveos-ui.css", "three-card-depth.js", "three.module.min.js", "three.core.min.js", "executiveos-ui.css?v=41", "three-card-depth.js?v=41", "world-sim.js?v=41"];
 const absolute = path => new URL(path, self.registration.scope).href;
 
 self.addEventListener("message", event => {
@@ -40,8 +40,8 @@ self.addEventListener("fetch", event => {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE_NAME);
       try {
-        const response = await fetch(request);
-        if (response && response.ok) cache.put(request, response.clone());
+        const response = await fetch(request, {cache: "no-store"});
+        if (response && response.ok) await cache.put(request, response.clone());
         return response;
       } catch (error) {
         return (await cache.match(request)) || (await cache.match(absolute("index.html"))) || (await cache.match(absolute("")));
@@ -52,7 +52,7 @@ self.addEventListener("fetch", event => {
 
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
-    const isAppCode = ["style", "script"].includes(request.destination) ||
+    const isAppCode = ["style", "script", "document"].includes(request.destination) ||
       request.url.includes(".module.js");
     if (isAppCode) {
       try {

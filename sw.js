@@ -1,7 +1,7 @@
 /* ExecutiveOS offline app shell. All URLs stay inside this GitHub Pages project. */
 const CACHE_PREFIX = "executiveos-shell-";
-const CACHE_NAME = CACHE_PREFIX + "v42";
-const CORE_FILES = ["", "index.html", "manifest.webmanifest", "favicon.svg", "icon-192.svg", "icon-512.svg", "world-sim.js", "executiveos-ui.css", "three-card-depth.js", "three.module.min.js", "three.core.min.js", "executiveos-ui.css?v=42", "three-card-depth.js?v=42", "world-sim.js?v=42"];
+const CACHE_NAME = CACHE_PREFIX + "v43";
+const CORE_FILES = ["", "index.html", "manifest.webmanifest", "favicon.svg", "icon-192.svg", "icon-512.svg", "world-sim.js", "executiveos-ui.css", "three-card-depth.js", "three.module.min.js", "three.core.min.js", "executiveos-ui.css?v=43", "three-card-depth.js?v=43", "world-sim.js?v=43"];
 const absolute = path => new URL(path, self.registration.scope).href;
 
 self.addEventListener("message", event => {

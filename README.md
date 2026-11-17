@@ -306,3 +306,10 @@ Replaced the purple/plum accent system with a restrained navy and electric-blue 
 ## Interactive 3D hover and selection (v51)
 
 Cards now respond with a much more visible physical 3D effect. Hovering tilts the Three.js card body toward the pointer, increases the perspective angle, and lifts the card in depth. Clicking a card marks it as selected, keeping a smaller 3D tilt and raised depth until another card is selected or the user clicks outside the cards. Selected and hovered cards receive a clearer navy-blue edge highlight. The CSS fallback provides equivalent perspective transforms when WebGL is unavailable, while reduced-motion preferences remain respected. Updated stylesheet and renderer references and the offline shell cache to v51 / renderer v50. This is a presentation-only change; game behavior, save formats and local player data are unchanged.
+
+
+## Executive Challenge Center (v52)
+
+The new Executive Challenge Center adds six replayable, fictional corporate crisis scenarios: supply-chain disruption, cyber incident response, hostile takeover defence, product recall, market crash and international expansion. Each scenario has three decision rounds with different costs and effects on cash, board trust, operational resilience, reputation and risk exposure. The final decision produces a score, grade and objective result. Personal bests and a recent completion history are tracked locally.
+
+Challenge progress has its own save, JSON export and validated JSON import. Use **Save progress** to preserve the current challenge profile on this browser; it is separate from the original CEO Simulator and World Simulation saves. The challenge engine has automated Node.js tests for scenario completion, scoring, affordability and save validation. The new modules are included in the offline app shell. No backend, account, paid API, subscription, advertising or external service is used.

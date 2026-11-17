@@ -9,7 +9,7 @@ import * as THREE from "./three.module.min.js";
     ".corp-card", ".world-kpi", ".world-panel", ".mission", ".eventcard",
     ".callout", ".modal", ".palette", ".assetportfolio", ".assetcatalog",
     ".strategy-kpi", ".exec-kpi", ".world-toolbar", ".world-rival",
-    ".world-empty", ".exec-log"
+    ".world-empty", ".exec-log", ".challenge-card"
   ].join(",");
 
   const body = document.body;

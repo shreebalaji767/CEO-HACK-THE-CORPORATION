@@ -286,3 +286,8 @@ The header logo now displays the exact same SVG file used by the browser favicon
 ## Responsive layout update (v47)
 
 The interface now adapts to available screen width and height across compact 320px phones, larger phones, tablets, laptops, ultrawide desktops and short landscape displays. Content grids use flexible intrinsic sizing, cards and controls are prevented from forcing horizontal overflow, tables and terminal output scroll within their own areas, and dialogs fit the visible viewport. Navigation remains a compact card menu on touch-sized screens. Safe-area insets support notched devices, dynamic viewport units improve mobile browser sizing, and touch targets remain usable. The update is CSS-only apart from the stylesheet/cache version refresh; simulator logic, local saves and existing records are unchanged.
+
+
+## Purple neon glow theme (v48)
+
+The charcoal-black glass interface now uses a vivid but controlled purple neon accent for card edge glow, hover and press feedback, active navigation, input focus and the shared brand mark. Three.js card edge lighting also uses purple so the physical depth effect matches the CSS interface. White text and dark surfaces remain unchanged. The purple glow respects reduced-motion preferences. The stylesheet, renderer and offline cache are versioned to v48 / renderer v47; existing gameplay, records and local save data are preserved.

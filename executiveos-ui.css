@@ -2013,3 +2013,95 @@ input,select,textarea,.field{
     background:linear-gradient(145deg,#211b2c,#11121c)!important;
   }
 }
+
+
+/* v50 — navy-blue neon replaces every purple accent. */
+:root{
+  --neon-purple:#4d8dff;
+  --neon-purple-soft:#2864c7;
+  --neon-purple-rgb:77,141,255;
+  --neon-purple-border:rgba(77,141,255,.52);
+  --neon-purple-glow:rgba(35,104,224,.24);
+  --card-line:rgba(112,157,226,.22);
+  --card-line-top:rgba(255,255,255,.20);
+  --card-purple:rgba(48,112,220,.30);
+  --card-surface:rgba(14,21,34,.88);
+  --card-depth:0 18px 42px rgba(0,0,0,.38),
+    0 4px 12px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.075),
+    inset 0 -1px 0 rgba(50,112,220,.08);
+}
+@keyframes executivePurpleGlow{
+  0%,100%{
+    box-shadow:0 0 0 rgba(35,104,224,0),inset 0 1px 0 rgba(255,255,255,.045);
+    border-color:rgba(77,141,255,.18);
+  }
+  50%{
+    box-shadow:0 0 18px rgba(35,104,224,.16),0 0 30px rgba(35,104,224,.065),
+      inset 0 1px 0 rgba(255,255,255,.085);
+    border-color:rgba(77,141,255,.34);
+  }
+}
+.panel,.stat,.card,.feature,.hero-art,.achievement,.section-card,.terminal-window,
+.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,.mission,.eventcard,
+.callout,.assetportfolio,.assetcatalog,.strategy-kpi,.exec-kpi,.world-toolbar,
+.world-rival,.world-empty,.exec-log{
+  border-color:rgba(112,157,226,.22)!important;
+  background:
+    radial-gradient(ellipse at 8% 0%,rgba(48,112,220,.075),transparent 48%),
+    linear-gradient(145deg,rgba(20,29,45,.91),rgba(10,15,25,.96) 68%)!important;
+  box-shadow:var(--card-depth)!important;
+}
+.panel:hover,.stat:hover,.card:hover,.feature:hover,.hero-art:hover,.achievement:hover,
+.section-card:hover,.terminal-window:hover,.terminal:hover,.strategy-card:hover,
+.corp-card:hover,.world-kpi:hover,.world-panel:hover,.mission:hover,.eventcard:hover,
+.callout:hover,.assetportfolio:hover,.assetcatalog:hover,.strategy-kpi:hover,
+.exec-kpi:hover,.world-toolbar:hover,.world-rival:hover{
+  border-color:rgba(77,141,255,.48)!important;
+  box-shadow:0 22px 48px rgba(0,0,0,.42),0 0 0 1px rgba(77,141,255,.07),
+    0 0 20px rgba(35,104,224,.17),inset 0 1px 0 rgba(255,255,255,.10)!important;
+}
+.btn:not(.secondary){
+  background:linear-gradient(135deg,#2456a5,#17386f 70%,#10264c)!important;
+  border-color:rgba(123,170,255,.42)!important;
+}
+.btn:not(.secondary):hover{
+  background:linear-gradient(135deg,#2e68bd,#1c4788 70%,#153361)!important;
+  box-shadow:0 9px 22px rgba(0,0,0,.34),0 0 15px rgba(35,104,224,.20),
+    inset 0 1px 0 rgba(255,255,255,.2)!important;
+}
+.btn:hover,.navbtn:hover,.ghost:hover,.world-tab:hover,.chip:hover,.mobile-menu:hover{
+  border-color:rgba(100,157,255,.68)!important;
+  box-shadow:0 7px 20px rgba(20,55,110,.24),0 0 14px rgba(35,104,224,.20)!important;
+}
+.btn:active,.navbtn:active,.ghost:active,.world-tab:active,.chip:active,
+.mobile-menu:active,.topbar .navright .btn:active,.topbar .navright .ghost:active{
+  box-shadow:inset 0 2px 7px rgba(0,0,0,.34),0 0 12px rgba(35,104,224,.22)!important;
+}
+.panel:active,.stat:active,.feature:active,.achievement:active,.strategy-card:active,
+.corp-card:active,.eventcard:active,.world-panel:active,.world-kpi:active,
+.exec-kpi:active,.strategy-kpi:active,.assetitem:active,.assetportfolio:active,
+.assetcatalog:active,.mission:active{
+  border-color:rgba(100,157,255,.78)!important;
+}
+.topbar .navlinks .navbtn.active{
+  background:linear-gradient(135deg,rgba(36,86,165,.34),rgba(20,48,91,.30))!important;
+  border-color:rgba(100,157,255,.48)!important;
+  box-shadow:0 0 0 1px rgba(100,157,255,.18),0 0 16px rgba(35,104,224,.20),
+    inset 0 1px 0 rgba(255,255,255,.14)!important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:rgba(100,157,255,.86)!important;
+  box-shadow:0 0 0 3px rgba(35,104,224,.18),0 0 15px rgba(35,104,224,.18)!important;
+}
+:focus-visible{outline:2px solid rgba(115,166,255,.88)!important;outline-offset:3px}
+.logo,.brand .logo{filter:drop-shadow(0 0 7px rgba(35,104,224,.30))}
+.chip,.pill,.badge{
+  border-color:rgba(100,157,255,.22)!important;
+  background:rgba(35,85,160,.16)!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .panel,.stat,.feature,.achievement,.strategy-card,.corp-card,.eventcard,
+  .world-panel,.world-kpi,.exec-kpi,.strategy-kpi,.assetitem,.assetportfolio,
+  .assetcatalog,.mission,.callout,.terminal-window,.hero-art{animation:none!important}
+}

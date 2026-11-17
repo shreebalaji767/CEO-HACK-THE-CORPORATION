@@ -301,3 +301,8 @@ Refined the card system with more consistent radii and spacing, deeper layered s
 ## Navy-blue neon correction (v50)
 
 Replaced the purple/plum accent system with a restrained navy and electric-blue neon finish. Card edge glow, glass highlights, hover and press feedback, active navigation, focus rings, primary buttons and Three.js physical card lighting now use coordinated blue tones. The charcoal-black surfaces and white text remain intact; the refined card proportions and responsive layouts are preserved. Updated the stylesheet, Three.js renderer and offline shell cache to v50 / renderer v49. Existing simulator systems, local saves and player records are unchanged.
+
+
+## Interactive 3D hover and selection (v51)
+
+Cards now respond with a much more visible physical 3D effect. Hovering tilts the Three.js card body toward the pointer, increases the perspective angle, and lifts the card in depth. Clicking a card marks it as selected, keeping a smaller 3D tilt and raised depth until another card is selected or the user clicks outside the cards. Selected and hovered cards receive a clearer navy-blue edge highlight. The CSS fallback provides equivalent perspective transforms when WebGL is unavailable, while reduced-motion preferences remain respected. Updated stylesheet and renderer references and the offline shell cache to v51 / renderer v50. This is a presentation-only change; game behavior, save formats and local player data are unchanged.

@@ -57,29 +57,29 @@ import * as THREE from "./three.module.min.js";
   keyLight.position.set(-260, 420, 520);
   scene.add(keyLight);
 
-  const edgeLight = new THREE.DirectionalLight(0x9b5de5, 0.62);
+  const edgeLight = new THREE.DirectionalLight(0x9b6bdc, 0.48);
   edgeLight.position.set(300, -180, 260);
   scene.add(edgeLight);
 
   const unitGeometry = new THREE.BoxGeometry(1, 1, 1);
   const edgeGeometry = new THREE.EdgesGeometry(unitGeometry, 18);
   const faceMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x182033, metalness: 0.08, roughness: 0.28,
+    color: 0x211a2d, metalness: 0.10, roughness: 0.36,
     transparent: true, opacity: 0.66, depthWrite: false,
     clearcoat: 0.9, clearcoatRoughness: 0.22, reflectivity: 0.42
   });
   const sideMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x263655, metalness: 0.18, roughness: 0.32,
+    color: 0x322341, metalness: 0.14, roughness: 0.38,
     transparent: true, opacity: 0.88, depthWrite: false,
     clearcoat: 0.72, clearcoatRoughness: 0.26
   });
   const topMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x34476c, metalness: 0.12, roughness: 0.26,
+    color: 0x48305f, metalness: 0.10, roughness: 0.34,
     transparent: true, opacity: 0.78, depthWrite: false,
     clearcoat: 1, clearcoatRoughness: 0.18
   });
   const backMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x0d1422, metalness: 0.05, roughness: 0.42,
+    color: 0x171321, metalness: 0.06, roughness: 0.46,
     transparent: true, opacity: 0.44, depthWrite: false,
     clearcoat: 0.55, clearcoatRoughness: 0.34
   });
@@ -87,9 +87,9 @@ import * as THREE from "./three.module.min.js";
     sideMaterial, sideMaterial, topMaterial, sideMaterial, faceMaterial, backMaterial
   ];
   const edgeMaterial = new THREE.LineBasicMaterial({
-    color: 0xb56cff,
+    color: 0x9b6bdc,
     transparent: true,
-    opacity: 0.82,
+    opacity: 0.58,
     depthWrite: false
   });
 

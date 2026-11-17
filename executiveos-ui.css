@@ -1345,3 +1345,38 @@ body.three-card-ready .three-depth-card:hover{
 @media(prefers-reduced-motion:reduce){
   .three-depth-card,.three-depth-card:hover{animation:none!important;transform:none!important;transition:none!important}
 }
+
+
+/* v40 — final 3D/glass finish: depth is visible but never overpowering. */
+body.three-card-ready .three-depth-card{
+  position:relative!important;
+  isolation:isolate;
+  transform-style:preserve-3d!important;
+  background:linear-gradient(145deg,rgba(34,43,62,.52),rgba(12,17,27,.60) 62%,rgba(18,26,41,.66))!important;
+  border:1px solid rgba(173,190,224,.24)!important;
+  border-top-color:rgba(246,248,255,.30)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(132%)!important;
+  backdrop-filter:blur(20px) saturate(132%)!important;
+  box-shadow:0 13px 30px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.085),inset 0 -1px 0 rgba(105,132,184,.09)!important;
+}
+body.three-card-ready .three-depth-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  border-radius:inherit;
+  background:linear-gradient(118deg,rgba(255,255,255,.105) 0%,rgba(255,255,255,.025) 24%,transparent 49%,rgba(89,119,180,.075) 100%);
+  opacity:.72;
+}
+body.three-card-ready .three-depth-card:hover{
+  transform:perspective(1400px) rotateX(2.8deg) rotateY(-3.2deg) translate3d(0,-5px,16px) scale(1.006)!important;
+  border-color:rgba(190,207,240,.38)!important;
+  box-shadow:0 21px 38px rgba(0,0,0,.40),inset 0 1px 0 rgba(255,255,255,.12)!important;
+}
+body.three-card-ready .three-depth-card>*{position:relative;z-index:1}
+body.three-card-ready .three-depth-card:hover::after{opacity:1}
+@media(prefers-reduced-motion:reduce){
+  body.three-card-ready .three-depth-card,
+  body.three-card-ready .three-depth-card:hover{animation:none!important;transform:none!important}
+}

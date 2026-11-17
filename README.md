@@ -247,3 +247,8 @@ The PWA shell cache is versioned as **v36**. On activation, the service worker r
 ## Clean proportion and layout pass (v39)
 
 The latest presentation pass standardizes the content width, page rhythm, heading alignment, card radii, panel padding, metric sizing, button heights and grid gaps. Dashboard metrics use balanced columns; content cards keep consistent proportions; long labels wrap without forcing adjacent cards wider. Tablet and phone layouts reflow deliberately instead of shrinking desktop columns, while tables remain horizontally scrollable when their data needs it. The Three.js glass layer is kept restrained so card edges, spacing and text hierarchy remain clear. No simulator rules, save keys, save formats or player data were changed. Versioned assets and the offline shell cache are refreshed to v39.
+
+
+## Visible 3D glass finish (v40)
+
+The locally bundled Three.js renderer gives cards 22px physical depth, shaded side faces and brighter edge lines. Pointer tilt is slightly stronger, with a restrained lift and staggered floating animation. Cards use translucent charcoal/navy glass, background blur and a soft white reflection rather than heavy neon glow. Reduced-motion preferences disable the animated movement and pointer tilt. Three.js and its core bundle are served from the repository itself; no paid APIs, external runtime services, subscriptions, ads or usage fees are required. Versioned assets and the offline cache are refreshed to v40.

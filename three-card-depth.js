@@ -89,7 +89,7 @@ import * as THREE from "./three.module.min.js";
   const edgeMaterial = new THREE.LineBasicMaterial({
     color: 0x8398c4,
     transparent: true,
-    opacity: 0.68,
+    opacity: 0.82,
     depthWrite: false
   });
 
@@ -148,7 +148,7 @@ import * as THREE from "./three.module.min.js";
       const height = rect.height;
       const depth = nestingDepth(element) * 18;
       const phase = entry.phase;
-      const hovering = pointer.active && pointer.x >= rect.left && pointer.x <= rect.right &&
+      const hovering = !motionPreference.matches && pointer.active && pointer.x >= rect.left && pointer.x <= rect.right &&
         pointer.y >= rect.top && pointer.y <= rect.bottom;
       entry.mesh.position.set(rect.left + width / 2, window.innerHeight - rect.top - height / 2, depth);
       entry.mesh.scale.set(width, height, 22);
@@ -159,9 +159,9 @@ import * as THREE from "./three.module.min.js";
       if (hovering) {
         const nx = (pointer.x - (rect.left + width / 2)) / Math.max(1, width / 2);
         const ny = (pointer.y - (rect.top + height / 2)) / Math.max(1, height / 2);
-        entry.mesh.rotation.x = -ny * 0.105;
-        entry.mesh.rotation.y = nx * 0.105;
-        entry.mesh.position.z += 2.5;
+        entry.mesh.rotation.x = -ny * 0.13;
+        entry.mesh.rotation.y = nx * 0.13;
+        entry.mesh.position.z += 4.5;
       } else {
         const motion = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1;
         entry.mesh.position.z += Math.sin(timestamp * 0.00115 + phase) * 2.2 * motion;

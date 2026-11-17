@@ -1884,3 +1884,132 @@ input:focus,select:focus,textarea:focus{
     animation:none!important;
   }
 }
+
+
+/* v49 — refined premium glass cards with balanced purple detailing. */
+:root{
+  --card-radius:20px;
+  --card-line:rgba(198,178,232,.16);
+  --card-line-top:rgba(255,255,255,.20);
+  --card-purple:rgba(181,108,255,.30);
+  --card-surface:rgba(18,17,29,.84);
+  --card-depth:0 18px 42px rgba(0,0,0,.34),
+    0 4px 12px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.075),
+    inset 0 -1px 0 rgba(168,85,247,.055);
+}
+.panel,.stat,.card,.feature,.hero-art,.achievement,.section-card,
+.terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,.world-panel,
+.mission,.eventcard,.callout,.assetportfolio,.assetcatalog,.strategy-kpi,
+.exec-kpi,.world-toolbar,.world-rival,.world-empty,.exec-log{
+  position:relative;
+  border:1px solid var(--card-line)!important;
+  border-top-color:var(--card-line-top)!important;
+  border-radius:var(--card-radius)!important;
+  background:
+    radial-gradient(ellipse at 8% 0%,rgba(181,108,255,.075),transparent 48%),
+    linear-gradient(145deg,rgba(31,27,44,.88),rgba(13,14,23,.94) 68%)!important;
+  box-shadow:var(--card-depth)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(125%)!important;
+  backdrop-filter:blur(20px) saturate(125%)!important;
+  transition:border-color .24s ease,box-shadow .24s ease,background .24s ease!important;
+}
+.panel:hover,.stat:hover,.card:hover,.feature:hover,.hero-art:hover,
+.achievement:hover,.section-card:hover,.terminal-window:hover,.terminal:hover,
+.strategy-card:hover,.corp-card:hover,.world-kpi:hover,.world-panel:hover,
+.mission:hover,.eventcard:hover,.callout:hover,.assetportfolio:hover,
+.assetcatalog:hover,.strategy-kpi:hover,.exec-kpi:hover,.world-toolbar:hover,
+.world-rival:hover{
+  border-color:rgba(181,108,255,.40)!important;
+  border-top-color:rgba(230,211,255,.32)!important;
+  background:
+    radial-gradient(ellipse at 8% 0%,rgba(181,108,255,.105),transparent 50%),
+    linear-gradient(145deg,rgba(38,31,54,.94),rgba(15,15,26,.97) 68%)!important;
+  box-shadow:0 22px 48px rgba(0,0,0,.40),
+    0 0 0 1px rgba(181,108,255,.055),
+    0 0 22px rgba(168,85,247,.105),
+    inset 0 1px 0 rgba(255,255,255,.10)!important;
+}
+.panel,.feature,.strategy-card,.corp-card,.eventcard,.achievement,
+.world-panel,.mission,.assetportfolio,.assetcatalog,.terminal-window{
+  padding:clamp(16px,1.65vw,24px)!important;
+}
+.stat,.world-kpi,.strategy-kpi,.exec-kpi{
+  padding:clamp(13px,1.35vw,19px)!important;
+}
+.panel h2,.panel h3,.feature h3,.strategy-card h3,.corp-card h3,
+.world-panel h3,.terminal-window h3,.achievement h3{
+  letter-spacing:-.025em;
+  line-height:1.2;
+}
+.panel p,.feature p,.strategy-card p,.corp-card p,.world-panel p,
+.eventcard p,.mission p,.achievement p{
+  color:rgba(229,226,239,.76)!important;
+  line-height:1.58;
+}
+.stat label,.world-kpi label,.strategy-kpi label,.exec-kpi label,
+.mockstat label{
+  color:rgba(199,192,215,.68)!important;
+  font-size:10px!important;
+  font-weight:750!important;
+  letter-spacing:.095em!important;
+  text-transform:uppercase;
+}
+.stat strong,.world-kpi strong,.strategy-kpi strong,.exec-kpi b,
+.mockstat strong{
+  color:#faf8ff!important;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-.035em;
+  text-shadow:0 1px 16px rgba(181,108,255,.09);
+}
+.panelhead,.sectionhead,.pagehead{
+  gap:14px;
+}
+.panelhead{align-items:center}
+.panelhead h2,.panelhead h3{margin:0}
+.featurebottom,.actionrow,.world-action{
+  gap:10px;
+}
+.chip,.pill,.badge{
+  border:1px solid rgba(181,108,255,.19)!important;
+  background:rgba(112,71,151,.13)!important;
+  border-radius:999px!important;
+}
+.btn:not(.secondary){
+  background:linear-gradient(135deg,#7043a0,#422663 70%,#302044)!important;
+  border:1px solid rgba(206,167,255,.36)!important;
+  box-shadow:0 7px 18px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.18)!important;
+}
+.btn:not(.secondary):hover{
+  background:linear-gradient(135deg,#8050b5,#4d2d70 70%,#39254f)!important;
+  box-shadow:0 9px 22px rgba(0,0,0,.34),
+    0 0 15px rgba(168,85,247,.16),
+    inset 0 1px 0 rgba(255,255,255,.2)!important;
+}
+.btn.secondary,.ghost,.navbtn,.world-tab{
+  border-color:rgba(196,177,224,.16)!important;
+  background:rgba(255,255,255,.035)!important;
+}
+.topbar .navlinks .navbtn.active{
+  background:linear-gradient(135deg,rgba(112,67,160,.32),rgba(65,43,91,.24))!important;
+  border-color:rgba(181,108,255,.40)!important;
+}
+input,select,textarea,.field{
+  border-radius:12px!important;
+}
+@media(max-width:640px){
+  .panel,.feature,.strategy-card,.corp-card,.eventcard,.achievement,
+  .world-panel,.mission,.assetportfolio,.assetcatalog,.terminal-window{
+    padding:15px!important;border-radius:17px!important;
+  }
+  .stat,.world-kpi,.strategy-kpi,.exec-kpi{border-radius:15px!important}
+}
+@media(prefers-reduced-transparency:reduce){
+  .panel,.stat,.card,.feature,.hero-art,.achievement,.section-card,
+  .terminal-window,.terminal,.strategy-card,.corp-card,.world-kpi,
+  .world-panel,.mission,.eventcard,.callout,.assetportfolio,.assetcatalog,
+  .strategy-kpi,.exec-kpi,.world-toolbar,.world-rival,.world-empty,.exec-log{
+    background:linear-gradient(145deg,#211b2c,#11121c)!important;
+  }
+}

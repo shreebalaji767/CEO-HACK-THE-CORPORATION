@@ -65,7 +65,7 @@ jobs:
             ["service worker cache version", sw.includes('CACHE_NAME = CACHE_PREFIX + "v41"')],
             ["service worker installs fresh app shell assets", sw.includes('new Request(absolute(path), {cache: "reload"})') && sw.includes("cache.put(request, response)")],
             ["old app caches are removed on activation", sw.includes("key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME") && sw.includes("await self.clients.claim()")],
-            ["online app code refreshes before cache fallback", sw.includes('["style", "script"].includes(request.destination)') && sw.includes('fetch(request, {cache: "no-store"})')],
+            ["online app code refreshes before cache fallback", sw.includes('["style", "script", "document"].includes(request.destination)') && sw.includes('fetch(request, {cache: "no-store"})')],
             ["PWA checks for updates and reloads on new controller", h.includes('updateViaCache:"none"') && h.includes("await registration.update()") && h.includes('addEventListener("controllerchange"')],
             ["current UI assets use versioned URLs", h.includes("executiveos-ui.css?v=41") && h.includes("three-card-depth.js?v=41") && h.includes("world-sim.js?v=41")],
             ["versioned app assets are precached for offline launches", sw.includes('"executiveos-ui.css?v=41"') && sw.includes('"three-card-depth.js?v=41"') && sw.includes('"world-sim.js?v=41"')],

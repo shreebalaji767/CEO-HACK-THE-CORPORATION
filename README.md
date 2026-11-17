@@ -296,3 +296,8 @@ The charcoal-black glass interface now uses a vivid but controlled purple neon a
 ## Premium card refinement (v49)
 
 Refined the card system with more consistent radii and spacing, deeper layered shadows, a subtle top-edge highlight, restrained purple-tinted glass surfaces, clearer card typography and calmer hover lighting. Primary actions now use a coordinated muted-purple gradient. Three.js card faces and side materials use a coordinated dark plum finish with softer purple edge lighting. Responsive sizing, existing application systems and local saves remain unchanged. Updated the stylesheet, renderer and offline cache to v49 / renderer v48.
+
+
+## Navy-blue neon correction (v50)
+
+Replaced the purple/plum accent system with a restrained navy and electric-blue neon finish. Card edge glow, glass highlights, hover and press feedback, active navigation, focus rings, primary buttons and Three.js physical card lighting now use coordinated blue tones. The charcoal-black surfaces and white text remain intact; the refined card proportions and responsive layouts are preserved. Updated the stylesheet, Three.js renderer and offline shell cache to v50 / renderer v49. Existing simulator systems, local saves and player records are unchanged.

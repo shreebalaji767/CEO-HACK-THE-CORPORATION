@@ -1612,3 +1612,197 @@ input:focus,select:focus,textarea:focus{
     transform:none!important;box-shadow:none!important;
   }
 }
+
+
+/* v47 — device-first responsive layout and safe-area refinements. */
+:root{
+  --responsive-gutter:clamp(11px,2.15vw,32px);
+  --responsive-gap:clamp(10px,1.35vw,20px);
+}
+html{min-width:320px;scroll-padding-top:clamp(68px,8vw,104px)}
+body{min-width:320px;min-height:100vh;min-height:100svh;overflow-x:clip}
+img,svg,video,canvas,iframe{max-width:100%;height:auto}
+.shell{
+  width:min(calc(100% - 2 * var(--responsive-gutter)),1440px)!important;
+  max-width:1440px!important;
+}
+main,.page,.page>.shell,.page>.shell>*,
+.hero>*,.panel,.card,.feature,.stat,.world-panel,.world-kpi,
+.strategy-card,.corp-card,.eventcard,.assetitem,.assetportfolio,
+.assetcatalog,.achievement,.terminal-window,.modal,.palette{
+  min-width:0;max-width:100%;
+}
+.page{padding-block:clamp(20px,3vw,44px) clamp(38px,5vw,72px)!important}
+.pagehead,.sectionhead,.panelhead{min-width:0;gap:var(--responsive-gap)}
+.pagehead>*,.sectionhead>*,.panelhead>*{min-width:0;max-width:100%}
+h1,h2,h3,h4,p,small,strong,label,button,a,td,th{
+  overflow-wrap:anywhere;
+}
+button,.btn,.navbtn,.ghost,.world-tab,.chip,input,select,textarea{
+  max-width:100%;touch-action:manipulation;
+}
+input,select,textarea{min-width:0;width:100%}
+.actions,.actionrow,.settingsrow,.strategy-row,.world-action,
+.featurebottom,.navright,.world-toolbar-actions{
+  min-width:0;flex-wrap:wrap;
+}
+.actions>*{min-width:min(100%,132px)}
+.dashboard,.dashboard.compact,.stats,.kpis,.world-kpis,.strategy-kpis,
+.exec-kpis,.assetgrid,.corpgrid,.cards,.achievements,.empire-grid,
+.research-grid,.assetcatalog,.strategy-grid,.exec-grid,.layout{
+  min-width:0;align-items:stretch;
+}
+.dashboard,.dashboard.compact,.stats,.kpis,.world-kpis,.strategy-kpis,
+.exec-kpis,.assetgrid,.corpgrid{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))!important;
+  gap:var(--responsive-gap)!important;
+}
+.cards,.achievements,.empire-grid,.research-grid,.assetcatalog{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))!important;
+  gap:var(--responsive-gap)!important;
+}
+.strategy-grid,.exec-grid,.layout{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))!important;
+  gap:var(--responsive-gap)!important;
+}
+.stat,.world-kpi,.strategy-kpi,.exec-kpi{
+  min-height:clamp(82px,8vw,116px)!important;
+  padding:clamp(10px,1.2vw,18px)!important;
+}
+.stat strong,.world-kpi strong,.strategy-kpi strong,.exec-kpi b{
+  min-width:0;font-size:clamp(15px,1.7vw,25px)!important;
+  line-height:1.2!important;overflow-wrap:anywhere;
+}
+.panel,.feature,.strategy-card,.corp-card,.eventcard,.achievement,
+.assetitem,.assetportfolio,.assetcatalog,.world-panel{
+  padding:clamp(13px,1.55vw,22px)!important;
+}
+table{display:block;width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+pre,.terminal-output,.terminal-log{max-width:100%;overflow:auto;overscroll-behavior:contain}
+.modalback,.paletteback{padding:clamp(10px,3vw,28px);overflow-y:auto}
+.modal,.palette{width:min(100%,760px);max-height:min(88vh,900px);max-height:min(88dvh,900px);overflow:auto}
+.topbar{padding-top:env(safe-area-inset-top,0px)!important}
+.topbar>.shell.nav{
+  width:min(calc(100% - 2 * var(--responsive-gutter)),1440px)!important;
+  max-width:1440px!important;
+}
+.topbar .navlinks{min-width:0}
+.topbar .navright>*{min-width:0}
+@media(min-width:1600px){
+  :root{--responsive-gutter:clamp(32px,4vw,72px)}
+  .shell,.topbar>.shell.nav{max-width:1480px!important}
+  .pagehead h1{font-size:clamp(38px,2.7vw,48px)!important}
+  .hero{gap:clamp(44px,5vw,80px)!important}
+}
+@media(max-width:1100px){
+  .topbar>.shell.nav{gap:8px!important}
+  .topbar .navlinks .navbtn{flex:1 1 auto;min-width:0}
+  .pagehead{flex-wrap:wrap}
+}
+@media(max-width:850px){
+  :root{--responsive-gutter:16px}
+  .topbar>.shell.nav{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-areas:"brand actions"!important;
+    gap:8px!important;
+  }
+  .topbar .navright{max-width:100%;gap:5px!important}
+  .topbar .navright #saveTop,.topbar .navright #paletteOpen,
+  .topbar .navright .status{display:none!important}
+  .topbar .navright #installBtn{min-height:40px;padding:8px 10px!important}
+  .topbar .mobile-menu{flex:0 0 42px}
+  .topbar .navlinks{
+    max-height:calc(100vh - 94px);max-height:calc(100dvh - 94px);
+    overflow-y:auto;overscroll-behavior:contain;
+  }
+  .topbar .navlinks .navbtn{min-width:0}
+  .hero{grid-template-columns:minmax(0,1fr)!important}
+  .hero-art{width:100%;max-width:100%}
+  .layout{grid-template-columns:minmax(0,1fr)!important}
+}
+@media(max-width:640px){
+  :root{--responsive-gutter:14px;--responsive-gap:10px}
+  .shell,.topbar>.shell.nav{width:calc(100% - 2 * var(--responsive-gutter))!important}
+  .page{padding-block:18px calc(36px + env(safe-area-inset-bottom,0px))!important}
+  .pagehead{align-items:flex-start!important;flex-direction:column}
+  .pagehead h1{font-size:clamp(26px,7vw,36px)!important;max-width:100%}
+  .sectionhead{align-items:flex-start!important;flex-direction:column}
+  .hero{padding-block:20px 26px!important;gap:18px!important}
+  .hero h1{font-size:clamp(34px,10vw,48px)!important;max-width:13ch}
+  .hero-art{padding:12px!important}
+  .mockgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .dashboard,.dashboard.compact,.stats,.kpis,.world-kpis,.strategy-kpis,
+  .exec-kpis,.assetgrid,.corpgrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:9px!important;
+  }
+  .cards,.achievements,.empire-grid,.research-grid,.assetcatalog,
+  .strategy-grid,.exec-grid,.layout{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  .stat,.world-kpi,.strategy-kpi,.exec-kpi{min-height:82px!important;padding:10px!important}
+  .stat strong,.world-kpi strong,.strategy-kpi strong,.exec-kpi b{
+    font-size:clamp(14px,4.4vw,20px)!important;
+  }
+  .panel{padding:13px!important}
+  .feature,.strategy-card,.corp-card,.eventcard,.achievement,
+  .assetitem,.assetportfolio,.assetcatalog,.world-panel{padding:14px!important}
+  .actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .actions>*{min-width:0;width:100%}
+  .actionrow,.settingsrow,.strategy-row{align-items:stretch}
+  .actionrow>.btn,.settingsrow>.btn,.strategy-row>.btn,
+  .world-action>.btn{width:100%;flex:1 1 100%}
+  .world-toolbar{align-items:stretch;flex-direction:column}
+  .world-toolbar-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%}
+  .world-toolbar-actions>*{min-width:0}
+  .world-tabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .world-tab{width:100%;min-width:0;white-space:normal}
+  .callout{align-items:stretch!important;flex-direction:column!important}
+  .callout>.btn{width:100%}
+  .featurebottom{align-items:flex-start;flex-direction:column}
+  .featurebottom>.ghost{align-self:flex-start}
+  .modalback,.paletteback{align-items:flex-start;padding:10px}
+  .modal,.palette{max-height:calc(100vh - 20px);max-height:calc(100dvh - 20px)}
+  .topbar .navlinks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .topbar .navlinks .navbtn{min-height:44px;padding:9px 7px!important;font-size:11px!important}
+}
+@media(max-width:390px){
+  :root{--responsive-gutter:11px}
+  .topbar>.shell.nav{padding:7px!important}
+  .topbar .brand{gap:6px;padding:4px 6px 4px 4px;font-size:12px!important}
+  .topbar .brand .logo{width:32px;height:32px;flex-basis:32px}
+  .topbar .brand small{display:none}
+  .topbar .navright #installBtn{font-size:10px!important;padding:7px 8px!important}
+  .topbar .mobile-menu{min-width:38px;flex-basis:38px;min-height:38px}
+  .topbar .navlinks{grid-template-columns:repeat(2,minmax(0,1fr));padding:8px}
+  .actions{grid-template-columns:minmax(0,1fr)}
+  .mockgrid{gap:7px!important}
+  .mockstat{padding:9px!important}
+  .mockstat strong{font-size:16px!important}
+  .stat,.world-kpi,.strategy-kpi,.exec-kpi{padding:8px!important}
+  .stat strong,.world-kpi strong,.strategy-kpi strong,.exec-kpi b{font-size:14px!important}
+  .world-toolbar-actions{grid-template-columns:minmax(0,1fr)!important}
+}
+@media(max-width:340px){
+  .topbar .navright #installBtn{display:none!important}
+  .topbar .brand{font-size:11px!important}
+  .topbar .brand .logo{width:29px;height:29px;flex-basis:29px}
+  .topbar .navlinks{grid-template-columns:minmax(0,1fr)}
+  .dashboard,.dashboard.compact,.stats,.kpis,.world-kpis,.strategy-kpis,
+  .exec-kpis,.assetgrid,.corpgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .stat strong,.world-kpi strong,.strategy-kpi strong,.exec-kpi b{font-size:13px!important}
+}
+@media(orientation:landscape) and (max-height:520px){
+  .topbar{padding-block:4px!important}
+  .topbar>.shell.nav{padding-block:6px!important}
+  .topbar .navlinks{max-height:calc(100vh - 76px);max-height:calc(100dvh - 76px)}
+  .hero{padding-block:14px 18px!important;gap:16px!important}
+  .hero h1{font-size:clamp(30px,6vh,42px)!important}
+  .page{padding-block:14px 28px!important}
+  .modal,.palette{max-height:calc(100vh - 12px);max-height:calc(100dvh - 12px)}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;
+    animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

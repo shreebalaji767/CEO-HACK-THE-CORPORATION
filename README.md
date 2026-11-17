@@ -242,3 +242,8 @@ The PWA shell cache is versioned as **v36**. On activation, the service worker r
 - CSS 3D tilt and float remain available when WebGL is unavailable.
 - Motion respects reduced-motion preferences and pauses while the page is hidden.
 - Versioned assets and offline app-shell cache are refreshed to v38.
+
+
+## Clean proportion and layout pass (v39)
+
+The latest presentation pass standardizes the content width, page rhythm, heading alignment, card radii, panel padding, metric sizing, button heights and grid gaps. Dashboard metrics use balanced columns; content cards keep consistent proportions; long labels wrap without forcing adjacent cards wider. Tablet and phone layouts reflow deliberately instead of shrinking desktop columns, while tables remain horizontally scrollable when their data needs it. The Three.js glass layer is kept restrained so card edges, spacing and text hierarchy remain clear. No simulator rules, save keys, save formats or player data were changed. Versioned assets and the offline shell cache are refreshed to v39.

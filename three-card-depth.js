@@ -95,6 +95,7 @@ import * as THREE from "./three.module.min.js";
 
   const entries = new Map();
   const pointer = { x: -10000, y: -10000, active: false };
+  let selectedCard = null;
   let frame = 0;
 
   function nestingDepth(element) {
@@ -156,20 +157,27 @@ import * as THREE from "./three.module.min.js";
       const phase = entry.phase;
       const hovering = !motionPreference.matches && pointer.active && pointer.x >= rect.left && pointer.x <= rect.right &&
         pointer.y >= rect.top && pointer.y <= rect.bottom;
+      const selected = element === selectedCard ||
+        element.matches(".active,.selected,[aria-selected='true'],[aria-pressed='true'],[data-selected='true']") ||
+        element.matches(":focus-within");
       entry.mesh.position.set(rect.left + width / 2, window.innerHeight - rect.top - height / 2, depth);
       entry.mesh.scale.set(width, height, 22);
       entry.edge.position.copy(entry.mesh.position);
       entry.edge.position.z += 0.025;
       entry.edge.scale.copy(entry.mesh.scale);
 
-      if (hovering) {
-        const nx = (pointer.x - (rect.left + width / 2)) / Math.max(1, width / 2);
-        const ny = (pointer.y - (rect.top + height / 2)) / Math.max(1, height / 2);
-        entry.mesh.rotation.x = -ny * 0.018;
-        entry.mesh.rotation.y = nx * 0.018;
-        entry.mesh.position.z += 2;
+      if (hovering || selected) {
+        const nx = hovering ? (pointer.x - (rect.left + width / 2)) / Math.max(1, width / 2) : -0.34;
+        const ny = hovering ? (pointer.y - (rect.top + height / 2)) / Math.max(1, height / 2) : 0.22;
+        const intensity = hovering ? 0.068 : 0.046;
+        entry.mesh.rotation.x = -ny * intensity;
+        entry.mesh.rotation.y = nx * intensity;
+        entry.mesh.rotation.z = hovering ? nx * ny * 0.012 : -0.006;
+        entry.mesh.position.z += hovering ? 14 : 10;
+        entry.mesh.scale.x *= hovering ? 1.014 : 1.008;
+        entry.mesh.scale.y *= hovering ? 1.014 : 1.008;
       } else {
-        const motion = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1;
+        const motion = motionPreference.matches ? 0 : 1;
         entry.mesh.position.z += Math.sin(timestamp * 0.00115 + phase) * 0.25 * motion;
         entry.mesh.rotation.x = Math.sin(timestamp * 0.00082 + phase) * 0.006 * motion;
         entry.mesh.rotation.y = Math.cos(timestamp * 0.00072 + phase) * 0.008 * motion;
@@ -229,6 +237,22 @@ import * as THREE from "./three.module.min.js";
   motionPreference.addEventListener?.("change", scheduleRender);
   window.addEventListener("orientationchange", resize, { passive: true });
   window.addEventListener("scroll", scheduleRender, { passive: true, capture: true });
+
+  document.addEventListener("click", event => {
+    const clicked = event.target instanceof Element ? event.target.closest(CARD_SELECTOR) : null;
+    let outerCard = clicked;
+    while (outerCard && outerCard.parentElement) {
+      const parentCard = outerCard.parentElement.closest(CARD_SELECTOR);
+      if (!parentCard) break;
+      outerCard = parentCard;
+    }
+    if (selectedCard !== outerCard) {
+      selectedCard?.classList.remove("three-card-selected");
+      selectedCard = outerCard;
+      selectedCard?.classList.add("three-card-selected");
+      scheduleRender();
+    }
+  });
 
   document.addEventListener("pointermove", event => {
     if (event.pointerType === "touch") return;
